@@ -1,0 +1,55 @@
+<div class="chatPage">
+  <div class="row">
+    <div class="container">
+      <div class="col-md-2 col-sm-8">
+        <p class="customPMargin titleTicket">{{ticket.title}}</p>
+        <p class="customPMargin statusTicket">آنلاین</p>
+      </div>
+      <div class="col-md-6 hidden-sm">
+
+      </div>
+      <div class="col-md-4 col-sm-4 ticketCode">
+        <p class="customPMargin tiketCodeP">{{ticket.id}}</p>
+      </div>
+    </div>
+  </div>
+  <hr class="hrStyle">
+  <div class="row ticketInfo">
+    <div class="container">
+      <div class="col-md-3 cpl-0">
+        <p class="cm-0">
+          به روزرسانی : 23 روز پیش
+        </p>
+      </div>
+      <div class="col-md-3 cp-0">
+        <p class="cm-0">
+          ایجاد شده : 5 روز پیش
+        </p>
+      </div>
+      <div class="col-md-3">
+
+      </div>
+      <div class="col-md-2">
+        <p *ngIf="!ticket.closed" class="cm-0 isOpen">
+          باز
+        </p>
+        <p *ngIf="ticket.closed" class="cm-0 isClosedChatList">
+          بسته شده
+        </p>
+      </div>
+      <div class="col-md-1 cp-0">
+        <p *ngIf="ticket.level === 1" class="cm-0 isNotImportantChatList">
+          عادی
+        </p>
+        <p *ngIf="ticket.level === 2" class="cm-0 isImportantChatList">
+          مهم
+        </p>
+        <p *ngIf="ticket.level === 3" class="cm-0 isVeryImportantChatList">
+           خیلی مهم
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<app-chat-ticket [ticketContents]="ticket.ticketContents" [ticketId]="ticket.id" (newTicketContent)="addToTicketContentList($event)"></app-chat-ticket> 

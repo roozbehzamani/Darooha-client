@@ -1,0 +1,99 @@
+
+
+<!----------header B-------->
+<div class="container">
+    <div class="row">
+        <div class="col-8 col-md-4">
+            <img src="../../../../assets/img/logo3 (1).svg" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<!--------body-------->
+<div class="container-fluid pb-5 pt-5" style="background-color: #fafafa;">
+<div class="container border pb-5 bg-white">
+        <div class="container pt-2 pb-2">
+            <div class="card register  border mt-5">
+                <div class="card-header border-bottom-0 bg-transparent">
+                    <ul class="nav nav-tabs justify-content-center pt-4" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link login-register active text-green font-weight-bold f6" id="pills-login-tab" data-toggle="pill" href="#pills-login" role="tab" aria-controls="pills-login"
+                               aria-selected="true">ورود</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link login-register text-green font-weight-bold f6" id="pills-register-tab" data-toggle="pill" href="#pills-register" role="tab" aria-controls="pills-register"
+                               aria-selected="false">ثبت نام</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-body pb-4" >
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-login-tab">
+                            <form #loginForm="ngForm" (ngSubmit)="login()" >
+                                <div class="form-group ">
+                                    <label for="loginPhone" class="mr-3 f5">نام کاربری(شماره تلفن) :</label>
+                                    <input type="phone" name="loginPhone" [(ngModel)]="model.username" [ngModelOptions]="{standalone: true}" class="input-form w-100 py-2 register f5" id="loginPhone" placeholder="" autofocus>
+                                    <i class="fa fa-user focus-input1001"></i>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="loginPassword" class="mr-3 f5">کلمه عبور :</label>
+                                    <input type="Password" name="loginPassword" [(ngModel)]="model.password" [ngModelOptions]="{standalone: true}" class="input-form w-100 py-2 register f5" id="loginPassword" placeholder="" autofocus>
+                                    <i class="fa fa-lock focus-input1001"></i>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" [(ngModel)]="model.isremember" [ngModelOptions]="{standalone: true}" type="checkbox"> مرا به خاطر بسپار
+                                        <span class="form-check-sign">
+                                            <span class="check"></span>
+                                        </span>
+                                    </label>
+                                </div>
+                                <div class="pt-4">
+                                    <button class="btn btn-green1 f6">ورود</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="pills-register-tab" style="opacity: 1;">
+                            <form [formGroup]="registerForm" (ngSubmit)="register()">
+
+                                <div class="form-group ">
+                                    <label for="firstName" class="mr-3 f5">نام :</label>
+                                    <input formControlName="firstName" type="frist-name" name="firstName" class="input-form w-100 py-2 register f5" id="firstName" placeholder="" autofocus>
+                                </div>
+
+                                <div class="form-group ">
+                                    <label for="lastName" class="mr-3 f5">نام خانوادگی:</label>
+                                    <input type="last-name" formControlName="lastName" name="lastName" id="lastName" class="input-form w-100 py-2 register f5" placeholder="" autofocus>
+                                </div>
+
+                                <div class="form-group ">
+                                    <label for="mobPhone" class="mr-3 f5">شماره تلفن :</label>
+                                    <input type="phone" formControlName="mobPhone" name="mobPhone" id="mobPhone" class="input-form w-100 py-2 register f5" placeholder="" autofocus>
+                                </div>
+
+                                <div class="form-group ">
+                                    <label for="email" class="mr-3 f5">ایمیل :</label>
+                                    <input type="email" formControlName="email" name="email" class="input-form w-100 py-2 register f5" id="email" placeholder="" autofocus>
+                                </div>
+
+                                <div class="form-group ">
+                                    <label for="password" class="mr-3 f5">کلمه عبور :</label>
+                                    <input type="Password" formControlName="password" name="password" class="input-form w-100 py-2 register f5" id="password" placeholder="" autofocus>
+                                </div>
+                                <div class=" pt-4">
+                                    <button type="submit" class="btn btn-green1 f6">ثبت نام</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+</div>
+
+</div>

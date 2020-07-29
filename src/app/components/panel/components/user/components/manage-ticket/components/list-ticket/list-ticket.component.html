@@ -1,0 +1,47 @@
+<div class="chatPage messagePageCol search-results" style="position: relative;">
+  <div class="row ticketListTitleRow">
+    <div class="container">
+      <h3 class="ticketListTitle">
+        لیست تیکت ها
+      </h3>
+    </div>
+  </div>
+  <app-ticket *ngFor="let ticket of tickets | async" [ticket]="ticket" [ticketId]="selectedTicketId" (selectedTicketId)="changeSelectedTicketId($event)"></app-ticket>
+  <div *ngIf="!finished">
+    <div class="col-md-2">
+      
+    </div>
+    <div class="col-md-9">
+      <button class="btnMoreTicket" (click)="onScroll()">بارگزاری تیکت های بیشتر</button>
+    </div>
+    <div class="col-md-1">
+      
+    </div>
+  </div>
+  <!--<ngx-ui-loader
+      [pbColor]="loaders.pbColor" 
+      [bgsColor]="loaders.bgsColor" 
+      [bgsSize]="loaders.bgsSize"
+      [fgsPosition]="loaders.fgsPosition" 
+      [fgsSize]="loaders.fgsSize" 
+      [fgsColor]="loaders.fgsColor"
+      [bgsType]="loaders.bgsType" 
+      [fgsType]="loaders.fgsType" 
+      [pbDirection]="loaders.pbDirection"
+      [pbThickness]="loaders.pbThickness" 
+      [overlayColor]="loaders.overlayColor"
+      [loaderId]="'loader-01'">
+  </ngx-ui-loader>-->
+</div>
+<div class="alert alert-warning mb-2" role="alert" *ngIf="finished">
+  <strong>هشدار!</strong> موردی برای نمایش بیشتر وجود ندارد
+</div>
+
+<div class="row cmt-20">
+  <div class="container">
+    <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <button class="btncreateTicket" (click)="onCreate()">افزودن تیکت</button>
+      </div>
+  </div>
+</div>

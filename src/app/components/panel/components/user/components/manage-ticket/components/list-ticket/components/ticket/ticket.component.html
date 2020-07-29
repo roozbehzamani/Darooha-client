@@ -1,0 +1,39 @@
+<div class="row crp-15" (click)="onClick(ticket.id)">
+  <div class="container chatListBox cp-0" [ngClass]="ticketId === ticket.id ? 'selectTicket' : '' ">
+    <div class="col-md-4 cp-0">
+      <p class="cm-0 chatListTitle">{{ticket.title}}</p>
+      <p class="chatListTime cmb-5">{{ticket.dateModified}}</p>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-6 cp-0 colStyle listPosition">
+      <table class="tableWidth">
+        <tbody>
+          <tr>
+            <td>
+              <p *ngIf="ticket.closed" class="cm-0 isClosedChatList">
+                بسته شده
+              </p>
+              <p *ngIf="!ticket.closed" class="cm-0 isOpenChatList">
+                 باز
+              </p>
+            </td>
+            <td>
+              <p *ngIf="ticket.level === 1" class="cm-0 isNotImportantChatList">
+                عادی
+              </p>
+              <p *ngIf="ticket.level === 2" class="cm-0 isImportantChatList">
+                مهم
+              </p>
+              <p *ngIf="ticket.level === 3" class="cm-0 isVeryImportantChatList">
+                 خیلی مهم
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

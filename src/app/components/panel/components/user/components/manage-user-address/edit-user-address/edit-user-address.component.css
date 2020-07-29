@@ -1,0 +1,54 @@
+.custom-mat-form-field {
+  text-align: right !important;
+}
+.mat-form-field {
+  width: 100% !important;
+}
+.cancelbuttom {
+  background: transparent;
+  border: 2px dashed red;
+  color: red;
+  cursor: pointer;
+  float: left;
+  border-radius: 10px;
+  padding: 7px;
+}
+.cancelbuttom:hover {
+  background: red;
+  color: white;
+  border: 2px dashed #f8898c;
+  border-radius: 10px;
+}
+.savebuttom {
+  background: transparent;
+  border: 2px dashed green;
+  color: green;
+  cursor: pointer;
+  float: left;
+  border-radius: 10px;
+  padding: 7px;
+}
+.savebuttom:hover {
+  background: green;
+  color: white;
+  border: 2px dashed #9bde85;
+  border-radius: 10px;
+}
+.header-h {
+  direction: rtl;
+  color: #ffffff;
+  padding: 15px 25px 25px;
+  border-radius: 5px;
+  background: #333333;
+}
+
+button[disabled] {
+  border: 2px dashed #999999;
+  color: #666666;
+}
+button[disabled]:hover {
+  border: 2px dashed #999999;
+  color: #666666;
+  background: none;
+  cursor: not-allowed;
+}

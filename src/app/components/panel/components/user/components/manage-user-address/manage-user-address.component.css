@@ -1,0 +1,32 @@
+.card {
+    border: none;
+    box-shadow: none;
+    border-radius: 10px;
+}
+.editbuttom {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.editspan {
+    float: left;
+}
+.addbuttom {
+    background: transparent;
+    border: 2px dashed green;
+    color: green;
+    cursor: pointer;
+    float: left;
+    border-radius: 10px;
+    padding: 10px;
+}
+.custom-heder {
+    float: right;
+}
+.custom-size {
+    font-size: 15px;
+}
+.custom-p {
+    margin-top: 13px;
+}

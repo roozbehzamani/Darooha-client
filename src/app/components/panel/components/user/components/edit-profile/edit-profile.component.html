@@ -1,0 +1,164 @@
+<div class="app-content content container-fluid">
+    <div class="content-wrapper">
+        <div class="col-md-12">
+            <div class="card">
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-10 push-md-1">
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h5 class="card-title">ویرایش کاربر</h5>
+                                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                        <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                        <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body collapse in">
+                                <div class="container mt-2 mb-2">
+                                    <form #editForm="ngForm" (ngSubmit)="updateUserInfo()" class="form">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput0">نام :</label>
+                                                        <input [(ngModel)]="user.firstName" type="text" id="firstName"
+                                                            class="form-control" placeholder="" name="firstName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1">نام خانوادگی :</label>
+                                                        <input [(ngModel)]="user.lastName" type="text" id="lastName"
+                                                            class="form-control" placeholder="" name="lastName">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">شماره همراه :</label>
+                                                        <input [(ngModel)]="user.mobPhone" type="text" id="mobPhone"
+                                                            class="form-control" placeholder="" name="mobPhone">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput5">ایمیل :</label>
+                                                        <input [(ngModel)]="user.email" type="text" id="email"
+                                                            class="form-control" placeholder="" name="email">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="col-md-5">
+
+                                                        <h3>انتخاب فایل</h3>
+
+                                                        <div ng2FileDrop
+                                                            [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+                                                            (fileOver)="fileOverBase($event)" [uploader]="uploader"
+                                                            class="well my-drop-zone dropupload"
+                                                            style="position: relative">
+                                                            عکس را انتخاب یا در کادر درگ کنید
+                                                        </div>
+                                                        <input type="file" class="inputupload" ng2FileSelect
+                                                            [uploader]="uploader" />
+                                                    </div>
+                                                    <div class="col-md-7" style="margin-bottom: 40px">
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th width="50%">نام</th>
+                                                                    <th>اندازه</th>
+                                                                    <th>وضعیت</th>
+                                                                    <th>عملیات</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr *ngFor="let item of uploader.queue">
+                                                                    <td><strong>{{ item?.file?.name }}</strong></td>
+                                                                    <td *ngIf="uploader.options.isHTML5" nowrap>
+                                                                        {{ item?.file?.size/1024/1024 | number:'.2' }}
+                                                                        MB</td>
+                                                                    <!-- <td *ngIf="uploader.options.isHTML5">
+                                                                    <div class="progress" style="margin-bottom: 0;">
+                                                                        <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                                                                    </div>
+                                                                </td> -->
+                                                                    <td class="text-center">
+                                                                        <span *ngIf="item.isSuccess"><i
+                                                                                class="glyphicon glyphicon-ok"></i></span>
+                                                                        <span *ngIf="item.isCancel"><i
+                                                                                class="glyphicon glyphicon-ban-circle"></i></span>
+                                                                        <span *ngIf="item.isError"><i
+                                                                                class="glyphicon glyphicon-remove"></i></span>
+                                                                    </td>
+                                                                    <td nowrap>
+                                                                        <!-- <button type="button" class="btn btn-success btn-xs"
+                                                                            (click)="item.upload()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                                                                        <span class="glyphicon glyphicon-upload"></span> اپلود
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-warning btn-xs"
+                                                                            (click)="item.cancel()" [disabled]="!item.isUploading">
+                                                                        <span class="glyphicon glyphicon-ban-circle"></span> کنسل
+                                                                    </button> -->
+                                                                        <button type="button"
+                                                                            class="btn btn-danger btn-xs"
+                                                                            (click)="item.remove()">
+                                                                            <span
+                                                                                class="glyphicon glyphicon-trash"></span>
+                                                                            حذف
+                                                                        </button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                        <div>
+                                                            <div>
+                                                                وضعیت آپلود:
+                                                                <div class="progress">
+                                                                    <div class="progress-bar" role="progressbar"
+                                                                        [ngStyle]="{ 'width': uploader.progress + '%' }">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button"
+                                                                class="btn btn-success btn-s margt15 float-left"
+                                                                (click)="uploader.uploadAll()"
+                                                                [disabled]="!uploader.getNotUploadedItems().length">
+                                                                <span class="glyphicon glyphicon-upload"></span> اپلود
+                                                            </button>
+                                                            <button type="button"
+                                                                class="btn btn-warning btn-s margt15 float-left"
+                                                                (click)="uploader.cancelAll()"
+                                                                [disabled]="!uploader.isUploading">
+                                                                <span class="glyphicon glyphicon-ban-circle"></span>کنسل
+                                                            </button>
+                                                            <!-- <button type="button" class="btn btn-danger btn-s"
+                                                                    (click)="uploader.clearQueue()" [disabled]="!uploader.queue.length">
+                                                                <span class="glyphicon glyphicon-trash"></span> حذف
+                                                            </button> -->
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" [disabled]="!editForm.dirty"
+                                            class="btn btn-success">ذخیره</button>
+                                        <button type="button" class="btn btn-success" [routerLink]="['/panel/user/profile']" routerLinkActive="router-link-active" style="margin-right: 10px;;">بازگشت</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->

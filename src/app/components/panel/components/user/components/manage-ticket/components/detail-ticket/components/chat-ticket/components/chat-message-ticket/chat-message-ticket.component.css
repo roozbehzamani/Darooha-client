@@ -1,0 +1,198 @@
+.chatPage {
+    padding: 5px;
+    border-radius: 5px;
+    color: gray;
+    background: white;
+  }
+  .customPMargin {
+    margin: 0;
+  }
+  .ticketCode {
+    position: absolute;
+    left: 3%;
+  }
+  .titleTicket {
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .statusTicket {
+    text-align: center;
+    font-size: 11px;
+  }
+  .tiketCodeP {
+    position: absolute;
+    left: 0;
+  }
+  .ticketInfo {
+    position: relative;
+    font-size: 12px;
+  }
+  .hrStyle {
+    margin-bottom: 0px;
+    margin-top: 5px;
+  }
+  .cpl-0 {
+    padding-left: 0;
+  }
+  .cp-0 {
+    padding: 0;
+  }
+  .cm-0 {
+    margin: 0px;
+  }
+  .isOpen {
+    position: absolute;
+    left: 0;
+    background-color: #f59533;
+    border-radius: 30px;
+    padding: 2px 5px;
+    color: white;
+  }
+  .isImportant {
+    position: absolute;
+    border-radius: 30px;
+    padding: 2px 5px;
+    background-color: #c78a8a;
+    color: white;
+  }
+  .messageP {
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #d4cece;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0;
+    width: fit-content;
+    max-width: 250px;
+  }
+  .messagePageCol {
+    height: 300px;
+    max-height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .crmb-2 {
+    margin-bottom: 2px;
+  }
+  .answerMessage {
+    direction: ltr;
+  }
+  .messagePageCol::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .messagePageCol::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+  }
+  
+  .messagePageCol::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+  }
+  .chatListTitle {
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .chatListBox {
+    background-color: #eae4e47d;
+    border-radius: 5px;
+    position: relative;
+  }
+  .chatListTime {
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+  }
+  .crp-15 {
+    padding: 5px 15px 5px 15px;
+  }
+  .isOpenChatList {
+    background-color: #f59533;
+    border-radius: 30px;
+    padding: 2px 5px;
+    color: white;
+  }
+  .isImportantChatList {
+    border-radius: 30px;
+    padding: 2px 5px;
+    background-color: #c78a8a;
+    color: white;
+  }
+  .tableWidth {
+    position: absolute;
+    left: 0;
+    height: 100%;
+  }
+  .cmb-5 {
+    margin-bottom: 5px;
+  }
+  
+  .cartStyle {
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+  }
+  .ptr {
+    padding-top: 20px;
+    padding-right: 20px;
+  }
+  .titleSpan {
+    background: lightgray;
+    padding: 5px 15px;
+    border-radius: 30px;
+    color: #585656;
+    font-weight: normal;
+  }
+  .boldFont {
+    font-weight: bold;
+  }
+  .liFont {
+    font-size: 12px;
+    color: #a09999;
+  }
+  .custom-mat-form-field {
+    text-align: right !important;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .attach {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  .attach {
+    cursor: pointer;
+  }
+  .attach input[type="file"] {
+    display: none;
+  }
+  .msg-info {
+    color: #197dff;
+    font-size: 13px;
+  }
+  .msgicon {
+    background: #197dff;
+    padding: 7px 9px;
+    color: #fff !important;
+    border-radius: 34px;
+    margin-left: 5px;
+    font-size: 10px;
+  }
+  .btnSend {
+      margin-right: 34%;
+      border: none;
+      background: #21a221;
+      padding: 5px 80px;
+      border-radius: 30px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+  }
+  .fileDownload {
+    display: block;
+    border-top: 1px solid;
+  }

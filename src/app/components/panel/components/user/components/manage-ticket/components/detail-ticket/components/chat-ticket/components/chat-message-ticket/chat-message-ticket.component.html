@@ -1,0 +1,9 @@
+<div class="row crmb-2" [ngClass]="{'answerMessage': ticketContent.isAdminSide}">
+  <div class="container">
+    <p class="messageP">{{ticketContent.text}}
+      <span class="fileDownload" *ngIf="ticketContent.fileUrl !== ''">
+        <a href={{ticketContent.fileUrl}}>دانلود فایل</a>
+      </span>
+    </p>
+  </div>
+</div>

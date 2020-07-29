@@ -1,0 +1,140 @@
+<!-- main menu-->
+<div data-scroll-to-active="true" class="main-menu menu-fixed menu-dark menu-accordion menu-shadow">
+    <!-- main menu content-->
+    <div class="main-menu-content">
+        <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+            <li *appHasRole="['Accountant']" class=" nav-item"><a href="" [routerLink]="['/panel/accountant/dashboard']"
+                    routerLinkActive="router-link-active"><i class="icon-home3"></i><span data-i18n="nav.dash.main"
+                        class="menu-title">پیشخوان</span></a>
+            </li>
+            <li *appHasRole="['Blog']" class=" nav-item"><a href="" [routerLink]="['/panel/blog/dashboard']"
+                    routerLinkActive="router-link-active"><i class="icon-home3"></i><span data-i18n="nav.dash.main"
+                        class="menu-title">پیشخوان</span></a>
+            </li>
+
+            <!--=================USER===========================-->
+
+            <li *appHasRole="['User']" class=" nav-item"><a href="" [routerLink]="['/panel/user/dashboard']"
+                    routerLinkActive="router-link-active"><i class="icon-home3"></i><span data-i18n="nav.dash.main"
+                        class="menu-title">پیشخوان</span></a>
+            </li>
+            <li *appHasRole="['User']" class=" nav-item"><a href="" [routerLink]="['/panel/user/manageuseraddress']"
+                routerLinkActive="router-link-active"><i class="icon-map-marker"></i><span data-i18n="nav.dash.main"
+                    class="menu-title">افزودن / مشاهده آدرس ها</span></a>
+            </li>
+            <li *appHasRole="['User']" class=" nav-item"><a href="" [routerLink]="['/panel/user/wallet']"
+                routerLinkActive="router-link-active"><i class="icon-google-wallet"></i><span data-i18n="nav.dash.main"
+                    class="menu-title">مدیریت کیف پول</span></a>
+            </li>
+            <li *appHasRole="['User']" class=" nav-item"><a href="" [routerLink]="['/panel/user/tickets']"
+                routerLinkActive="router-link-active"><i class="icon-ticket2"></i><span data-i18n="nav.dash.main"
+                    class="menu-title">مدیریت تیکت ها</span></a>
+            </li>
+
+            <!--====================Admin=================================-->
+
+            <li *appHasRole="['Admin']" class=" nav-item"><a href="" [routerLink]="['/panel/admin/dashboard']"
+                    routerLinkActive="router-link-active"><i class="icon-home3"></i><span data-i18n="nav.dash.main"
+                        class="menu-title">پیشخوان</span></a>
+            </li>
+
+            <li *appHasRole="['Admin']" class=" nav-item"><a><i class="icon-bars"></i><span
+                        data-i18n="nav.page_layouts.main" class="menu-title"> منو</span></a>
+                <ul class="menu-content">
+                    <li><a href="list%20menu.html" data-i18n="nav.page_layouts.1_column" class="menu-item">مدیریت
+                            منو</a>
+                    </li>
+                    <li><a href="list%20submenu.html" data-i18n="nav.page_layouts.2_columns" class="menu-item">مدیریت
+                            زیر منو</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li *appHasRole="['Admin']" class=" nav-item"><a><i class="icon-shopping-bag"></i><span
+                        data-i18n="nav.page_layouts.main" class="menu-title">مدیریت محصولات</span></a>
+                <ul class="menu-content">
+                    <li><a href="inser%20product.html" data-i18n="nav.page_layouts.1_column" class="menu-item">افزودن
+                            محصولات</a>
+                    </li>
+                    <li><a href="list%20product.html" data-i18n="nav.page_layouts.2_columns" class="menu-item">لیست
+                            محصولات</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li *appHasRole="['Admin']" class=" nav-item"><a><i class="icon-shopping-basket"></i><span
+                        data-i18n="nav.project.main" class="menu-title">مدیریت سفارشات</span></a>
+                <ul class="menu-content">
+                    <li class=" nav-item"><a href="List%20of%20orders.html"><span data-i18n="nav.cards.main"
+                                class="menu-title">لیست سفارشات</span></a></li>
+                </ul>
+            </li>
+
+            <li *appHasRole="['Admin']" class=" nav-item"><a><i class="icon-tag2"></i><span data-i18n="nav.project.main"
+                        class="menu-title">تخفیف</span></a>
+                <ul class="menu-content">
+                    <li class=" nav-item"><a href="discount.html"><span data-i18n="nav.cards.main"
+                                class="menu-title">لیست تخفیفات</span></a></li>
+                </ul>
+            </li>
+
+            <li *appHasRole="['Admin']" class=" nav-item"><a><i class="icon-images"></i><span data-i18n="nav.project.main" class="menu-title">
+                        برندها</span></a>
+                <ul class="menu-content">
+                    <li class=" nav-item"><a href="list%20brand.html"><span data-i18n="nav.cards.main"
+                                class="menu-title">لیست برندها</span></a></li>
+                    <li class=" nav-item"><a href="insert%20brand.html"><span data-i18n="nav.cards.main"
+                                class="menu-title">افزودن برند</span></a></li>
+                </ul>
+            </li>
+
+            <li *appHasRole="['Admin']" class=" nav-item"><a><i class="icon-banknote"></i><span
+                        data-i18n="nav.project.main" class="menu-title">مدیریت تراکنش ها</span></a>
+                <ul class="menu-content">
+                    <li class=" nav-item"><a href="List%20of%20transactions.html"><span data-i18n="nav.cards.main"
+                                class="menu-title">لیست تراکنش ها</span></a></li>
+                </ul>
+            </li>
+
+            <li *appHasRole="['Admin']" class=" nav-item"><a><i class="icon-user"></i><span data-i18n="nav.project.main"
+                        class="menu-title">مدیریت کاربران</span></a>
+                <ul class="menu-content">
+                    <li class=" nav-item"><a href="" [routerLink]="['/panel/admin/usersmanagement']"
+                            routerLinkActive="router-link-active"><span data-i18n="nav.cards.main"
+                                class="menu-title">لیست کاربران</span></a></li>
+                </ul>
+            </li>
+
+            <li *appHasRole="['Admin']" class=" nav-item"><a><i class="icon-chatboxes"></i><span
+                        data-i18n="nav.project.main" class="menu-title">مدیریت کامنت</span></a>
+                <ul class="menu-content">
+                    <li class=" nav-item"><a href="list%20comment.html"><span data-i18n="nav.cards.main"
+                                class="menu-title">لیست کامنت ها</span></a></li>
+                    <li class=" nav-item"><a href="comment%20read.html"><span data-i18n="nav.cards.main"
+                                class="menu-title">خوانده شده ها</span></a></li>
+                    <li class=" nav-item"><a href="unread%20comment.html"><span data-i18n="nav.cards.main"
+                                class="menu-title">خوانده نشده ها</span></a></li>
+                </ul>
+            </li>
+
+            <li *appHasRole="['Admin']"><a data-i18n="nav.cards.card_statistics" class="menu-item"><i class="icon-ios-telephone"></i>مدیریت تماس
+                    با ما</a>
+                <ul class="menu-content">
+                    <li class=" nav-item"><a href="contact%20us.html"><span data-i18n="nav.cards.main"
+                                class="menu-title">خوانده شده</span></a></li>
+                    <li class=" nav-item"><a href="contact%20us.html"><span data-i18n="nav.cards.main"
+                                class="menu-title">خوانده نشده</span></a></li>
+                </ul>
+            </li>
+            <li *appHasRole="['Admin']" class=" nav-item"><a href="settings.html"><i class="icon-android-settings"></i><span data-i18n="nav.support_raise_support.main"
+                        class="menu-title">تنظیمات</span></a>
+            </li>
+
+        </ul>
+    </div>
+    <!-- /main menu content-->
+    <!-- main menu footer-->
+    <!-- include includes/menu-footer-->
+    <!-- main menu footer-->
+</div>
+<!-- / main menu-->

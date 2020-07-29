@@ -1,0 +1,35 @@
+<div class="app-content content container-fluid">
+  <div class="content-wrapper">
+    <div class="col-md-12">
+      <div class="card">
+
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title text-xs-center custom-heder">لیست آدرس های شما</h4>
+              </div>
+              <div class="card-body collapse in">
+                <div class="card-block">
+                  <span class="editspan">
+                    <button (click)="onCreate()" class="addbuttom">
+                      <i class="icon-plus-circle custom-size"></i>
+                      افزودن آدرس جدید
+                    </button>
+                  </span>
+                  <p class="custom-p">شما در این صفحه میتوانید لیست آدرس های خود را مشاهده و در صورت نیاز آن ها را
+                    ویرایش یا حذف نمایید
+                  </p>
+                </div>
+              </div>
+              <app-user-address
+               *ngFor="let address of addresses" 
+               [address]="address"
+               (deleteAddress)="removeAddress($event)"></app-user-address>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<h3 class="header-h" *ngIf="addActive()">افزودن آدرس جدید</h3>
+<h3 class="header-h" *ngIf="!addActive()"> ویرایش آدرس" {{addressService.addressForm.get('addressName').value}} "</h3>
+
+<mat-dialog-content [formGroup]="addressService.addressForm">
+
+    <div class="col-md-12">
+        <mat-form-field class="custom-mat-form-field">
+            <mat-label>نام آدرس</mat-label>
+            <input formControlName="addressName" matInput placeholder="نام آدرس" value="">
+            <mat-error *ngIf="addressService.addressForm.get('addressName').hasError('required')
+                && addressService.addressForm.get('addressName').touched">این فیلد نمیتواند خالی باشد</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="col-md-12">
+        <mat-form-field class="custom-mat-form-field">
+            <mat-label>آدرس</mat-label>
+            <input formControlName="address" matInput placeholder="آدرس" value="">
+            <mat-error *ngIf="addressService.addressForm.get('address').hasError('required')
+                && addressService.addressForm.get('address').touched">این فیلد نمیتواند خالی باشد</mat-error>
+        </mat-form-field>
+    </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions class="float-left">
+    <div class="col-md-2">
+        <button matDialogClose (click)="onClear()" class="cancelbuttom">انصراف</button>
+    </div>
+    <div class="col-md-10">
+        <button (click)="onSubmitAdd()" [disabled]="addressService.addressForm.invalid" class="savebuttom">
+            <span *ngIf="addActive()">
+                ذخیره اطلاعات
+            </span>
+            <span *ngIf="!addActive()">
+                ویرایش اطلاعات
+            </span>
+        </button>
+    </div>
+
+
+</mat-dialog-actions>

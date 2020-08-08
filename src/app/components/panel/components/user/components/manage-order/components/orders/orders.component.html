@@ -1,0 +1,19 @@
+<tr>
+  <td class="pt-1">{{order.dateModified}}</td>
+
+  <td class="pt-1" *ngIf="order.status===1">سفارش در حال بررسی</td>
+  <td class="pt-1" *ngIf="order.status===2">سفارش تایید شده</td>
+  <td class="pt-1" *ngIf="order.status===3">سفارش در حال اماده سازی</td>
+  <td class="pt-1" *ngIf="order.status===4">سفارش در حال حمل به مقصد</td>
+  <td class="pt-1" *ngIf="order.status===5">سفارش تحویل داده شده</td>
+
+  <td class="pt-1" *ngIf="order.paymentMethod===1">پرداخت نقدی</td>
+  <td class="pt-1" *ngIf="order.paymentMethod===2">پرداخت از کیف پول</td>
+  <td class="pt-1" *ngIf="order.paymentMethod===3">پرداخت آنلاین</td>
+
+  <td class="pt-1">{{order.totalPrice}}</td>
+
+  <td class="pt-1" title="{{order.userAddress}}">{{order.userAddress.substring(0,30)}}</td>
+
+  <td><button type="button" class="btn btn-green mr-1" (click)="onClick(order.id)">نمایش</button></td>
+</tr>

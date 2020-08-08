@@ -1,0 +1,45 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Product } from 'src/app/models/product';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from 'src/app/Services/site/product/product.service';
+import { ProductImage } from 'src/app/models/product-image';
+
+@Component({
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css']
+})
+export class ProductComponent implements OnInit, OnDestroy {
+
+  subManager = new Subscription();
+  product: Product;
+  productImages: ProductImage[];
+
+  constructor(private route: ActivatedRoute, private productService: ProductService) { }
+
+  ngOnInit() {
+    this.loadProduct();
+    this.loadProductImages();
+  }
+  ngOnDestroy() {
+    this.subManager.unsubscribe();
+  }
+
+  loadProduct() {
+    this.subManager.add(
+      this.route.data.subscribe(data => {
+        this.product = data.product;
+      })
+    );
+  }
+
+  loadProductImages() {
+    this.subManager.add(
+      this.productService.getSingleProductImages(this.product.id).subscribe(data => {
+        this.productImages = data;
+      })
+    );
+  }
+
+}

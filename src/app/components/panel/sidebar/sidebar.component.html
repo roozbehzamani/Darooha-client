@@ -30,6 +30,10 @@
                 routerLinkActive="router-link-active"><i class="icon-ticket2"></i><span data-i18n="nav.dash.main"
                     class="menu-title">مدیریت تیکت ها</span></a>
             </li>
+            <li *appHasRole="['User']" class=" nav-item"><a href="" [routerLink]="['/panel/user/manageOrders']"
+                routerLinkActive="router-link-active"><i class="icon-shopping-cart"></i><span data-i18n="nav.dash.main"
+                    class="menu-title">مدیریت سفارش ها</span></a>
+            </li>
 
             <!--====================Admin=================================-->
 

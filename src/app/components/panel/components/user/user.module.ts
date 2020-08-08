@@ -26,11 +26,17 @@ import { TicketComponent } from './components/manage-ticket/components/list-tick
 import { ChatTicketComponent } from './components/manage-ticket/components/detail-ticket/components/chat-ticket/chat-ticket.component';
 import { ListTicketComponent } from './components/manage-ticket/components/list-ticket/list-ticket.component';
 import { DetailTicketComponent } from './components/manage-ticket/components/detail-ticket/detail-ticket.component';
-import { TicketService } from 'src/app/Services/panel/ticket/ticket.service';
 import { TicketResolver } from 'src/app/resolvers/ticket.resolver';
 import { TicketOverviewResolver } from 'src/app/resolvers/ticketOverview.resolver';
 import { ChatMessageTicketComponent } from './components/manage-ticket/components/detail-ticket/components/chat-ticket/components/chat-message-ticket/chat-message-ticket.component';
 import { CreateFormTicketComponent } from './components/manage-ticket/components/list-ticket/components/create-form-ticket/create-form-ticket.component';
+import { ManageOrderComponent } from './components/manage-order/manage-order.component';
+import { OrdersComponent } from './components/manage-order/components/orders/orders.component';
+import { OrderItemsComponent } from './components/manage-order/components/order-items/order-items.component';
+import { ItemsComponent } from './components/manage-order/components/order-items/components/items/items.component';
+import { OrderResolver } from 'src/app/resolvers/order.resolver';
+import { OrderService } from 'src/app/Services/panel/order/order.service';
+import { OrderItemResolver } from 'src/app/resolvers/orderItem.resolver';
 
 @NgModule({
   imports: [
@@ -66,7 +72,12 @@ import { CreateFormTicketComponent } from './components/manage-ticket/components
     DetailTicketComponent,
     ChatTicketComponent,
     ChatMessageTicketComponent,
-    CreateFormTicketComponent
+    CreateFormTicketComponent,
+    // orders
+    ManageOrderComponent,
+    OrdersComponent,
+    OrderItemsComponent,
+    ItemsComponent
     // glodal
   ],
   providers: [
@@ -85,6 +96,10 @@ import { CreateFormTicketComponent } from './components/manage-ticket/components
     // ticket
     TicketResolver,
     TicketOverviewResolver,
+    // order
+    OrderResolver,
+    OrderService,
+    OrderItemResolver,
     // common
     PreventUnsavedGuard
   ],

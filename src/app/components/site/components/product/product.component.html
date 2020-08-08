@@ -1,0 +1,381 @@
+<!-------body------->
+<div class="container-fluid pb-5 pt-5 " style="background-color: #fafafa;">
+  <div class="container border bg-white ">
+    <div class="row ">
+      <div class="col-12" style="background-color: #fff1d2">
+        <p class="text-right mb-0 py-2 ml-2 f4">
+          <span><i class='fas fa-star mt-lg-1'></i></span>
+          <span><i class='fas fa-star mt-lg-1 '></i></span>
+          <span><i class='fas fa-star mt-lg-1'></i></span>
+          <span><i class='fas fa-star-half-alt mt-lg-1'></i></span>
+          <span><i class='far fa-star mt-lg-1'></i></span>
+          <span class="mr-2">3.5</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="row py-5">
+      <div class="col-12 col-md-5">
+        <div class="name-product">
+          <div class="row">
+            <div class="col-8">
+              <h6 class="mt-4 pt-1 f6">{{product.productName}}</h6>
+            </div>
+            <div class="col-4">
+              <p class="text-right mt-4 border bg-white text-code-product f4">{{product.code}}</p>
+            </div>
+          </div>
+          <p class="pt-2 f4">Aloe Facial Sun Cream SPF30</p>
+        </div>
+        <p class="text-center bg-light py-2 mt-5 border rounded f5">{{product.productPrice}} تومان </p>
+        <button type="button" class="btn btn-green text-light f6">افزودن به سبد خرید</button>
+        <div class="col-12 border mt-3 rounded">
+          <div class="row">
+            <div class="col-6 col-md-4 col-lg-6">
+              <p class="mb-0 py-2 f41">تعداد <span class="d-md-none d-lg-inline">سفارش</span></p>
+            </div>
+            <div class="col-6 col-md-8 col-lg-6">
+              <div class="row py-1 float-right mr-1">
+                <button class="btn2 mr-1" onclick="btn2(this)">+</button>
+                <input class="input-count text-center " type="text" size="3" value="1">
+                <button class="btn1 ml-1" onclick="btn1(this)">-</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-10 col-md-6 mt-lg-0 mt-md-0 mt-3 img-slider">
+        <div calss="row">
+          <img class="zoom img-slider-img" id="img_01" src="{{productImages[0].imageUrl}}">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!----------discription A------------->
+  <div class="container border mt-3 px-0 bg-white">
+    <h6 class="text-light mb-0 py-3 px-3 bg-secondary f5">مشخصات محصول</h6>
+
+    <h6 class="text-green mt-4 px-3 f5">مشخصات عمومی</h6>
+    <div class="row f3">
+      <div class="col-6 col-md-3">
+        <p class="border px-3 py-2 ml-2 back-product-post">کشور سازنده</p>
+        <p class="border px-3 py-2 ml-2 back-product-post">شرکت سازنده </p>
+      </div>
+      <div class="col-6 col-md-9">
+        <p class="border px-3 py-2 mr-2 back-product-post1">{{product.manufacturingCountry}}</p>
+        <p class="border px-3 py-2 mr-2 back-product-post1">{{product.manufacturerCompany}}</p>
+      </div>
+    </div>
+
+
+
+    <h6 class="text-green mt-4 px-3 f5">مشخصات خصوصی</h6>
+    <div class="row f3">
+      <div class="col-6 col-md-3">
+        <p class="border px-3 py-2 ml-2 back-product-post">سایز</p>
+        <p class="border px-3 py-2 ml-2 back-product-post">کد بهداشتی</p>
+      </div>
+      <div class="col-6 col-md-9">
+        <p class="border px-3 py-2 mr-2 back-product-post1">{{product.size}}</p>
+        <p class="border px-3 py-2 mr-2 back-product-post1">{{product.code}}</p>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <!----------discription B------------->
+  <div class="container border mt-5 px-0 bg-white" id="dB">
+    <h6 class="text-light mb-0 py-3 px-3 bg-secondary f5">اطلاعات کاربردی</h6>
+    <div class="vertical-tabs">
+      <div class="row">
+        <div class="col-12 col-md-3">
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item py-2">
+              <a class="nav-link active f6" data-toggle="tab" href="#pag1" role="tab" aria-controls="home">
+                مشخصه ها</a>
+            </li>
+            <li class="nav-item py-2 ">
+              <a class="nav-link f6" data-toggle="tab" href="#pag2" role="tab" aria-controls="profile">
+                روش مصرف</a>
+            </li>
+
+          </ul>
+        </div>
+        <div class="col-12 col-md-9">
+          <div class="tab-content mt-2">
+            <div class="tab-pane active" id="pag1" role="tabpanel">
+              <div class="sv-tab-panel border back-product-post1">
+                <p class="text-justify px-3 f41 mb-0 py-2">
+                  حاوی عصاره طبیعی سیر، بدون بو
+                  <br>
+                  حاوی عصاره تغلیظ شده ویتامین ها و املاح معدنی
+                  <br>
+                  آنتی اکسیدان
+                  <br>
+                  مناسب موهای نازک و ضعیف
+                  <br>
+                  تقویت کننده ریزش مو
+                </p>
+              </div>
+            </div>
+            <div class="tab-pane" id="pag2" role="tabpanel">
+              <div class="sv-tab-panel border back-product-post1">
+                <p class="text-justify px-3 f41 mb-0 py-2">
+                  
+                  <br>
+                  حاوی عصاره تغلیظ شده ویتامین ها و املاح معدنی
+                  <br>
+                  آنتی اکسیدان
+                  <br>
+                  مناسب موهای نازک و ضعیف
+                  <br>
+                  تقویت کننده ریزش مو
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!----------discription D------------->
+  <div class="container border mt-5 pb-4 px-0 bg-white" id="dD">
+    <h6 class="text-light mb-0 py-3 px-3 bg-secondary f6">امتیاز دهی</h6>
+    <div class="row">
+      <div class="col-12 col-lg-7">
+        <div class="back-product-post1 border mx-2  mt-3">
+          <div class="row text-points py-3 mx-0">
+            <div class="col-5">
+              <h6 class="f5">امتیاز این محصول</h6>
+            </div>
+            <div class="col-7 f4">
+              <p class="text-right mb-0">
+                <span><i class='fas fa-star mt-lg-1'></i></span>
+                <span><i class='fas fa-star mt-lg-1 '></i></span>
+                <span><i class='fas fa-star mt-lg-1'></i></span>
+                <span><i class='fas fa-star-half-alt mt-lg-1'></i></span>
+                <span> <i class='far fa-star mt-lg-1'></i></span>
+                <span class="mr-2 ">5 / 3.5</span>
+              </p>
+
+            </div>
+          </div>
+          <div class="row text-center">
+
+
+            <div class="col-sm-3 mt-4">
+              <div class="progressbar">
+                <div class="second circle f6" data-percent="0">
+                  <strong></strong>
+                  <span>امتیاز کاربران</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-3 mt-4">
+              <div class="progressbar">
+                <div class="second circle f6" data-percent="55">
+                  <strong></strong>
+                  <span>علاقه مندی عمومی</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-3 mt-4">
+              <div class="progressbar">
+                <div class="second circle f6" data-percent="20">
+                  <strong></strong>
+                  <span>امتیاز بازار</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-3 mt-4">
+              <div class="progressbar">
+                <div class="second circle f6" data-percent="70">
+                  <strong></strong>
+                  <span>ارزیابی کارشناسی <br>(1 کارشناس)</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="progress mx-3 mt-1">
+            <div class="progress-bar"></div>
+          </div>
+          <p class="mb-0 py-3 mx-3 f5 text-justify"> امتیاز کلی یک محصول ، حاصل مجموع امتیازهای کاربران ، کارشناسان و
+            سهم بازار می باشد که بر اساس الگوریتمهای دقیق محاسبه و ارائه می شود .</p>
+        </div>
+      </div>
+      <div class="col-12 col-lg-5">
+
+        <div class="back-product-post1 border mx-2 pb-4 mt-3">
+          <h6 class="px-3  f5 text-points py-3 mb-0">شما هم به محصول امتیاز دهید</h6>
+          <div class="row f5 px-3">
+            <div class="col-5">
+              <p class="mt-2">کیفیت</p>
+            </div>
+            <div class="col-7 ">
+              <section>
+                <div class="stars float-right ">
+                  <input class="star star-5" id="star-5" value="5" type="radio" name="star" />
+                  <label class="star star-5" for="star-5"></label>
+                  <input class="star star-4" id="star-4" value="4" type="radio" name="star" />
+                  <label class="star star-4" for="star-4"></label>
+                  <input class="star star-3" id="star-3" value="3" type="radio" name="star" />
+                  <label class="star star-3" for="star-3"></label>
+                  <input class="star star-2" id="star-2" value="2" type="radio" name="star" />
+                  <label class="star star-2" for="star-2"></label>
+                  <input class="star star-1" id="star-1" value="1" type="radio" name="star" />
+                  <label class="star star-1" for="star-1"></label>
+                </div>
+              </section>
+            </div>
+          </div>
+          <div class="row f5 px-3">
+            <div class="col-5">
+              <p class="mt-2">میزان اثر بخشی</p>
+            </div>
+            <div class="col-7 ">
+              <section>
+                <div class="stars float-right">
+                  <input class="star star-5" id="star-51" value="5" type="radio" name="star" />
+                  <label class="star star-5" for="star-51"></label>
+                  <input class="star star-4" id="star-41" value="4" type="radio" name="star" />
+                  <label class="star star-4" for="star-41"></label>
+                  <input class="star star-3" id="star-31" value="3" type="radio" name="star" />
+                  <label class="star star-3" for="star-31"></label>
+                  <input class="star star-2" id="star-21" value="2" type="radio" name="star" />
+                  <label class="star star-2" for="star-21"></label>
+                  <input class="star star-1" id="star-11" value="1" type="radio" name="star" />
+                  <label class="star star-1" for="star-11"></label>
+                </div>
+              </section>
+            </div>
+          </div>
+          <div class="row f5 px-3">
+            <div class="col-5">
+              <p class="mt-2">بسته بندی</p>
+            </div>
+            <div class="col-7">
+              <section>
+                <div class="stars float-right">
+                  <input class="star star-5" id="star-52" value="5" type="radio" name="star" />
+                  <label class="star star-5" for="star-52"></label>
+                  <input class="star star-4" id="star-42" value="4" type="radio" name="star" />
+                  <label class="star star-4" for="star-42"></label>
+                  <input class="star star-3" id="star-32" value="3" type="radio" name="star" />
+                  <label class="star star-3" for="star-32"></label>
+                  <input class="star star-2" id="star-22" value="2" type="radio" name="star" />
+                  <label class="star star-2" for="star-22"></label>
+                  <input class="star star-1" id="star-12" value="1" type="radio" name="star" />
+                  <label class="star star-1" for="star-12"></label>
+                </div>
+              </section>
+            </div>
+          </div>
+          <div class="row f5 px-3">
+            <div class="col-5">
+              <p class="mt-2">ارزش نسبت به قیمت</p>
+            </div>
+            <div class="col-7 ">
+              <section>
+                <div class="stars float-right">
+                  <input class="star star-5" id="star-53" value="5" type="radio" name="star" />
+                  <label class="star star-5" for="star-53"></label>
+                  <input class="star star-4" id="star-43" value="4" type="radio" name="star" />
+                  <label class="star star-4" for="star-43"></label>
+                  <input class="star star-3" id="star-33" value="3" type="radio" name="star" />
+                  <label class="star star-3" for="star-33"></label>
+                  <input class="star star-2" id="star-23" value="2" type="radio" name="star" />
+                  <label class="star star-2" for="star-23"></label>
+                  <input class="star star-1" id="star-13" value="1" type="radio" name="star" />
+                  <label class="star star-1" for="star-13"></label>
+                </div>
+              </section>
+            </div>
+          </div>
+          <div class="row f5 px-3">
+            <div class="col-6">
+              <p class="mt-2">امتیاز شما به محصول</p>
+            </div>
+            <div class="col-6">
+              <p class="text-right mt-2">0 از 5</p>
+            </div>
+          </div>
+          <div class="row px-3">
+            <div class="col-12">
+              <button type="button" class="btn btn-green1 w-100 f6">با نام کاربری خود وارد شوید</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!----------discription E------------->
+  <div class="container border mt-5 pb-4 mb-4 px-0 bg-white" id="dE">
+    <h6 class="text-light mb-0 py-3 px-3 bg-secondary f6">نظرات کاربران</h6>
+    <div class="back-product-post1 border mx-2 mt-3 pb-4">
+      <div class="row text-points py-1 mx-0">
+        <div class="col-5 col-md-2 col-xl-1">
+          <img src="../../../../../assets/app-site/img/man%20(3).png" class="img-user img-fluid d-block mx-auto">
+        </div>
+        <div class="col-7 col-md-6 col-xl-8">
+          <p class="text-secondary f4">سیما رضازاده</p>
+          <span class="f4 font-p">1398/06/04 - 19:00</span>
+        </div>
+        <div class="col-12 col-md-3 col-xl-2">
+          <div class="row justify-content-end pr-3  mt-lg-3 mt-md-3 mt-xl-3 pt-1">
+            <p class="mr-4 border pt-1 px-1 like f4 font-p">12<i class='far fa-thumbs-down ml-1 text-danger f4'></i></p>
+            <p class="like border pt-1 px-1 f4 font-p">62<i class='far fa-thumbs-up ml-1 text-green f4'></i></p>
+          </div>
+        </div>
+        <div class="col-1 col-md-1 col-xl-1 border-left text-center d-none d-md-block">
+          <i class='fas fa-link icon-font mt-3 pt-1 f5'></i>
+        </div>
+      </div>
+
+      <div class="border bg-white mx-2 mt-4 rounded">
+        <p class="mb-0 px-3 py-3 f4">سلام میخوام سفارش بدم لطفا تاریخ انقضا رو اعلام می کنید؟؟</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-11 col-md-11">
+          <div class="back-product-post1 border mx-2 border-top-0 ">
+            <div class="row text-points py-1 mx-0">
+              <div class="col-5 col-md-2 col-xl-1">
+                <img src="../../../../../assets/app-site/img/man%20(3).png"
+                  class="img-logo img-fluid d-block mx-auto mt-1">
+              </div>
+              <div class="col-7 col-md-7 col-xl-9">
+                <p class="text-secondary f4">داروکده</p>
+                <span class="f4 font-p">1398/06/04 - 19:00</span>
+              </div>
+              <div class="col-12 col-md-3 col-xl-2">
+                <div class="row justify-content-end pr-3 mt-md-3 mt-lg-3 mt-xl-3 pt-1">
+                  <p class="mr-4 border pt-1 px-1 like f4 font-p">12<i
+                      class='far fa-thumbs-down ml-1 text-danger f4'></i></p>
+                  <p class="like border pt-lg-1 pt-xl-1 px-1 f4 font-p">62<i
+                      class='far fa-thumbs-up ml-1 text-green f4'></i></p>
+                </div>
+              </div>
+            </div>
+            <p class="px-3 py-3 mb-0 f4">با سلام
+              <br>
+              کاربر گرامی، تاریخ انقضای کرم ضد آفتاب فاقد چربی با پوشش کرم پودر SPF30 ( بژ روشن ) 2021/08/10 می باشد.
+              <br>
+              باتشکر - کارشناس فروش</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: 'auth', redirectTo: '/auth/login', pathMatch: 'full' },
   { path: 'auth', loadChildren: () => import('./components/auth/auth.module').then(m => m.AuthModule) },
   { path: 'panel', loadChildren: () => import('./components/panel/panel.module').then(m => m.PanelModule) },
-  { path: '**', redirectTo: '/auth/login', pathMatch: 'full' }
+  { path: '', loadChildren: () => import('./components/site/site.module').then(m => m.SiteModule) },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

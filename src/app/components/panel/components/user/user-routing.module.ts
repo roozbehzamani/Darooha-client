@@ -16,6 +16,10 @@ import { ManageTicketComponent } from './components/manage-ticket/manage-ticket.
 import { TicketResolver } from 'src/app/resolvers/ticket.resolver';
 import { DetailTicketComponent } from './components/manage-ticket/components/detail-ticket/detail-ticket.component';
 import { TicketOverviewResolver } from 'src/app/resolvers/ticketOverview.resolver';
+import { ManageOrderComponent } from './components/manage-order/manage-order.component';
+import { OrderResolver } from 'src/app/resolvers/order.resolver';
+import { OrderItemsComponent } from './components/manage-order/components/order-items/order-items.component';
+import { OrderItemResolver } from 'src/app/resolvers/orderItem.resolver';
 
 const routes: Routes = [
   {
@@ -52,6 +56,20 @@ const routes: Routes = [
         component: ManageUserAddressComponent,
         data: { roles: ['User'], title: ['مدیریت آدرس ها']},
         resolve: { address: AddressResolver }
+      },
+      {
+        path: 'manageOrders/items/:orderId',
+        component: OrderItemsComponent,
+        resolve: { items: OrderItemResolver },
+        data: { roles: ['User'], title: ['لیست محصولات'] }
+      },
+      //
+      {
+        path: 'manageOrders',
+        canActivate: [AuthGuard],
+        component: ManageOrderComponent,
+        data: { roles: ['User'], title: ['مدیریت سفارش ها']},
+        resolve: { orders: OrderResolver }
       },
       //
       /*{

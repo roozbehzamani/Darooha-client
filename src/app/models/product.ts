@@ -6,7 +6,7 @@ export interface Product {
     isEnable: boolean;
     size: string;
     code: string;
-    genderOfConsumer: boolean;
+    genderOfConsumer: number;
     enclosureType: string;
     manufacturingCountry: string;
     manufacturerCompany: string;
@@ -17,4 +17,5 @@ export interface Product {
     warnings: string;
     maintenance: string;
     imageUrl: string;
+    ScientificName: string;
 }

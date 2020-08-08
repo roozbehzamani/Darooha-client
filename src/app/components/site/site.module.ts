@@ -18,11 +18,16 @@ import { ProductService } from 'src/app/Services/site/product/product.service';
 import { ProductListResolver } from 'src/app/resolvers/productList.resolver';
 import { ProductResolver } from 'src/app/resolvers/product.resolver';
 import { ProductComponent } from './components/product/product.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/app/SharedModule/material/material.module';
 
 @NgModule({
   imports: [
     SiteRoutingModule,
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule
   ],
   declarations: [
     SiteComponent,

@@ -213,30 +213,21 @@
   <!----------discription E------------->
   <div class="container border mt-5 pb-4 mb-4 px-0 bg-white" id="dE">
     <h6 class="text-light mb-0 py-3 px-3 bg-secondary f6">نظرات کاربران</h6>
-    <div class="back-product-post1 border mx-2 mt-3 pb-4">
+    <div *ngFor="let comment of allComments" class="back-product-post1 border mx-2 mt-3 pb-4">
       <div class="row text-points py-1 mx-0">
         <div class="col-5 col-md-2 col-xl-1">
-          <img src="../../../../../assets/app-site/img/man%20(3).png" class="img-user img-fluid d-block mx-auto">
+          <img src="{{comment.userImageUrl}}" class="img-user img-fluid d-block mx-auto">
         </div>
         <div class="col-7 col-md-6 col-xl-8">
-          <p class="text-secondary f4">سیما رضازاده</p>
-          <span class="f4 font-p">1398/06/04 - 19:00</span>
-        </div>
-        <div class="col-12 col-md-3 col-xl-2">
-          <div class="row justify-content-end pr-3  mt-lg-3 mt-md-3 mt-xl-3 pt-1">
-            <p class="mr-4 border pt-1 px-1 like f4 font-p">12<i class='far fa-thumbs-down ml-1 text-danger f4'></i></p>
-            <p class="like border pt-1 px-1 f4 font-p">62<i class='far fa-thumbs-up ml-1 text-green f4'></i></p>
-          </div>
-        </div>
-        <div class="col-1 col-md-1 col-xl-1 border-left text-center d-none d-md-block">
-          <i class='fas fa-link icon-font mt-3 pt-1 f5'></i>
+          <p class="text-secondary f4">{{comment.userName}}</p>
+          <span class="f4 font-p">{{comment.dateModified}}</span>
         </div>
       </div>
 
       <div class="border bg-white mx-2 mt-4 rounded">
-        <p class="mb-0 px-3 py-3 f4">سلام میخوام سفارش بدم لطفا تاریخ انقضا رو اعلام می کنید؟؟</p>
+        <p class="mb-0 px-3 py-3 f4">{{comment.commentText}}</p>
       </div>
-      <div class="row justify-content-center">
+      <div *ngIf="comment.commentResponse!== 'none'" class="row justify-content-center">
         <div class="col-11 col-md-11">
           <div class="back-product-post1 border mx-2 border-top-0 ">
             <div class="row text-points py-1 mx-0">
@@ -245,27 +236,13 @@
                   class="img-logo img-fluid d-block mx-auto mt-1">
               </div>
               <div class="col-7 col-md-7 col-xl-9">
-                <p class="text-secondary f4">داروکده</p>
-                <span class="f4 font-p">1398/06/04 - 19:00</span>
-              </div>
-              <div class="col-12 col-md-3 col-xl-2">
-                <div class="row justify-content-end pr-3 mt-md-3 mt-lg-3 mt-xl-3 pt-1">
-                  <p class="mr-4 border pt-1 px-1 like f4 font-p">12<i
-                      class='far fa-thumbs-down ml-1 text-danger f4'></i></p>
-                  <p class="like border pt-lg-1 pt-xl-1 px-1 f4 font-p">62<i
-                      class='far fa-thumbs-up ml-1 text-green f4'></i></p>
-                </div>
+                <p class="text-secondary f4 doctorCommentAnswer">پزشک</p>
               </div>
             </div>
-            <p class="px-3 py-3 mb-0 f4">با سلام
-              <br>
-              کاربر گرامی، تاریخ انقضای کرم ضد آفتاب فاقد چربی با پوشش کرم پودر SPF30 ( بژ روشن ) 2021/08/10 می باشد.
-              <br>
-              باتشکر - کارشناس فروش</p>
+            <p class="px-3 py-3 mb-0 f4">{{comment.commentResponse}}</p>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>

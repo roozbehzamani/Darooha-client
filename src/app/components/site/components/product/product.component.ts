@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from 'src/app/Services/site/product/product.service';
 import { ProductImage } from 'src/app/models/product-image';
 import { AuthService } from 'src/app/Services/auth/auth.service';
+import { CommentService } from 'src/app/Services/site/comment/comment.service';
 
 @Component({
   selector: 'app-product',
@@ -17,14 +18,16 @@ export class ProductComponent implements OnInit, OnDestroy {
   product: Product;
   productImages: ProductImage[];
   loggedIn; boolean;
+  allComments: Comment[];
 
-  constructor(private route: ActivatedRoute, private productService: ProductService, private authServeice: AuthService) { }
+  constructor(private route: ActivatedRoute, private productService: ProductService, private authServeice: AuthService,
+              private commentService: CommentService) { }
 
   ngOnInit() {
     this.loggedIn = this.authServeice.loggedIn();
-    console.log(this.loggedIn);
     this.loadProduct();
     this.loadProductImages();
+    this.loadComments();
   }
   ngOnDestroy() {
     this.subManager.unsubscribe();
@@ -42,6 +45,14 @@ export class ProductComponent implements OnInit, OnDestroy {
     this.subManager.add(
       this.productService.getSingleProductImages(this.product.id).subscribe(data => {
         this.productImages = data;
+      })
+    );
+  }
+
+  loadComments() {
+    this.subManager.add(
+      this.commentService.getAllComments(this.product.id).subscribe(data => {
+        this.allComments = data;
       })
     );
   }

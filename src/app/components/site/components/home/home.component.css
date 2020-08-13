@@ -2,3 +2,9 @@
 @import 'https://use.fontawesome.com/releases/v5.7.0/css/all.css';
 @import '../../../../../assets/app-site/css/jquery.simpleTicker.css';
 @import '../../../../../assets/app-site/css/fontawesome.min.css';
+
+
+
+.sliderImage {
+    width: 100%;
+}

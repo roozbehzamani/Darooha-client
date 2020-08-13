@@ -1,10 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HomeService } from 'src/app/Services/site/home/home.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Slider } from 'src/app/models/slider';
 import { Product } from 'src/app/models/product';
-import { RightBar } from 'src/app/models/right-bar';
 import { Menu } from 'src/app/models/menu';
 import { SpecialProduct } from 'src/app/models/special-product';
 
@@ -18,15 +17,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   subManager = new Subscription();
   sliderItems: Slider[];
   products: Product[];
-  rightBarItems: RightBar[];
   menu: Menu[];
   singleProduct: SpecialProduct;
 
-  constructor(private route: ActivatedRoute, private homeService: HomeService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private homeService: HomeService) { }
 
   ngOnInit() {
     this.loadSlider();
-    this.loadRightBar();
     this.loadSingleProduct();
     this.loadNewMenus();
     this.loadProduct();
@@ -39,13 +36,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subManager.add(
       this.route.data.subscribe(data => {
         this.sliderItems = data.sliderItem;
-      })
-    );
-  }
-  loadRightBar() {
-    this.subManager.add(
-      this.homeService.getRightBar().subscribe(data => {
-        this.rightBarItems = data;
       })
     );
   }
@@ -70,5 +60,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       })
     );
   }
-
+  onClickProduct(productId: string) {
+    this.router.navigate(['Home/Product', productId]);
+  }
+  onClickMenu(menuId: string) {
+    this.router.navigate(['Home/List', menuId]);
+  }
 }

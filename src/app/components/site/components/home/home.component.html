@@ -1,16 +1,9 @@
 <!--------body-------->
 <div class="container-fluid pb-5" style="background-color: #fafafa;">
   <div class="container pt-4">
-      <div class="row">
-          <div class="col-lg-3 d-none d-lg-block">
-              <a  *ngFor="let item of rightBarItems" href="#">
-                  <img src="{{item.imageUrl}}" class="img-fluid mt-4">
-                </a>
-          </div>
-  
-  
+      <div class="row">  
           <!--------slider-------->
-          <div class="col-12 col-lg-9">
+          <div class="col-12 col-lg-12">
               <div id="demo" class="carousel slide" data-ride="carousel">
   
                   <!-- Indicators -->
@@ -21,7 +14,7 @@
                   <!-- The slideshow -->
                   <div class="carousel-inner">
                       <div *ngFor="let item of sliderItems;let isFirst=first" [ngClass]="{active:isFirst}" class="carousel-item">
-                          <img src="{{item.imageUrl}}" class="img-fluid" alt="Los Angeles">
+                          <img src="{{item.imageUrl}}" class="img-fluid sliderImage" alt="Los Angeles">
                       </div>
                   </div>
   
@@ -62,7 +55,7 @@
               <h6 class="mt-4 f6 font-weight-bold">گروه منتخب محصولات</h6>
               <div class="border bg-white px-4 pt-4">
                   <div class="row f3">
-                      <div *ngFor="let item of menu" class="col-6 col-md-4">
+                      <div *ngFor="let item of menu" style="cursor: pointer;" class="pad15" (click)="onClickMenu(item.id)" class="col-6 col-md-4">
                           <img src="{{item.menuImage}}" class="img-fluid">
                           <p class="pt-1" style="text-align: center;">{{item.menuName}}</p>
                       </div>
@@ -82,7 +75,7 @@
                       <div class="MultiCarousel">
                           <div class="MultiCarousel-inner">
                               <div *ngFor="let item of products" class="item">
-                                  <div class="pad15">
+                                  <div style="cursor: pointer;" class="pad15" (click)="onClickProduct(item.id)">
                                      <img src="{{item.imageUrl}}" class="img-fluid">
   
                                       <div class="progress">

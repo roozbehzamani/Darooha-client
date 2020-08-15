@@ -18,4 +18,6 @@ export interface Product {
     maintenance: string;
     imageUrl: string;
     ScientificName: string;
+    sumPoint: number;
+    commentCount: number;
 }

@@ -7,6 +7,7 @@ import { ProductListResolver } from 'src/app/resolvers/productList.resolver';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductResolver } from 'src/app/resolvers/product.resolver';
 import { ProductComponent } from './components/product/product.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 
 const routes: Routes = [
@@ -35,6 +36,12 @@ const routes: Routes = [
         resolve: { product: ProductResolver }
       },
       //
+      {
+        path: 'Home/ShoppingCart',
+        component: ShoppingCartComponent,
+        data: { title: ['سبد خرید'] } // ,
+        // resolve: { sliderItem: HomeSliderResolver }
+      },
     ]
   }
 ];

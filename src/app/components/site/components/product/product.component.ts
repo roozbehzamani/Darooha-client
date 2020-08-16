@@ -23,12 +23,19 @@ export class ProductComponent implements OnInit, OnDestroy {
   loggedIn; boolean;
   allComments: Comment[];
   point: number;
-  bascket: Bascket = {productCount: null, productID: null};
-  bascketList: Bascket[] = [] ;
+  bascket: Bascket = {
+    productCount: null,
+    productID: null,
+    productImage: null,
+    productName: null,
+    productPrice: null,
+    productTotalPrice: null
+  };
+  bascketList: Bascket[] = [];
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private authServeice: AuthService,
-              private commentService: CommentService, private formBuilder: FormBuilder, private alertService: ToastrService) {
-              }
+    private commentService: CommentService, private formBuilder: FormBuilder, private alertService: ToastrService) {
+  }
 
   bascketForm: FormGroup = this.formBuilder.group({
     productCount: ['', [Validators.required]]
@@ -76,13 +83,26 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
   onAddToBascket() {
     if (this.bascketForm.valid) {
-      this.bascket.productID = this.product.id;
-      this.bascket.productCount = this.bascketForm.get('productCount').value;
-      console.log(this.bascket);
-      this.bascketList = JSON.parse(localStorage.getItem('bascket'));
-      this.bascketList.push(this.bascket);
-      localStorage.setItem('bascket', JSON.stringify(this.bascketList));
-    }else {
+      const testBascket: Bascket[] = JSON.parse(localStorage.getItem('bascket'));
+      if (testBascket) {
+        this.bascketList = JSON.parse(localStorage.getItem('bascket'));
+        const existBascket: Bascket = this.bascketList.find(x => x.productID === this.product.id);
+        if (existBascket) {
+          existBascket.productCount += this.bascketForm.get('productCount').value;
+          existBascket.productTotalPrice = existBascket.productCount * this.product.productPrice;
+        } else {
+          this.bascket.productID = this.product.id;
+          this.bascket.productCount = this.bascketForm.get('productCount').value;
+          this.bascket.productName = this.product.productName;
+          this.bascket.productPrice = this.product.productPrice;
+          this.bascket.productImage = this.productImages[0].imageUrl;
+          this.bascket.productTotalPrice = this.bascket.productCount * this.product.productPrice;
+          this.bascketList.push(this.bascket);
+          localStorage.setItem('bascket', JSON.stringify(this.bascketList));
+        }
+      }
+      this.alertService.success('محصول با موفقیت به سبد خرید اضافه شد', 'موفق');
+    } else {
       this.alertService.warning('خطایی رخ داده', 'خطا');
     }
   }

@@ -20,6 +20,7 @@ import { ProductResolver } from 'src/app/resolvers/product.resolver';
 import { ProductComponent } from './components/product/product.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/SharedModule/material/material.module';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 @NgModule({
   imports: [
@@ -46,7 +47,9 @@ import { MaterialModule } from 'src/app/SharedModule/material/material.module';
     // product list
     ProductListComponent,
     // product
-    ProductComponent
+    ProductComponent,
+    //
+    ShoppingCartComponent
   ],
   providers: [
     // slider

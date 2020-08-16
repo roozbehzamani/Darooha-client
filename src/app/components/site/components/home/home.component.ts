@@ -18,7 +18,18 @@ export class HomeComponent implements OnInit, OnDestroy {
   sliderItems: Slider[];
   products: Product[];
   menu: Menu[];
-  singleProduct: SpecialProduct;
+  singleProduct: SpecialProduct = {
+    id: null,
+    productName: null,
+    productPrice: null,
+    firstImageUrl: null,
+    secendImageUrl: null,
+    scientificName: null,
+    sumPoint: null,
+    commentCount: null,
+    manufacturingCountry: null,
+    manufacturerCompany: null
+  };
 
   constructor(private router: Router, private route: ActivatedRoute, private homeService: HomeService) { }
 
@@ -52,6 +63,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.singleProduct = data;
       })
     );
+    console.log(this.singleProduct);
   }
   loadNewMenus() {
     this.subManager.add(

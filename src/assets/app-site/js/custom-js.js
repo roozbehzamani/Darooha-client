@@ -20,7 +20,7 @@ $(document).ready(function() {
       /*slider*/
 $(document).ready(function() {
 
-    $('body').bootstrapMaterialDesign();
+    // $('body').bootstrapMaterialDesign();
 });
 
 function call() {
@@ -524,78 +524,78 @@ $(document).ready(function(){
 
     }
 )(jQuery);
-let rangeSlider = ((containerSelector, minSelector, maxSelector, selectionSelector, inputCallback, changeCallback) => {
-    inputCallback = inputCallback || function () { };
-    changeCallback = changeCallback || function () { };
-    let timeout;
-    let sliderContainer = document.querySelector(containerSelector);
-    let sliderMinElement = document.querySelector(minSelector);
-    let sliderMaxElement = document.querySelector(maxSelector);
-    let sliderSelectionElement = document.querySelector(selectionSelector);
-    let values = { min: sliderMinElement.value, max: sliderMaxElement.value };
+// let rangeSlider = ((containerSelector, minSelector, maxSelector, selectionSelector, inputCallback, changeCallback) => {
+//     inputCallback = inputCallback || function () { };
+//     changeCallback = changeCallback || function () { };
+//     let timeout;
+//     let sliderContainer = document.querySelector(containerSelector);
+//     let sliderMinElement = document.querySelector(minSelector);
+//     let sliderMaxElement = document.querySelector(maxSelector);
+//     let sliderSelectionElement = document.querySelector(selectionSelector);
+//     // let values = { min: sliderMinElement.value, max: sliderMaxElement.value };
 
-    sliderMinElement.addEventListener('input', e => {
-        sliderTimeout(() => { valueChanged(e); });
-    });
+//     sliderMinElement.addEventListener('input', e => {
+//         sliderTimeout(() => { valueChanged(e); });
+//     });
 
-    sliderMaxElement.addEventListener('input', e => {
-        sliderTimeout(() => { valueChanged(e); });
-    });
+//     sliderMaxElement.addEventListener('input', e => {
+//         sliderTimeout(() => { valueChanged(e); });
+//     });
 
-    sliderMinElement.addEventListener('change', () => { changeCallback(values); });
-    sliderMaxElement.addEventListener('change', () => { changeCallback(values); });
+//     sliderMinElement.addEventListener('change', () => { changeCallback(values); });
+//     sliderMaxElement.addEventListener('change', () => { changeCallback(values); });
 
-    return {
-        setHandles: data => {
-            data = data || {};
+//     return {
+//         setHandles: data => {
+//             data = data || {};
 
-            if (data.min) {
-                sliderMinElement.value = data.min;
-                valueChanged({ target: sliderMinElement });
-            }
+//             if (data.min) {
+//                 sliderMinElement.value = data.min;
+//                 valueChanged({ target: sliderMinElement });
+//             }
 
-            if (data.max) {
-                sliderMaxElement.value = data.max;
-                valueChanged({ target: sliderMaxElement });
-            }
-        }
-    };
+//             if (data.max) {
+//                 sliderMaxElement.value = data.max;
+//                 valueChanged({ target: sliderMaxElement });
+//             }
+//         }
+//     };
 
 
-    function valueChanged(event) {
-        if (event.target === sliderMinElement && +sliderMinElement.value >= +sliderMaxElement.value) {
-            sliderMinElement.value = +sliderMaxElement.value - 5;
-            return event.preventDefault();
-        }
+//     function valueChanged(event) {
+//         if (event.target === sliderMinElement && +sliderMinElement.value >= +sliderMaxElement.value) {
+//             sliderMinElement.value = +sliderMaxElement.value - 5;
+//             return event.preventDefault();
+//         }
 
-        if (event.target === sliderMaxElement && +sliderMinElement.value >= +sliderMaxElement.value) {
-            sliderMaxElement.value = +sliderMinElement.value + 5;
-            return event.preventDefault();
-        }
+//         if (event.target === sliderMaxElement && +sliderMinElement.value >= +sliderMaxElement.value) {
+//             sliderMaxElement.value = +sliderMinElement.value + 5;
+//             return event.preventDefault();
+//         }
 
-        values.min = sliderMinElement.value;
-        values.max = sliderMaxElement.value;
+//         values.min = sliderMinElement.value;
+//         values.max = sliderMaxElement.value;
 
-        sliderSelectionElement.style.right = +sliderMinElement.value / +sliderMaxElement.getAttribute('max') * 100 + '%';
-        sliderSelectionElement.style.left = +sliderMaxElement.value / +sliderMaxElement.getAttribute('max') * -100 + 100 + '%';
-        inputCallback(values);
-    }
+//         sliderSelectionElement.style.right = +sliderMinElement.value / +sliderMaxElement.getAttribute('max') * 100 + '%';
+//         sliderSelectionElement.style.left = +sliderMaxElement.value / +sliderMaxElement.getAttribute('max') * -100 + 100 + '%';
+//         inputCallback(values);
+//     }
 
-    function sliderTimeout(callback) {
-        clearTimeout(timeout);
-        timeout = setTimeout(callback, 10);
-    }
-})('.range-slider', '.range-slider-min', '.range-slider-max', '.range-slider-selection', values => {
-    // console.log('values changed!', values);
-    // document.querySelector('.display1').innerHTML = '₹ '+ values.min + ', ₹ ' + values.max;
-    document.querySelector('.minmaxprice').value = values.min + ',' + values.max;
-    document.querySelector('.minprice').innerHTML =' از ' + values.min +' تومان';
-    document.querySelector('.maxprice').innerHTML =' تا ' + values.max + ' تومان' ;
-}, values => {
-    // console.log('change done!', values);
-});
+//     function sliderTimeout(callback) {
+//         clearTimeout(timeout);
+//         timeout = setTimeout(callback, 10);
+//     }
+// })('.range-slider', '.range-slider-min', '.range-slider-max', '.range-slider-selection', values => {
+//     // console.log('values changed!', values);
+//     // document.querySelector('.display1').innerHTML = '₹ '+ values.min + ', ₹ ' + values.max;
+//     document.querySelector('.minmaxprice').value = values.min + ',' + values.max;
+//     document.querySelector('.minprice').innerHTML =' از ' + values.min +' تومان';
+//     document.querySelector('.maxprice').innerHTML =' تا ' + values.max + ' تومان' ;
+// }, values => {
+//     // console.log('change done!', values);
+// });
 
-rangeSlider.setHandles({ min: 0, max: 250000 });
+// rangeSlider.setHandles({ min: 0, max: 250000 });
 
 // console.log('inited!');
 

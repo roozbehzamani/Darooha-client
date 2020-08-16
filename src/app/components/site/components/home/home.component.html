@@ -29,14 +29,22 @@
               </div>
   
               <!---------------->
-              <h5 class="mt-4 f6 font-weight-bold">در دنیای مکمل ها چه خبر؟</h5>
+              <h5 class="mt-4 f6 font-weight-bold">محصول منتخب</h5>
               <div class="container border bg-white d-none d-md-block pr-0">
                  <div class="row">
                      <div class="col-6 col-lg-4 py-4">
-
-                         <p class="mt-2  font-weight-bold">{{singleProduct.productName}}
-                             <br>
-                         </p>
+                        <div class="row bg-light">
+                            <div class="col-6">
+                                <p class="mb-0 py-1 text-secondary f4">{{singleProduct.manufacturerCompany}}/{{singleProduct.manufacturingCountry}}</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-right mb-0 py-1 text-secondary f4">{{singleProduct.sumPoint/singleProduct.commentCount}}<span><i class='fas fa-star ml-1' style="font-size: 14px"></i></span></p>
+                            </div>
+                        </div>
+                        <p class="mt-2  font-weight-bold">{{singleProduct.productName}}
+                            <br>
+                          <span class="mt-3">{{singleProduct.scientificName}}</span>
+                        </p>
   
                          <p class="mt-5 font-weight-bold">{{singleProduct.productPrice}} تومان</p>
   
@@ -47,7 +55,7 @@
                          <img src="{{singleProduct.firstImageUrl}}" class="img-fluid py-4">
                      </div>
                      <div class="col-lg-4 d-none d-lg-block">
-                         <img src="{{singleProduct.secendImageUrl}}" class="img-fluid" style="height: 100%;width: 100%">
+                         <img src="{{singleProduct.secendImageUrl}}" class="img-fluid py-4">
                      </div>
                  </div>
                 </div>

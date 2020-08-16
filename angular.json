@@ -36,7 +36,7 @@
               "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [
-              "src/assets/js/core/libraries/jquery-3.3.1.min.js",
+              "src/assets/shared/js/jquery-3.5.1.js",
               "src/assets/vendors/js/ui/tether.min.js",
               "src/assets/js/libraries/bootstrap.min.js",
               "src/assets/vendors/js/ui/unison.min.js",

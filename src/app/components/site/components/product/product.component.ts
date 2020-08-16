@@ -88,19 +88,22 @@ export class ProductComponent implements OnInit, OnDestroy {
         this.bascketList = JSON.parse(localStorage.getItem('bascket'));
         const existBascket: Bascket = this.bascketList.find(x => x.productID === this.product.id);
         if (existBascket) {
-          existBascket.productCount += this.bascketForm.get('productCount').value;
+          const index = this.bascketList.indexOf(existBascket);
+          const count: string = this.bascketForm.get('productCount').value;
+          existBascket.productCount = existBascket.productCount + parseInt(count);
           existBascket.productTotalPrice = existBascket.productCount * this.product.productPrice;
-        } else {
-          this.bascket.productID = this.product.id;
-          this.bascket.productCount = this.bascketForm.get('productCount').value;
-          this.bascket.productName = this.product.productName;
-          this.bascket.productPrice = this.product.productPrice;
-          this.bascket.productImage = this.productImages[0].imageUrl;
-          this.bascket.productTotalPrice = this.bascket.productCount * this.product.productPrice;
-          this.bascketList.push(this.bascket);
-          localStorage.setItem('bascket', JSON.stringify(this.bascketList));
+          this.bascketList[index] = existBascket;
         }
+      } else {
+        this.bascket.productID = this.product.id;
+        this.bascket.productCount = this.bascketForm.get('productCount').value;
+        this.bascket.productName = this.product.productName;
+        this.bascket.productPrice = this.product.productPrice;
+        this.bascket.productImage = this.productImages[0].imageUrl;
+        this.bascket.productTotalPrice = this.bascket.productCount * this.product.productPrice;
+        this.bascketList.push(this.bascket);
       }
+      localStorage.setItem('bascket', JSON.stringify(this.bascketList));
       this.alertService.success('محصول با موفقیت به سبد خرید اضافه شد', 'موفق');
     } else {
       this.alertService.warning('خطایی رخ داده', 'خطا');

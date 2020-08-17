@@ -1,103 +1,139 @@
 <!--------body-------->
 <div class="container-fluid pb-5" style="background-color: #fafafa;">
-  <div class="container pt-4">
-      <div class="row">  
-          <!--------slider-------->
-          <div class="col-12 col-lg-12">
-              <div id="demo" class="carousel slide" data-ride="carousel">
-  
-                  <!-- Indicators -->
-                  <ul class="carousel-indicators">
-                      <li data-target="#demo" [attr.data-slide-to]="i" *ngFor="let item of sliderItems;let isFirst=first;let i=index;" [ngClass]="{active:isFirst}"></li>
-                  </ul>
-  
-                  <!-- The slideshow -->
-                  <div class="carousel-inner">
-                      <div *ngFor="let item of sliderItems;let isFirst=first" [ngClass]="{active:isFirst}" class="carousel-item">
-                          <img src="{{item.imageUrl}}" class="img-fluid sliderImage" alt="Los Angeles">
-                      </div>
-                  </div>
-  
-                  <!-- Left and right controls -->
-                  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                      <span class="carousel-control-prev-icon"></span>
-                  </a>
-                  <a class="carousel-control-next" href="#demo" data-slide="next">
-                      <span class="carousel-control-next-icon"></span>
-                  </a>
-  
-              </div>
-  
-              <!---------------->
-              <h5 class="mt-4 f6 font-weight-bold">محصول منتخب</h5>
-              <div class="container border bg-white d-none d-md-block pr-0">
-                 <div class="row">
-                     <div class="col-6 col-lg-4 py-4">
-                        <div class="row bg-light">
-                            <div class="col-6">
-                                <p class="mb-0 py-1 text-secondary f4">{{singleProduct.manufacturerCompany}}/{{singleProduct.manufacturingCountry}}</p>
+    <div class="container pt-4">
+        <div class="row">
+            <!--------slider-------->
+            <div class="col-12 col-lg-12">
+                <div id="demo" class="carousel slide" data-ride="carousel">
+
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo" [attr.data-slide-to]="i"
+                            *ngFor="let item of sliderItems;let isFirst=first;let i=index;"
+                            [ngClass]="{active:isFirst}"></li>
+                    </ul>
+
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        <div *ngFor="let item of sliderItems;let isFirst=first" [ngClass]="{active:isFirst}"
+                            class="carousel-item">
+                            <img src="{{item.imageUrl}}" class="img-fluid sliderImage" alt="Los Angeles">
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+
+                </div>
+
+                <!---------------->
+                <h5 class="mt-4 f6 font-weight-bold">محصول منتخب</h5>
+                <div class="container border bg-white d-none d-md-block pr-0">
+                    <div class="row">
+                        <div class="col-6 col-lg-4 py-4">
+                            <div class="row bg-light">
+                                <div class="col-6">
+                                    <p class="mb-0 py-1 text-secondary f4">
+                                        {{singleProduct.manufacturerCompany}}/{{singleProduct.manufacturingCountry}}</p>
+                                </div>
+                                <div class="col-6">
+                                    <p *ngIf="counter(singleProduct.sumPoint,singleProduct.commentCount).length>0" class="text-right mb-0 py-1 text-secondary f4">
+                                        {{counter(singleProduct.sumPoint,singleProduct.commentCount).length}}
+                                        <span><i class='fas fa-star ml-1' style="font-size: 14px"></i></span>
+                                    </p>
+                                    <p *ngIf="counter(singleProduct.sumPoint,singleProduct.commentCount).length===0" class="text-right mb-0 py-1 text-secondary f4">
+                                        بدون امتیاز
+                                        <span><i class='fas fa-star ml-1' style="font-size: 14px"></i></span>
+                                    </p>
+                                </div>
                             </div>
-                            <div class="col-6">
-                                <p class="text-right mb-0 py-1 text-secondary f4">{{singleProduct.sumPoint/singleProduct.commentCount}}<span><i class='fas fa-star ml-1' style="font-size: 14px"></i></span></p>
+                            <p class="mt-2  font-weight-bold">{{singleProduct.productName}}
+                                <br>
+                                <span class="mt-3">{{singleProduct.scientificName}}</span>
+                            </p>
+
+                            <p class="mt-5 font-weight-bold">{{singleProduct.productPrice}} تومان</p>
+
+                            <div class="col-lg-6">
+                                <button (click)="onAddToBascket()" type="button" class="btn btn-green text-light">
+                                    خرید
+                                </button>
+                            </div>
+                            <div class="col-lg-6">
+                                <button style="width: 100%;" (click)="onClickProduct(singleProduct.id)" type="button" class="btn btn-blue text-light">
+                                    مشاهده
+                                </button>
                             </div>
                         </div>
-                        <p class="mt-2  font-weight-bold">{{singleProduct.productName}}
-                            <br>
-                          <span class="mt-3">{{singleProduct.scientificName}}</span>
-                        </p>
-  
-                         <p class="mt-5 font-weight-bold">{{singleProduct.productPrice}} تومان</p>
-  
-                         <button type="button" class="btn btn-green text-light">خرید</button>
-  
-                     </div>
-                     <div class="col-6 col-lg-4">
-                         <img src="{{singleProduct.firstImageUrl}}" class="img-fluid py-4">
-                     </div>
-                     <div class="col-lg-4 d-none d-lg-block">
-                         <img src="{{singleProduct.secendImageUrl}}" class="img-fluid py-4">
-                     </div>
-                 </div>
+                        <div class="col-lg-2">
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <img src="{{singleProduct.firstImageUrl}}" class="img-fluid py-4">
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <img src="{{singleProduct.secendImageUrl}}" class="img-fluid py-4">
+                        </div>
+                    </div>
                 </div>
-              <!------------------>
-              <h6 class="mt-4 f6 font-weight-bold">گروه منتخب محصولات</h6>
-              <div class="border bg-white px-4 pt-4">
-                  <div class="row f3">
-                      <div *ngFor="let item of menu" style="cursor: pointer;" class="pad15" (click)="onClickMenu(item.id)" class="col-6 col-md-4">
-                          <img src="{{item.menuImage}}" class="img-fluid">
-                          <p class="pt-1" style="text-align: center;">{{item.menuName}}</p>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  
-  
-      <!---------جدیدترین محصولات--------->
-      <div class="container mt-5" style="max-width: 1200px;">
-          <h6 class="mt-4 text-green font-weight-bold f6">جدیدترین محصولات</h6>
-          <div class="border bg-white">
-              <div>
-                  <div class="row">
-                      <div class="MultiCarousel">
-                          <div class="MultiCarousel-inner">
-                              <div *ngFor="let item of products" class="item">
-                                  <div style="cursor: pointer;" class="pad15" (click)="onClickProduct(item.id)">
-                                     <img src="{{item.imageUrl}}" class="img-fluid">
-  
-                                      <div class="progress">
-                                          <div class="progress-bar"></div>
-                                      </div>
-  
-                                      <p class="text-left pt-2 f4">{{item.productName}} </p>
-                                      <p class="text-left f4">{{item.productPrice}} تومان</p>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                <!------------------>
+                <h6 class="mt-4 f6 font-weight-bold">گروه منتخب محصولات</h6>
+                <div class="border bg-white px-4 pt-4">
+                    <div class="row f3">
+                        <div *ngFor="let item of menu" style="cursor: pointer;" class="pad15"
+                            (click)="onClickMenu(item.id)" class="col-6 col-md-4">
+                            <img src="{{item.menuImage}}" class="img-fluid">
+                            <p class="pt-1" style="text-align: center;">{{item.menuName}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!---------جدیدترین محصولات--------->
+    <div class="container mt-5" style="max-width: 1200px;">
+        <h6 class="mt-4 text-green font-weight-bold f6">جدیدترین محصولات</h6>
+        <div class="border bg-white">
+            <div>
+                <div class="row">
+                    <div class="MultiCarousel">
+                        <div class="MultiCarousel-inner">
+                            <div *ngFor="let item of products" class="item">
+                                <div style="cursor: pointer;" class="pad15" (click)="onClickProduct(item.id)">
+                                    <img src="{{item.imageUrl}}" class="img-fluid">
+
+                                    <div class="row f4">
+                                        <div class="col-7 pt-2">
+                                            <p class=" text-left">تعداد نظر : {{item.commentCount}}<span><i
+                                                        class="fas fa-eye ml-1 text-green"></i></span></p>
+
+                                        </div>
+                                        <div class="col-5 pt-2">
+                                            <p class="text-right">
+                                                <span *ngFor="let star of counter(item.sumPoint,item.commentCount)"><i class="fas fa-star mt-lg-1"></i></span>
+                                                <span *ngIf="counter(item.sumPoint,item.commentCount).length>0" class="mr-2">{{counter(item.sumPoint,item.commentCount).length}}</span>
+                                                <span *ngIf="counter(item.sumPoint,item.commentCount).length===0" class="mr-2">بدون امتیاز</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar"></div>
+                                    </div>
+
+                                    <p class="text-left pt-2 f4">{{item.productName}} </p>
+                                    <p class="text-left f4">{{item.productPrice}} تومان</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

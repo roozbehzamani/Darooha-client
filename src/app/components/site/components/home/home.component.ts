@@ -6,6 +6,8 @@ import { Slider } from 'src/app/models/slider';
 import { Product } from 'src/app/models/product';
 import { Menu } from 'src/app/models/menu';
 import { SpecialProduct } from 'src/app/models/special-product';
+import { Bascket } from 'src/app/models/bascket';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -30,8 +32,18 @@ export class HomeComponent implements OnInit, OnDestroy {
     manufacturingCountry: null,
     manufacturerCompany: null
   };
+  bascket: Bascket = {
+    productCount: null,
+    productID: null,
+    productImage: null,
+    productName: null,
+    productPrice: null,
+    productTotalPrice: null
+  };
+  bascketList: Bascket[] = [];
 
-  constructor(private router: Router, private route: ActivatedRoute, private homeService: HomeService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private homeService: HomeService,
+              private alertService: ToastrService) { }
 
   ngOnInit() {
     this.loadSlider();
@@ -63,7 +75,6 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.singleProduct = data;
       })
     );
-    console.log(this.singleProduct);
   }
   loadNewMenus() {
     this.subManager.add(
@@ -78,4 +89,34 @@ export class HomeComponent implements OnInit, OnDestroy {
   onClickMenu(menuId: string) {
     this.router.navigate(['Home/List', menuId]);
   }
+  onAddToBascket() {
+      const testBascket: Bascket[] = JSON.parse(localStorage.getItem('bascket'));
+      if (testBascket) {
+        this.bascketList = JSON.parse(localStorage.getItem('bascket'));
+        const existBascket: Bascket = this.bascketList.find(x => x.productID === this.singleProduct.id);
+        if (existBascket) {
+          const index = this.bascketList.indexOf(existBascket);
+          existBascket.productCount += Number(1);
+          existBascket.productTotalPrice = existBascket.productCount * this.singleProduct.productPrice;
+          this.bascketList[index] = existBascket;
+        }
+      } else {
+        this.bascket.productID = this.singleProduct.id;
+        this.bascket.productCount = 1;
+        this.bascket.productName = this.singleProduct.productName;
+        this.bascket.productPrice = this.singleProduct.productPrice;
+        this.bascket.productImage = this.singleProduct.firstImageUrl;
+        this.bascket.productTotalPrice = this.bascket.productCount * this.singleProduct.productPrice;
+        this.bascketList.push(this.bascket);
+      }
+      localStorage.setItem('bascket', JSON.stringify(this.bascketList));
+      this.alertService.success('محصول با موفقیت به سبد خرید اضافه شد', 'موفق');
+  }
+  counter(point: number, count: number) {
+    if (count > 0) {
+      return new Array(point / count);
+    }else {
+      return new Array(count);
+    }
+}
 }

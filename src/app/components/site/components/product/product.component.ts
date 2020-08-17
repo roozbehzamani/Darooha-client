@@ -89,8 +89,7 @@ export class ProductComponent implements OnInit, OnDestroy {
         const existBascket: Bascket = this.bascketList.find(x => x.productID === this.product.id);
         if (existBascket) {
           const index = this.bascketList.indexOf(existBascket);
-          const count: string = this.bascketForm.get('productCount').value;
-          existBascket.productCount = existBascket.productCount + parseInt(count);
+          existBascket.productCount += Number(this.bascketForm.get('productCount').value);
           existBascket.productTotalPrice = existBascket.productCount * this.product.productPrice;
           this.bascketList[index] = existBascket;
         }

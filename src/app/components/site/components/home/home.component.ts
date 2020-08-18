@@ -114,7 +114,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
   counter(point: number, count: number) {
     if (count > 0) {
-      return new Array(point / count);
+      return new Array(Math.floor(point / count));
     } else {
       return new Array(count);
     }

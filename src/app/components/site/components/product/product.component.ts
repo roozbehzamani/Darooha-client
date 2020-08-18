@@ -40,7 +40,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   };
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private authService: AuthService,
-    private commentService: CommentService, private formBuilder: FormBuilder, private alertService: ToastrService) {
+              private commentService: CommentService, private formBuilder: FormBuilder, private alertService: ToastrService) {
   }
 
   bascketForm: FormGroup = this.formBuilder.group({
@@ -63,7 +63,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
   calculatePoint() {
     if (this.product.commentCount > 0) {
-      this.point = (this.product.sumPoint / this.product.commentCount);
+      this.point = (Math.floor(this.product.sumPoint / this.product.commentCount));
     } else {
       this.point = 0;
     }
@@ -120,7 +120,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
   counter(point: number, count: number) {
     if (count > 0) {
-      return new Array(point / count);
+      return new Array(Math.floor(point / count));
     } else {
       return new Array(count);
     }

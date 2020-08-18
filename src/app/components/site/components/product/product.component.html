@@ -3,9 +3,12 @@
   <div class="container border bg-white ">
     <div class="row ">
       <div class="col-12" style="background-color: #fff1d2">
-        <p class="text-right mb-0 py-2 ml-2 f4">
-          <span *ngFor="let item of point;"><i class='fas fa-star mt-lg-1'></i></span>
+        <p *ngIf="counter(product.sumPoint,product.commentCount).length>0" class="text-right mb-0 py-2 ml-2 f4">
+          <span *ngFor="let item of counter(product.sumPoint,product.commentCount)"><i class='fas fa-star mt-lg-1'></i></span>
           <span class="mr-2">{{point.toString()}}</span>
+        </p>
+        <p *ngIf="counter(product.sumPoint,product.commentCount).length===00" class="text-right mb-0 py-2 ml-2 f4">
+          هنوز نظری برای این محصول ثبت و امتیازی داده نشده
         </p>
       </div>
     </div>
@@ -164,34 +167,36 @@
     </div>
 
     <!----------discription D------------->
-    <!-- <div class="container border mt-5 pb-4 px-0 bg-white" id="dD">
+    <div class="container border mt-5 pb-4 px-0 bg-white" id="dD">
       <h6 class="text-light mb-0 py-3 px-3 bg-secondary f6">ثبت نظر</h6>
       <div class="row">
         <div class="col-12 col-lg-12">
           <div class="back-product-post1 border mx-2 pb-4 mt-3">
             <h6 class="px-3  f5 text-points py-3 mb-0">شما هم نظر خود را در مورد این محصول ثبت کنید</h6>
-            <form *ngIf="loggedIn">
+            <form [formGroup]="commentForm" *ngIf="loggedIn">
               <mat-form-field class="custom-mat-form-field commentFormField">
                 <mat-label>نظر</mat-label>
-                <input formControlName="text" matInput placeholder="متن نظر" value="" autocomplete="off">
-                <mat-error>این فیلد نمیتواند خالی باشد</mat-error>
+                <input formControlName="commentText" matInput placeholder="متن نظر" value="" autocomplete="off">
+                <mat-error *ngIf="
+                commentForm.get('commentText').hasError('required') &&
+                commentForm.get('commentText').touched">این فیلد نمیتواند خالی باشد</mat-error>
               </mat-form-field>
               <div class="row f5 px-3">
                 <div class="col-5">
-                  <p class="mt-2">امتیاز ( <span>0</span> از 5 )</p>
+                  <p class="mt-2">امتیاز ( <span>{{selectedRate}}</span> از 5 )</p>
                 </div>
                 <div class="col-7 ">
                   <section>
                     <div class="stars float-right ">
-                      <input class="star star-5" id="star-5" value="5" type="radio" name="star" />
+                      <input class="star star-5" (click)="rating(5)" id="star-5" value="5" type="radio" name="star" />
                       <label class="star star-5" for="star-5"></label>
-                      <input class="star star-4" id="star-4" value="4" type="radio" name="star" />
+                      <input class="star star-4" (click)="rating(4)" id="star-4" value="4" type="radio" name="star" />
                       <label class="star star-4" for="star-4"></label>
-                      <input class="star star-3" id="star-3" value="3" type="radio" name="star" />
+                      <input class="star star-3" (click)="rating(3)" id="star-3" value="3" type="radio" name="star" />
                       <label class="star star-3" for="star-3"></label>
-                      <input class="star star-2" id="star-2" value="2" type="radio" name="star" />
+                      <input class="star star-2" (click)="rating(2)" id="star-2" value="2" type="radio" name="star" />
                       <label class="star star-2" for="star-2"></label>
-                      <input class="star star-1" id="star-1" value="1" type="radio" name="star" />
+                      <input class="star star-1" (click)="rating(1)" id="star-1" value="1" type="radio" name="star" />
                       <label class="star star-1" for="star-1"></label>
                     </div>
                   </section>
@@ -203,17 +208,17 @@
                 <button type="button" class="btn btn-green1 w-100 f6">با نام کاربری خود وارد شوید</button>
               </div>
               <div *ngIf="loggedIn" class="col-12">
-                <button type="button" class="btn btn-green1 w-100 f6">ارسال نظر</button>
+                <button type="submit" (click)="onAddComment()" class="btn btn-green1 w-100 f6">ارسال نظر</button>
               </div>
             </div>
           </div>
         </div>
 
       </div>
-    </div> -->
+    </div>
 
     <!----------discription E------------->
-    <!-- <div class="container border mt-5 pb-4 mb-4 px-0 bg-white" id="dE">
+    <div class="container border mt-5 pb-4 mb-4 px-0 bg-white" id="dE">
       <h6 class="text-light mb-0 py-3 px-3 bg-secondary f6">نظرات کاربران</h6>
       <div *ngFor="let comment of allComments" class="back-product-post1 border mx-2 mt-3 pb-4">
         <div class="row text-points py-1 mx-0">
@@ -246,5 +251,5 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>

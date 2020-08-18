@@ -9,6 +9,7 @@ import { CommentService } from 'src/app/Services/site/comment/comment.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Bascket } from 'src/app/models/bascket';
 import { ToastrService } from 'ngx-toastr';
+import { CommentForSend } from 'src/app/models/comment-for-send';
 
 @Component({
   selector: 'app-product',
@@ -21,7 +22,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   product: Product;
   productImages: ProductImage[];
   loggedIn; boolean;
-  allComments: Comment[];
+  allComments: Comment[] = [];
   point: number;
   bascket: Bascket = {
     productCount: null,
@@ -32,17 +33,26 @@ export class ProductComponent implements OnInit, OnDestroy {
     productTotalPrice: null
   };
   bascketList: Bascket[] = [];
+  selectedRate: number = Number(0);
+  commentForAdd: CommentForSend = {
+    commentPoint: null,
+    commentText: null
+  };
 
-  constructor(private route: ActivatedRoute, private productService: ProductService, private authServeice: AuthService,
+  constructor(private route: ActivatedRoute, private productService: ProductService, private authService: AuthService,
     private commentService: CommentService, private formBuilder: FormBuilder, private alertService: ToastrService) {
   }
 
   bascketForm: FormGroup = this.formBuilder.group({
-    productCount: ['', [Validators.required]]
+    productCount: ['0', [Validators.required]]
+  });
+
+  commentForm: FormGroup = this.formBuilder.group({
+    commentText: ['', [Validators.required]]
   });
 
   ngOnInit() {
-    this.loggedIn = this.authServeice.loggedIn();
+    this.loggedIn = this.authService.loggedIn();
     this.loadProduct();
     this.calculatePoint();
     this.loadProductImages();
@@ -107,5 +117,30 @@ export class ProductComponent implements OnInit, OnDestroy {
     } else {
       this.alertService.warning('خطایی رخ داده', 'خطا');
     }
+  }
+  counter(point: number, count: number) {
+    if (count > 0) {
+      return new Array(point / count);
+    } else {
+      return new Array(count);
+    }
+  }
+  rating(rate: number) {
+    this.selectedRate = rate;
+  }
+  onAddComment() {
+    if (this.commentForm.valid) {
+      this.commentForAdd.commentText = this.commentForm.get('commentText').value;
+      this.commentForAdd.commentPoint = this.selectedRate;
+      this.commentService.addComment(this.product.id, this.authService.decodedToken.nameid, this.commentForAdd).subscribe(data => {
+        if (data) {
+          this.alertService.success('نظر با موفقیت ثبت شد', 'موفق');
+          this.allComments.push(data);
+        }
+      });
+    }else {
+      this.alertService.warning('خطایی رخ داده. لطفا مجددا تلاش نمایید', 'خطا');
+    }
+
   }
 }

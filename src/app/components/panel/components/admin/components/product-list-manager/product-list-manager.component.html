@@ -1,0 +1,68 @@
+<div class="app-content content container-fluid">
+  <div class="content-wrapper">
+      <div class="col-md-12">
+          <div class="card">
+
+              <div class="row">
+                  <div class="col-xs-12 col-md-12">
+                      <div class="card">
+                          <div class="card-header">
+                              <h5 class="card-title">لیست محصولات</h5>
+                              <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                              <div class="heading-elements">
+                                  <ul class="list-inline mb-0">
+                                      <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                      <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                      <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                      <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="card-body collapse in">
+
+                              <div class="table-responsive">
+                                  <table class="table table-bordered mb-0">
+                                      <thead>
+                                      <tr>
+                                          <th>ردیف</th>
+                                          <th>نام محصول</th>
+                                          <th>قیمت محصول </th>
+                                          <th>تعداد</th>
+                                          <th>نام علمی</th>
+                                          <th>تعداد کامنت</th>
+                                          <th>امتیاز</th>
+                                      </tr>
+                                      </thead>
+                                      <tbody>
+                                      <tr *ngFor="let item of products;let i=index;">
+                                          <th scope="row" class="pt-1">{{i}}</th>
+                                          <td class="pt-1">{{item.productName}}</td>
+                                          <td class="pt-1">{{item.productPrice}}</td>
+                                          <td class="pt-1">{{item.productCount}}</td>
+                                          <td class="pt-1">{{item.scientificName}}</td>
+                                          <td class="pt-1">{{item.commentCount}}</td>
+                                          <td class="pt-1" *ngIf="counter(item.sumPoint,item.commentCount)===0">
+                                              بدون امتیاز
+                                          </td>
+                                          <td class="pt-1" *ngIf="counter(item.sumPoint,item.commentCount)>0">
+                                            {{counter(item.sumPoint,item.commentCount)}}
+                                        </td>
+                                          <td class="pt-1">
+                                              <div class="row">
+                                                  <button type="button" class="btn btn-danger">حذف</button>
+                                                  <a href="edit%20product.html"><button type="button" class="btn btn-lime">ویرایش</button></a>
+                                              </div>
+                                          </td>
+                                      </tr>
+                                      </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->

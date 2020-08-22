@@ -5,6 +5,9 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { UsersManagementComponent } from './components/users-management/users-management.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductListManagerComponent } from './components/product-list-manager/product-list-manager.component';
+import { AdminProductService } from 'src/app/Services/panel/admin/admin-product/admin-product.service';
+import { AdminProductListResolver } from 'src/app/resolvers/panel/admin/adminProductList.resolver';
 
 @NgModule({
   imports: [
@@ -16,7 +19,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AdminComponent,
     DashboardComponent,
-    UsersManagementComponent
-  ]
+    UsersManagementComponent,
+    ProductListManagerComponent
+  ],
+  providers: [
+    // ProductList
+    AdminProductService,
+    AdminProductListResolver
+  ],
 })
 export class AdminModule { }

@@ -6,6 +6,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsersManagementComponent } from './components/users-management/users-management.component';
 import { ProductListManagerComponent } from './components/product-list-manager/product-list-manager.component';
 import { AdminProductListResolver } from 'src/app/resolvers/panel/admin/adminProductList.resolver';
+import { ProductUpdateFormComponent } from './components/product-list-manager/components/product-update-form/product-update-form.component';
+import { ProductAddFormComponent } from './components/product-list-manager/components/product-add-form/product-add-form.component';
 
 const routes: Routes = [
   {
@@ -29,6 +31,26 @@ const routes: Routes = [
         resolve: { products: AdminProductListResolver },
         data: { roles: ['Admin'],
         title: ['مدیریت محصولات'] }
+      }
+      ,
+      //
+      {
+        path: 'editProduct',
+        canActivate: [AuthGuard],
+        component: ProductUpdateFormComponent,
+        // resolve: { products: AdminProductListResolver },
+        data: { roles: ['Admin'],
+        title: ['ویرایش محصول'] }
+      }
+      ,
+      //
+      {
+        path: 'addProduct',
+        canActivate: [AuthGuard],
+        component: ProductAddFormComponent,
+        // resolve: { products: AdminProductListResolver },
+        data: { roles: ['Admin'],
+        title: ['افزودن محصول'] }
       }
     ]
   }

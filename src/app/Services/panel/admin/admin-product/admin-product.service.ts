@@ -16,6 +16,10 @@ export class AdminProductService {
     return this.http.get<ProductList[]>(this.baseUrl + userId + '/Admin/AllProductList');
   }
 
+  getProduct(userId: string, productId: string): Observable<AddProduct> {
+    return this.http.get<AddProduct>(this.baseUrl + userId + '/Admin/SingleProduct/' + productId);
+  }
+
   createNewProduct(addProduct: AddProduct, userId: string): Observable<AddProduct> {
     return this.http.post<AddProduct>(this.baseUrl + userId + '/Admin/AddProduct', addProduct);
   }

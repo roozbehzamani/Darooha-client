@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/Services/auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './product-add-form.component.html',
   styleUrls: ['./product-add-form.component.css']
 })
-export class ProductAddFormComponent implements OnInit {
+export class ProductAddFormComponent implements OnInit, OnDestroy {
 
   productForCreate: AddProduct;
   subManager = new Subscription();
@@ -43,6 +43,10 @@ export class ProductAddFormComponent implements OnInit {
   });
 
   ngOnInit() {
+  }
+
+  ngOnDestroy() {
+    this.subManager.unsubscribe();
   }
 
   onCreateProduct() {

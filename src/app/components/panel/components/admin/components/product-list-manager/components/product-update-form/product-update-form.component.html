@@ -1,246 +1,213 @@
 <div class="app-content content container-fluid">
-  <div class="content-wrapper">
-      <div class="col-md-12">
-          <div class="card">
+    <div class="content-wrapper">
+        <div class="col-md-12">
+            <div class="card">
 
-              <div class="row">
-                  <div class="col-xs-12 col-md-10 push-md-1">
-                      <div class="card mt-3">
-                          <div class="card-header">
-                              <h5 class="card-title">ویرایش محصول</h5>
-                              <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
-                              <div class="heading-elements">
-                                  <ul class="list-inline mb-0">
-                                      <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
-                                      <li><a data-action="reload"><i class="icon-reload"></i></a></li>
-                                      <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
-                                      <li><a data-action="close"><i class="icon-cross2"></i></a></li>
-                                  </ul>
-                              </div>
-                          </div>
-                          <div class="card-body collapse in">
-                              <div class="container mt-2 mb-2">
-                                  <form class="form">
-                                      <div class="form-body">
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="projectinput1">نام محصول :</label>
-                                                      <input type="text" id="projectinput1" class="form-control" placeholder="" name="fname">
-                                                  </div>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="projectinput2">قیمت محصول:</label>
-                                                      <input type="text" id="projectinput2" class="form-control" placeholder="" name="lname">
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="projectinput3">نام زیرمنو :</label>
-                                                      <select id="projectinput3" name="interested" class="form-control">
-                                                          <option value="none" selected="" disabled="">انتخاب</option>
-                                                          <option value="design">لورم ایپسوم</option>
-                                                          <option value="development">لورم ایپسوم</option>
-                                                      </select>
-                                                  </div>
-                                              </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-10 push-md-1">
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h5 class="card-title">درج محصول</h5>
+                                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>
+                                <div class="heading-elements">
+                                    <ul class="list-inline mb-0">
+                                        <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>
+                                        <li><a data-action="reload"><i class="icon-reload"></i></a></li>
+                                        <li><a data-action="expand"><i class="icon-expand2"></i></a></li>
+                                        <li><a data-action="close"><i class="icon-cross2"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body collapse in">
+                                <div class="container mt-2 mb-2">
+                                    <form class="form" [formGroup]="productForm">
+                                        <div class="form-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1">نام محصول :</label>
+                                                        <input type="text" formControlName="productName" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">نام علمی:</label>
+                                                        <input type="text" formControlName="scientificName" class="form-control" name="lname">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">قیمت محصول:</label>
+                                                        <input type="text" formControlName="productPrice" class="form-control" name="lname">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput4">تعداد موجودی :</label>
+                                                        <input type="text" formControlName="productCount" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <!-- <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput3">نام زیرمنو :</label>
+                                                        <select name="interested" formControlName="subMenuId" class="form-control">
+                                                            <option value="none" selected="" disabled="">انتخاب</option>
+                                                            <option value="1">1</option>
+                                                        </select>
+                                                    </div>
+                                                </div> -->
 
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="projectinput4">تعداد موجودی :</label>
-                                                      <input type="text" id="projectinput4" class="form-control" placeholder="" name="fname">
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="projectinput5">تخفیف :</label>
-                                                      <input type="text" id="projectinput5" class="form-control" placeholder="" name="fname">
-                                                  </div>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="projectinput13">نوع محفظه :</label>
-                                                      <input type="text" id="projectinput13" class="form-control" placeholder="" name="fname">
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="projectinput7">سایز (یا تعداد برای قرص) :</label>
-                                                      <input type="text" id="projectinput7" class="form-control" placeholder="" name="fname">
-                                                  </div>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="projectinput8">کد بهداشتی :</label>
-                                                      <input type="text" id="projectinput8" class="form-control" placeholder="" name="fname">
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="projectinput9">جنسیت مصرف :</label>
-                                                      <select id="projectinput9" name="interested" class="form-control">
-                                                          <option value="none" selected="" disabled="">انتخاب</option>
-                                                          <option value="design">لورم ایپسوم</option>
-                                                          <option value="development">لورم ایپسوم</option>
-                                                      </select>
-                                                  </div>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="projectinput10">کشور سازنده:</label>
-                                                      <input type="text" id="projectinput10" class="form-control" placeholder="" name="fname">
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="projectinput11">شرکت سازنده :</label>
-                                                      <input type="text" id="projectinput11" class="form-control" placeholder="" name="fname">
-                                                  </div>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="projectinput12">آدرس سایت سازنده :</label>
-                                                      <input type="text" id="projectinput12" class="form-control" placeholder="" name="fname">
-                                                  </div>
-                                              </div>
-                                          </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput1">محفظه :</label>
+                                                        <input type="text" formControlName="enclosureType" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput7">سایز (یا تعداد برای قرص) :</label>
+                                                        <input type="text" formControlName="size" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput8">کد بهداشتی :</label>
+                                                        <input type="text" formControlName="code" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput9">جنسیت مصرف :</label>
+                                                        <select name="interested" class="form-control"  formControlName="genderOfConsumer">
+                                                            <option value="none" selected="" disabled="">انتخاب</option>
+                                                            <option value="0">مر د</option>
+                                                            <option value="1">زن</option>
+                                                            <option value="2">تمام جنسیت ها</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput10">کشور سازنده:</label>
+                                                        <input type="text" formControlName="manufacturingCountry" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput11">شرکت سازنده :</label>
+                                                        <input type="text" formControlName="manufacturerCompany" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput12">آدرس سایت سازنده :</label>
+                                                        <input type="text" formControlName="webAddress" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <div class="form-group">
-                                                      <label for="projectinput20">برند :</label>
-                                                      <select id="projectinput20" name="interested" class="form-control">
-                                                          <option value="none" selected="" disabled="">انتخاب</option>
-                                                          <option value="design">لورم ایپسوم</option>
-                                                          <option value="development">لورم ایپسوم</option>
-                                                      </select>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="row">
-                                              <div class="col-md-6">
-                                                  <div class="form-group  pt-1">
-                                                      <div class="row">
-                                                          <div class="col-xs-6 col-md-4">
-                                                              <label >قابلیت سفارش :</label>
-                                                          </div>
-                                                          <div class="col-xs-6 col-md-8">
-                                                                <span class="toggler-wrapper style-6">
-                                                          <input type="checkbox">
-                                                          <div class="toggler-slider">
-                                                              <div class="toggler-knob"></div>
-                                                          </div>
-                                                      </span>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="col-md-6">
-                                                  <div class="form-group  pt-1">
-                                                      <div class="row">
-                                                          <div class="col-xs-6 col-md-4">
-                                                              <label >فروش ویژه :</label>
-                                                          </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group  pt-1">
+                                                            <mat-checkbox formControlName="isEnable">فعال بودن/نبودن</mat-checkbox>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group  pt-1">
+                                                            <mat-checkbox formControlName="isSpecial">محصول ویژه</mat-checkbox>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                                          <div class="col-xs-6 col-md-8">
-                                                                <span class="toggler-wrapper style-6">
-                                                          <input type="checkbox">
-                                                          <div class="toggler-slider">
-                                                              <div class="toggler-knob"></div>
-                                                          </div>
-                                                      </span>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="projectinput15">مشخصه ها :</label>
+                                                        <ckeditor data=""  formControlName="features"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                          <div class="row">
-                                              <div class="col-xs-12">
-                                                  <div class="form-group">
-                                                      <label for="projectinput15">مشخصه ها :</label>
-                                                      <ckeditor data=""></ckeditor>
-                                                  </div>
-                                              </div>
-                                          </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="projectinput16">روش مصرف :</label>
+                                                        <ckeditor data="" formControlName="methodUse"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                          <div class="row">
-                                              <div class="col-xs-12">
-                                                  <div class="form-group">
-                                                      <label for="projectinput16">روش مصرف :</label>
-                                                      <ckeditor data=""></ckeditor>
-                                                  </div>
-                                              </div>
-                                          </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="projectinput17">موارد مصرف :</label>
+                                                        <ckeditor data="" formControlName="indications"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                          <div class="row">
-                                              <div class="col-xs-12">
-                                                  <div class="form-group">
-                                                      <label for="projectinput17">موارد مصرف :</label>
-                                                      <ckeditor data=""></ckeditor>
-                                                  </div>
-                                              </div>
-                                          </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="projectinput18">هشدار مصرف:</label>
+                                                        <ckeditor data="" formControlName="warnings"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="form-group">
+                                                        <label for="projectinput19">شرایط نگهداری :</label>
+                                                        <ckeditor data="" formControlName="maintenance"></ckeditor>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                          <div class="row">
-                                              <div class="col-xs-12">
-                                                  <div class="form-group">
-                                                      <label for="projectinput18">هشدار مصرف:</label>
-                                                      <ckeditor data=""></ckeditor>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <div class="row">
-                                              <div class="col-xs-12">
-                                                  <div class="form-group">
-                                                      <label for="projectinput19">شرایط نگهداری :</label>
-                                                      <ckeditor data=""></ckeditor>
-                                                  </div>
-                                              </div>
-                                          </div>
-
-                                          <div class="row">
-                                              <div class="col-xs-12">
-                                                  <label class="text-xs-left">عکس ها</label>
-                                              </div>
-                                              <div class="col-xs-12 col-md-3 mt-1">
-                                                  <img src="../../img/2-2.jpg" class="img-fluid">
-                                                  <input type="checkbox" id="remember-me1" class="chk-remember mt-1" style="width: 20px;height: 20px;text-align:center ">
-                                              </div>
-                                              <div class="col-xs-12 col-md-3 mt-1">
-                                                  <img src="../../img/2-2.jpg" class="img-fluid">
-                                                  <input type="checkbox" id="remember-me2" class="chk-remember mt-1" style="width: 20px;height: 20px;text-align:center ">
-                                              </div>
-                                              <div class="col-xs-12 col-md-3 mt-1">
-                                                  <img src="../../img/2-2.jpg" class="img-fluid">
-                                                  <input type="checkbox" id="remember-me3" class="chk-remember mt-1" style="width: 20px;height: 20px;text-align:center ">
-                                              </div>
-                                              <div class="col-xs-12 col-md-3 mt-1">
-                                                  <img src="../../img/2-2.jpg" class="img-fluid">
-                                                  <input type="checkbox" id="remember-me4" class="chk-remember mt-1" style="width: 20px;height: 20px;text-align:center ">
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </form>
-                                  <button type="button" class="btn btn-success mt-3 ">درج</button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <label class="text-xs-left">عکس ها</label>
+                                                </div>
+                                                <div class="col-xs-12 col-md-3 mt-1">
+                                                    <img src="../../img/2-2.jpg" class="img-fluid">
+                                                    <input type="checkbox" id="remember-me1" class="chk-remember mt-1"
+                                                        style="width: 20px;height: 20px;text-align:center ">
+                                                </div>
+                                                <div class="col-xs-12 col-md-3 mt-1">
+                                                    <img src="../../img/2-2.jpg" class="img-fluid">
+                                                    <input type="checkbox" id="remember-me2" class="chk-remember mt-1"
+                                                        style="width: 20px;height: 20px;text-align:center ">
+                                                </div>
+                                                <div class="col-xs-12 col-md-3 mt-1">
+                                                    <img src="../../img/2-2.jpg" class="img-fluid">
+                                                    <input type="checkbox" id="remember-me3" class="chk-remember mt-1"
+                                                        style="width: 20px;height: 20px;text-align:center ">
+                                                </div>
+                                                <div class="col-xs-12 col-md-3 mt-1">
+                                                    <img src="../../img/2-2.jpg" class="img-fluid">
+                                                    <input type="checkbox" id="remember-me4" class="chk-remember mt-1"
+                                                        style="width: 20px;height: 20px;text-align:center ">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <button type="submit" (click)="onCreateProduct()" class="btn btn-success mt-3 ">درج</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->

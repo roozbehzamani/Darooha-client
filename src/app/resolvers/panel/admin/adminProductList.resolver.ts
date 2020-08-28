@@ -9,11 +9,11 @@ import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 export class AdminProductListResolver implements Resolve<ProductList[]> {
-    constructor(private adminProductList: AdminProductService,
+    constructor(private adminProductService: AdminProductService,
                 private alertService: ToastrService, private authService: AuthService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<ProductList[]> {
-        return this.adminProductList.getAllproduct(this.authService.decodedToken.nameid).pipe(
+        return this.adminProductService.getAllproduct(this.authService.decodedToken.nameid).pipe(
             catchError(error => {
                 this.alertService.error(error, 'خطا');
                 return of(null);

@@ -8,6 +8,7 @@ import { ProductListManagerComponent } from './components/product-list-manager/p
 import { AdminProductListResolver } from 'src/app/resolvers/panel/admin/adminProductList.resolver';
 import { ProductUpdateFormComponent } from './components/product-list-manager/components/product-update-form/product-update-form.component';
 import { ProductAddFormComponent } from './components/product-list-manager/components/product-add-form/product-add-form.component';
+import { EditProductResolver } from 'src/app/resolvers/panel/admin/editProduct.resolver';
 
 const routes: Routes = [
   {
@@ -51,6 +52,15 @@ const routes: Routes = [
         // resolve: { products: AdminProductListResolver },
         data: { roles: ['Admin'],
         title: ['افزودن محصول'] }
+      },
+      //
+      {
+        path: 'editProduct/:productId',
+        canActivate: [AuthGuard],
+        component: ProductUpdateFormComponent,
+        resolve: { product: EditProductResolver },
+        data: { roles: ['Admin'],
+        title: ['ویرایش محصول'] }
       }
     ]
   }

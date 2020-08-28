@@ -12,6 +12,7 @@ import { ProductAddFormComponent } from './components/product-list-manager/compo
 import { ProductUpdateFormComponent } from './components/product-list-manager/components/product-update-form/product-update-form.component';
 import { CKEditorModule } from 'ckeditor4-angular';
 import { MaterialModule } from 'src/app/SharedModule/material/material.module';
+import { EditProductResolver } from 'src/app/resolvers/panel/admin/editProduct.resolver';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { MaterialModule } from 'src/app/SharedModule/material/material.module';
   providers: [
     // ProductList
     AdminProductService,
-    AdminProductListResolver
+    AdminProductListResolver,
+    EditProductResolver
   ],
 })
 export class AdminModule { }

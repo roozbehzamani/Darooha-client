@@ -1,3 +1,12 @@
+@import "../../../../../../../assets/css-rtl/bootstrap.css";
+@import "../../../../../../../assets/fonts/icomoon.css";
+@import "../../../../../../../assets/css-rtl/bootstrap-extended.css";
+@import "../../../../../../../assets/css-rtl/app.css";
+@import "../../../../../../../assets/css-rtl/core/menu/menu-types/vertical-menu.css";
+@import "../../../../../../../assets/css-rtl/core/menu/menu-types/vertical-overlay-menu.css";
+@import "../../../../../../../assets/css-rtl/core/colors/palette-gradient.css";
+@import "../../../../../../../assets/css-rtl/colors.css";
+
 .margt15{
     margin-top: 15px;
     margin-left: 10px;

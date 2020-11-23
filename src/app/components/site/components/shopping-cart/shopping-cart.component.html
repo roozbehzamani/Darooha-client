@@ -1,0 +1,190 @@
+<!-------body------->
+<div class="container-fluid pb-5 pt-5 " style="background-color: #fafafa;">
+
+  <!--------number-------->
+  <div class="container border bg-white py-4">
+    <div class="row text-center">
+      <div class="cart active-green">
+
+        <span class="number">
+          <i class="active-green">1</i>
+        </span>
+        <p class="mt-2 mb-0 f3"> سفارشات</p>
+      </div>
+      <div class="cart">
+
+        <span class="number">
+          <i>2</i>
+        </span>
+        <p class="mt-2 mb-0 f3">اطلاعات خریدار</p>
+      </div>
+      <div class="cart">
+
+        <span class="number">
+          <i>3</i>
+        </span>
+        <p class="mt-2 mb-0 f3">نحوه ارسال</p>
+      </div>
+      <div class="cart">
+
+        <span class="number">
+          <i>4</i>
+        </span>
+        <p class="mt-2 mb-0 f3">پیش فاکتور</p>
+      </div>
+      <div class="cart">
+
+        <span class="number">
+          <i>5</i>
+        </span>
+        <p class="mt-2 mb-0 f3">پرداخت</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!----------products----------->
+  <div class="container mt-5 bg-white border py-4">
+    <h6 class="f6">لیست سفارشات ( {{bascketList?.length}} عدد کالا )</h6>
+    <p class="text-secondary f5"> لطفا قبل از ثبت سفارش از نوع , تعداد و قیمت محصولات مورد درخواست خود اطمینان حاصل
+      نمایید .</p>
+
+
+    <!----------product----------->
+    <div class="d-none d-lg-block">
+      <div class="row text-center mx-1" style="background-color: #b1dfbb">
+        <div class="col-4 border-right ">
+          <p class="mb-0 py-2">عنوان</p>
+        </div>
+        <div class="col-2 border-right">
+          <p class="mb-0 py-2">تعداد</p>
+        </div>
+        <div class="col-3 border-right">
+          <p class="mb-0 py-2">قیمت واحد</p>
+        </div>
+        <div class="col-3">
+          <p class="mb-0 py-2">قیمت کل</p>
+        </div>
+      </div>
+      <div *ngFor="let item of bascketList;let i=index;" class="row  mx-1 border bg-white">
+        <div class="col-4 border-right ">
+          <div class="row">
+            <div class="col-2 my-5  text-center"><span>{{i}}</span></div>
+            <div class="col-10 border-left py-5">
+              <div class="row">
+                <div class="col-4">
+                  <img src="{{item.productImage}}" class="img-fluid">
+                </div>
+                <div class="col-8">
+                  <p>{{item.productName}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2 border-right py-5">
+          <div class="row py-1 justify-content-center">
+            <button class="btn2 mr-1" onclick="btn2(this)">+</button>
+            <input class="input-count text-center " type="text" size="5" value="{{item.productCount}}">
+            <button class="btn1 ml-1" onclick="btn1(this)">-</button>
+          </div>
+        </div>
+        <div class="col-3 border-right  py-5">
+          <p class="text-center">{{item.productPrice}} تومان</p>
+        </div>
+        <div class="col-3 ">
+          <div class="row" style="height: 100%">
+            <div class="col-10 border-right py-5">
+              <p class="text-center ">{{item.productTotalPrice}} تومان</p>
+
+            </div>
+            <div class="col-2 my-5 "><i class='fas fa-window-close text-danger'></i></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!----------product mobile----------->
+    <!-- <div class="d-lg-none">
+      <div class="row  mx-1 border bg-white">
+        <div class="col-6 col-md-4">
+          <p class="mb-0 py-3 f5">شامپو تقویتی سیر</p>
+        </div>
+        <div class="col-6 col-md-3 ">
+          <div class="row py-1 justify-content-center mt-2">
+            <button class="btn2 mr-1" onclick="btn2(this)">+</button>
+            <input class="input-count text-center " type="text" size="5" value="1">
+            <button class="btn1 ml-1" onclick="btn1(this)">-</button>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <p class="mb-0 py-3 f5 ">86,800 تومان</p>
+        </div>
+        <div class="col-6 col-md-2 text-right">
+          <i class='fas fa-window-close text-danger mt-3 pt-1'></i>
+        </div>
+      </div>
+      <div class="row  mx-1 border bg-white">
+        <div class="col-6 col-md-4">
+          <p class="mb-0 py-3 f5">شامپو تقویتی سیر</p>
+        </div>
+        <div class="col-6 col-md-3 ">
+          <div class="row py-1 justify-content-center mt-2">
+            <button class="btn2 mr-1" onclick="btn2(this)">+</button>
+            <input class="input-count text-center " type="text" size="5" value="1">
+            <button class="btn1 ml-1" onclick="btn1(this)">-</button>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <p class="mb-0 py-3 f5">86,800 تومان</p>
+        </div>
+        <div class="col-6 col-md-2 text-right">
+          <i class='fas fa-window-close text-danger mt-3 pt-1'></i>
+        </div>
+      </div>
+    </div> -->
+
+    <!--------price--------->
+    <div class="row justify-content-end mt-4 mx-1">
+      <div class="col-12 col-md-6 border">
+        <div class="row border-bottom f5">
+          <div class="col-6">
+            <p class="mb-0 py-2 ">جمع کل</p>
+
+          </div>
+          <div class="col-6">
+            <p class="mb-0 py-2 text-right ">{{totalPrice}} تومان</p>
+
+          </div>
+        </div>
+        <div class="row border-bottom text-info f5">
+          <div class="col-6">
+            <p class="mb-0 py-2">تخفیف اعتباری</p>
+
+          </div>
+          <div class="col-6">
+            <p class="mb-0 py-2 text-right">0</p>
+
+          </div>
+        </div>
+        <div class="row back-product-post text-green f5 ">
+          <div class="col-6">
+            <p class="mb-0 py-3">مبلغ قابل پرداخت</p>
+
+          </div>
+          <div class="col-6">
+            <p class="mb-0 py-3 text-right">{{totalPrice}} تومان</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-------باتن ثبت و ادامه سفارش---->
+  <div class="container px-0 pb-5">
+    <button type="button" class="btn btn-green1 mt-4 float-right rounded-0 f6">تایید و ادامه ثبت سفارش</button>
+  </div>
+</div>

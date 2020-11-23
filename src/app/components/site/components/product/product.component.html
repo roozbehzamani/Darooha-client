@@ -1,0 +1,255 @@
+<!-------body------->
+<div class="container-fluid pb-5 pt-5 " style="background-color: #fafafa;">
+  <div class="container border bg-white ">
+    <div class="row ">
+      <div class="col-12" style="background-color: #fff1d2">
+        <p *ngIf="counter(product.sumPoint,product.commentCount).length>0" class="text-right mb-0 py-2 ml-2 f4">
+          <span *ngFor="let item of counter(product.sumPoint,product.commentCount)"><i class='fas fa-star mt-lg-1'></i></span>
+          <span class="mr-2">{{point.toString()}}</span>
+        </p>
+        <p *ngIf="counter(product.sumPoint,product.commentCount).length===00" class="text-right mb-0 py-2 ml-2 f4">
+          هنوز نظری برای این محصول ثبت و امتیازی داده نشده
+        </p>
+      </div>
+    </div>
+
+    <div class="row py-5">
+      <div class="col-12 col-md-7">
+        <div class="name-product">
+          <div class="row">
+            <div class="col-8">
+              <h6 class="mt-4 pt-1 f6">{{product.productName}}</h6>
+            </div>
+            <div class="col-4">
+              <p class="text-right mt-4 border bg-white text-code-product f4">{{product.code}}</p>
+            </div>
+          </div>
+          <p class="pt-2 f4">{{product.ScientificName}}</p>
+        </div>
+        <p class="text-center bg-light py-2 mt-5 border rounded f5">{{product.productPrice}} تومان </p>
+        <form [formGroup]="bascketForm">
+          <button type="submit" class="btn btn-green text-light f6" (click)="onAddToBascket()">افزودن به سبد
+            خرید</button>
+          <div class="col-12 border mt-3 rounded">
+            <div class="row">
+              <div class="col-6 col-md-4 col-lg-6">
+                <p class="mb-0 py-2 f41">تعداد <span class="d-md-none d-lg-inline">سفارش</span></p>
+              </div>
+              <div class="col-6 col-md-8 col-lg-6">
+                <div class="row py-1 float-right mr-1">
+                  <button class="btn2 mr-1" onclick="btn2(this)">+</button>
+                  <input formControlName="productCount" class="input-count text-center " type="text" size="3" value="1">
+                  <button class="btn1 ml-1" onclick="btn1(this)">-</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="col-10 col-md-5 mt-lg-0 mt-md-0 mt-3">
+        <!--------slider-------->
+        <div class="col-12 col-lg-12">
+          <div id="demo" class="carousel slide" data-ride="carousel">
+
+            <!-- Indicators -->
+            <ul class="carousel-indicators">
+              <li data-target="#demo" [attr.data-slide-to]="i"
+                *ngFor="let item of productImages;let isFirst=first;let i=index;" [ngClass]="{active:isFirst}"></li>
+            </ul>
+
+            <!-- The slideshow -->
+            <div class="carousel-inner">
+              <div *ngFor="let item of productImages;let isFirst=first" [ngClass]="{active:isFirst}"
+                class="carousel-item">
+                <img src="{{item.imageUrl}}" class="img-fluid" alt="Los Angeles">
+              </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="carousel-control-prev" href="#demo" data-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#demo" data-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!----------discription A------------->
+    <div class="container border mt-3 px-0 bg-white">
+      <h6 class="text-light mb-0 py-3 px-3 bg-secondary f5">مشخصات محصول</h6>
+
+      <h6 class="text-green mt-4 px-3 f5">مشخصات عمومی</h6>
+      <div class="row f3">
+        <div class="col-6 col-md-3">
+          <p class="border px-3 py-2 ml-2 back-product-post">کشور سازنده</p>
+          <p class="border px-3 py-2 ml-2 back-product-post">شرکت سازنده </p>
+          <p class="border px-3 py-2 ml-2 back-product-post">آدرس وب سایت شرکت</p>
+        </div>
+        <div class="col-6 col-md-9">
+          <p class="border px-3 py-2 mr-2 back-product-post1">{{product.manufacturingCountry}}</p>
+          <p class="border px-3 py-2 mr-2 back-product-post1">{{product.manufacturerCompany}}</p>
+          <p class="border px-3 py-2 mr-2 back-product-post1">{{product.webAddress}}</p>
+        </div>
+      </div>
+
+
+
+      <h6 class="text-green mt-4 px-3 f5">مشخصات خصوصی</h6>
+      <div class="row f3">
+        <div class="col-6 col-md-3">
+          <p class="border px-3 py-2 ml-2 back-product-post">سایز</p>
+          <p class="border px-3 py-2 ml-2 back-product-post">نحوه نگهداری</p>
+          <p class="border px-3 py-2 ml-2 back-product-post">کد بهداشتی</p>
+          <p class="border px-3 py-2 ml-2 back-product-post">جنسیت مصرف کننده</p>
+        </div>
+        <div class="col-6 col-md-9">
+          <p class="border px-3 py-2 mr-2 back-product-post1">{{product.size}}</p>
+          <p class="border px-3 py-2 mr-2 back-product-post1">{{product.maintenance}}</p>
+          <p class="border px-3 py-2 mr-2 back-product-post1">{{product.code}}</p>
+          <p *ngIf="product.genderOfConsumer===0" class="border px-3 py-2 mr-2 back-product-post1">مرد</p>
+          <p *ngIf="product.genderOfConsumer===1" class="border px-3 py-2 mr-2 back-product-post1">زن</p>
+          <p *ngIf="product.genderOfConsumer===2" class="border px-3 py-2 mr-2 back-product-post1">تمام جنسیت ها</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <!----------discription B------------->
+    <div class="container border mt-5 px-0 bg-white" id="dB">
+      <h6 class="text-light mb-0 py-3 px-3 bg-secondary f5">اطلاعات کاربردی</h6>
+      <div class="vertical-tabs">
+        <div class="row">
+          <div class="col-12 col-md-3">
+            <ul class="nav nav-tabs" role="tablist">
+              <li class="nav-item py-2" style="float: none;">
+                <a class="nav-link active f6" data-toggle="tab" href="#pag1" role="tab" aria-controls="home">
+                  مشخصه ها</a>
+              </li>
+              <li class="nav-item py-2 " style="float: none;">
+                <a class="nav-link f6" data-toggle="tab" href="#pag2" role="tab" aria-controls="profile">
+                  روش مصرف</a>
+              </li>
+              <li class="nav-item py-2 " style="float: none;">
+                <a class="nav-link f6" data-toggle="tab" href="#pag3" role="tab" aria-controls="warning">
+                  روش مصرف</a>
+              </li>
+
+            </ul>
+          </div>
+          <div class="col-12 col-md-9">
+            <div class="tab-content mt-2">
+              <div class="tab-pane active" id="pag1" role="tabpanel">
+                <div class="sv-tab-panel border back-product-post1">
+                  <p class="text-justify px-3 f41 mb-0 py-2">{{product.features}}</p>
+                </div>
+              </div>
+              <div class="tab-pane" id="pag2" role="tabpanel">
+                <div class="sv-tab-panel border back-product-post1">
+                  <p class="text-justify px-3 f41 mb-0 py-2">{{product.methodUse}}</p>
+                </div>
+              </div>
+              <div class="tab-pane" id="pag3" role="tabpanel">
+                <div class="sv-tab-panel border back-product-post1">
+                  <p class="text-justify px-3 f41 mb-0 py-2">{{product.warnings}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!----------discription D------------->
+    <div class="container border mt-5 pb-4 px-0 bg-white" id="dD">
+      <h6 class="text-light mb-0 py-3 px-3 bg-secondary f6">ثبت نظر</h6>
+      <div class="row">
+        <div class="col-12 col-lg-12">
+          <div class="back-product-post1 border mx-2 pb-4 mt-3">
+            <h6 class="px-3  f5 text-points py-3 mb-0">شما هم نظر خود را در مورد این محصول ثبت کنید</h6>
+            <form [formGroup]="commentForm" *ngIf="loggedIn">
+              <mat-form-field class="custom-mat-form-field commentFormField">
+                <mat-label>نظر</mat-label>
+                <input formControlName="commentText" matInput placeholder="متن نظر" value="" autocomplete="off">
+                <mat-error *ngIf="
+                commentForm.get('commentText').hasError('required') &&
+                commentForm.get('commentText').touched">این فیلد نمیتواند خالی باشد</mat-error>
+              </mat-form-field>
+              <div class="row f5 px-3">
+                <div class="col-5">
+                  <p class="mt-2">امتیاز ( <span>{{selectedRate}}</span> از 5 )</p>
+                </div>
+                <div class="col-7 ">
+                  <section>
+                    <div class="stars float-right ">
+                      <input class="star star-5" (click)="rating(5)" id="star-5" value="5" type="radio" name="star" />
+                      <label class="star star-5" for="star-5"></label>
+                      <input class="star star-4" (click)="rating(4)" id="star-4" value="4" type="radio" name="star" />
+                      <label class="star star-4" for="star-4"></label>
+                      <input class="star star-3" (click)="rating(3)" id="star-3" value="3" type="radio" name="star" />
+                      <label class="star star-3" for="star-3"></label>
+                      <input class="star star-2" (click)="rating(2)" id="star-2" value="2" type="radio" name="star" />
+                      <label class="star star-2" for="star-2"></label>
+                      <input class="star star-1" (click)="rating(1)" id="star-1" value="1" type="radio" name="star" />
+                      <label class="star star-1" for="star-1"></label>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </form>
+            <div class="row px-3">
+              <div *ngIf="!loggedIn" class="col-12">
+                <button type="button" class="btn btn-green1 w-100 f6">با نام کاربری خود وارد شوید</button>
+              </div>
+              <div *ngIf="loggedIn" class="col-12">
+                <button type="submit" (click)="onAddComment()" class="btn btn-green1 w-100 f6">ارسال نظر</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!----------discription E------------->
+    <div class="container border mt-5 pb-4 mb-4 px-0 bg-white" id="dE">
+      <h6 class="text-light mb-0 py-3 px-3 bg-secondary f6">نظرات کاربران</h6>
+      <div *ngFor="let comment of allComments" class="back-product-post1 border mx-2 mt-3 pb-4">
+        <div class="row text-points py-1 mx-0">
+          <div class="col-5 col-md-2 col-xl-1">
+            <img src="{{comment.userImageUrl}}" class="img-user img-fluid d-block mx-auto">
+          </div>
+          <div class="col-7 col-md-6 col-xl-8">
+            <p class="text-secondary f4">{{comment.userName}}</p>
+            <span class="f4 font-p">{{comment.dateModified}}</span>
+          </div>
+        </div>
+
+        <div class="border bg-white mx-2 mt-4 rounded">
+          <p class="mb-0 px-3 py-3 f4">{{comment.commentText}}</p>
+        </div>
+        <div *ngIf="comment.commentResponse!== 'none'" class="row justify-content-center">
+          <div class="col-11 col-md-11">
+            <div class="back-product-post1 border mx-2 border-top-0 ">
+              <div class="row text-points py-1 mx-0">
+                <div class="col-5 col-md-2 col-xl-1">
+                  <img src="../../../../../assets/app-site/img/man%20(3).png"
+                    class="img-logo img-fluid d-block mx-auto mt-1">
+                </div>
+                <div class="col-7 col-md-7 col-xl-9">
+                  <p class="text-secondary f4 doctorCommentAnswer">پزشک</p>
+                </div>
+              </div>
+              <p class="px-3 py-3 mb-0 f4">{{comment.commentResponse}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,22 @@
+@import "../../../../../../../../../assets/css-rtl/bootstrap.css";
+@import "../../../../../../../../../assets/fonts/icomoon.css";
+@import "../../../../../../../../../assets/css-rtl/bootstrap-extended.css";
+@import "../../../../../../../../../assets/css-rtl/app.css";
+@import "../../../../../../../../../assets/css-rtl/core/menu/menu-types/vertical-menu.css";
+@import "../../../../../../../../../assets/css-rtl/core/menu/menu-types/vertical-overlay-menu.css";
+@import "../../../../../../../../../assets/css-rtl/core/colors/palette-gradient.css";
+@import "../../../../../../../../../assets/css-rtl/colors.css";
+.card {
+    border: none;
+    box-shadow: none;
+    border-radius: 10px;
+}
+.editbuttom {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.editspan {
+    float: left;
+}

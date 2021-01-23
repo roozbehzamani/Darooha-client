@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { AuthService } from './Services/auth/auth.service';
-import { TitleService } from './Services/common/title.service';
+import { AuthService } from './core/_services/auth/auth.service';
+import { TitleService } from './core/_services/common/title.service';
 
 @Component({
   selector: 'app-root',

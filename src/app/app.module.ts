@@ -16,7 +16,7 @@ import { AuthService } from './core/_services/auth/auth.service';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   pbColor: 'red',
-  //
+  // fdfdfdfdfd
   bgsColor: 'red',
   bgsPosition: POSITION.bottomRight,
   bgsSize: 70,

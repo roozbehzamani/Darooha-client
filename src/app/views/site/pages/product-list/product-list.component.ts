@@ -25,7 +25,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   loadProducts() {
     this.subManager.add(
       this.route.data.subscribe(data => {
-        this.products = data.productList;
+        this.products = data.productList.result;
       })
     );
   }

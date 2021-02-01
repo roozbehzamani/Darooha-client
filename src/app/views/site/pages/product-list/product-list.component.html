@@ -246,7 +246,14 @@
 
 
               <!-------- button see more-------->
-              <button type="button" class="btn btn-green1 float-right rounded-0 mt-4 f6">مشاهده نتایج بیشتر</button>
+              <mat-paginator
+                [pageIndex]="pagination.currentPage"
+                [length]="pagination.totalItems"
+                [pageSize]="pagination.itemsPerPage"
+                [pageSizeOptions]="[2, 3, 4, 5, 10]"
+                showFirstLastButtons
+                (page)="paginatorEvent($event)"
+            ></mat-paginator>
           </div>
       </div>
   </div>

@@ -8,7 +8,7 @@ import { Product } from 'src/app/data/models/site/product';
 
 @Injectable()
 export class ProductListResolver implements Resolve<Product[]> {
-    pageNumber = 1;
+    pageNumber = 0;
     pageSize = 2;
     constructor(private productService: ProductService, private router: Router,
                 private alertService: ToastrService) {}

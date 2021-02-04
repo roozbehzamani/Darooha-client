@@ -13,8 +13,7 @@ export class OrderItemResolver implements Resolve<Orderitem[]> {
                 private alertService: ToastrService, private authService: AuthService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<Orderitem[]> {
-        // tslint:disable-next-line:no-string-literal
-        return this.orderService.getItems(this.authService.decodedToken.nameid, route.params['orderId']).pipe(
+        return this.orderService.getItems(this.authService.decodedToken.nameid, route.params.orderId).pipe(
             catchError(error => {
                 this.alertService.error(error, 'خطا');
                 return of(null);

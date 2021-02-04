@@ -12,8 +12,7 @@ export class ProductResolver implements Resolve<Product> {
                 private alertService: ToastrService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<Product> {
-        // tslint:disable-next-line:no-string-literal
-        return this.productService.getSingleProduct(route.params['productId']).pipe(
+        return this.productService.getSingleProduct(route.params.productId).pipe(
             catchError(error => {
                 this.alertService.error(error, 'خطا');
                 return of(null);

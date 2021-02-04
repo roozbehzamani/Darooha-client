@@ -141,6 +141,9 @@ export class ProductComponent implements OnInit, OnDestroy {
     }else {
       this.alertService.warning('خطایی رخ داده. لطفا مجددا تلاش نمایید', 'خطا');
     }
+  }
 
+  activeDiscount(discount: string, price: number) {
+    return (1 - (Number(discount) / 100)) * price;
   }
 }

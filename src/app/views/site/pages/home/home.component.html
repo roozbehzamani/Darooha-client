@@ -127,7 +127,12 @@
                                     </div>
 
                                     <p class="text-left pt-2 f4">{{item.productName}} </p>
-                                    <p class="text-left f4">{{item.productPrice}} تومان</p>
+                                    <div *ngIf="item.discount==='0'">
+                                        <p class="text-left f4">{{item.productPrice}} تومان</p>
+                                    </div>
+                                    <div *ngIf="item.discount!=='0'">
+                                        <p class="text-left f4"><span style="text-decoration: line-through;">{{item.productPrice}} تومان </span><span style="font-weight: bold;">  &#160;&#160;&#160;  {{activeDiscount(item.discount, item.productPrice)}} تومان</span></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

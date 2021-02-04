@@ -1,6 +1,17 @@
-@import '../../../../../assets/app-site/css/bootstrap.css';
-@import '../../../../../assets/app-site/css/bootstrap-reboot.css';
-@import '../../../../../assets/app-site/css/style.css';
-@import 'https://use.fontawesome.com/releases/v5.7.0/css/all.css';
-@import '../../../../../assets/app-site/css/jquery.simpleTicker.css';
-@import '../../../../../assets/app-site/css/fontawesome.min.css';
+@import "../../../../../assets/app-site/css/bootstrap.css";
+@import "../../../../../assets/app-site/css/bootstrap-reboot.css";
+@import "../../../../../assets/app-site/css/style.css";
+@import "https://use.fontawesome.com/releases/v5.7.0/css/all.css";
+@import "../../../../../assets/app-site/css/jquery.simpleTicker.css";
+@import "../../../../../assets/app-site/css/fontawesome.min.css";
+
+.productSearchInput {
+  width: 100%;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  background: #d3d3d352;
+  border-top-left-radius: 10px;
+  outline: none;
+  border-top-right-radius: 10px;
+}

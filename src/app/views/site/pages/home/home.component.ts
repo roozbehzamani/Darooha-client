@@ -28,7 +28,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     sumPoint: null,
     commentCount: null,
     manufacturingCountry: null,
-    manufacturerCompany: null
+    manufacturerCompany: null,
+    discount: null
   };
   bascket: Bascket = {
     productCount: null,
@@ -108,5 +109,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     } else {
       return new Array(count);
     }
+  }
+  activeDiscount(discount: string, price: number) {
+    return (1 - (Number(discount) / 100)) * price;
   }
 }

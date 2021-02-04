@@ -9,4 +9,5 @@ export interface SpecialProduct {
     commentCount: number;
     manufacturingCountry: string;
     manufacturerCompany: string;
+    discount: string;
 }

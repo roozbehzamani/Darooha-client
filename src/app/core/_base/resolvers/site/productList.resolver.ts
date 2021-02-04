@@ -9,13 +9,13 @@ import { Product } from 'src/app/data/models/site/product';
 @Injectable()
 export class ProductListResolver implements Resolve<Product[]> {
     pageNumber = 0;
-    pageSize = 2;
+    pageSize = 6;
+    filter = '';
     constructor(private productService: ProductService, private router: Router,
                 private alertService: ToastrService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<Product[]> {
-        // tslint:disable-next-line:no-string-literal
-        return this.productService.getProductList(route.params['menuId'], this.pageNumber, this.pageSize).pipe(
+        return this.productService.getProductList(route.params.menuId, this.pageNumber, this.pageSize, this.filter).pipe(
             catchError(error => {
                 this.alertService.error(error, 'خطا');
                 return of(null);

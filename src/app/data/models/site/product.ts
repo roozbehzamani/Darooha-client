@@ -20,4 +20,5 @@ export interface Product {
     ScientificName: string;
     sumPoint: number;
     commentCount: number;
+    discount: string;
 }

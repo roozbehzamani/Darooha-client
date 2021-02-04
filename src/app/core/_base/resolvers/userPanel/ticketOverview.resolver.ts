@@ -13,8 +13,7 @@ export class TicketOverviewResolver implements Resolve<Ticket> {
                 private alertService: ToastrService, private authService: AuthService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<Ticket> {
-        // tslint:disable-next-line:no-string-literal
-        return this.ticketService.getTicket(this.authService.decodedToken.nameid, route.params['ticketId']).pipe(
+        return this.ticketService.getTicket(this.authService.decodedToken.nameid, route.params.ticketId).pipe(
             catchError(error => {
                 this.alertService.error(error, 'خطا');
                 return of(null);

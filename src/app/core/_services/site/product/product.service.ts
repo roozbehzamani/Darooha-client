@@ -14,13 +14,14 @@ export class ProductService {
   baseUrl = environment.apiUrl + environment.apiV1 + 'site/app/';
   constructor(private http: HttpClient) { }
 
-  getProductList(id: string, page?, itemPerPage?): Observable<PaginationResult<Product[]>> {
+  getProductList(id: string, page?, itemPerPage?, filter?): Observable<PaginationResult<Product[]>> {
     const paginatedResult: PaginationResult<Product[]> = new PaginationResult<Product[]>();
     let params = new HttpParams();
 
     if (page != null && itemPerPage != null) {
       params = params.append('pageNumber', page);
       params = params.append('pageSize', itemPerPage);
+      params = params.append('filter', filter);
     }
     return this.http.get<Product[]>(this.baseUrl + 'Home/ProductList/' + id, { observe: 'response', params })
       .pipe(

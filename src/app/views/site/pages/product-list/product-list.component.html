@@ -1,3 +1,5 @@
+
+
 <!-------body------->
 <div class="container-fluid pb-5" style="background-color: #fafafa;">
   <div class="container pt-5">
@@ -79,7 +81,7 @@
 
 
               <!-------products------->
-              <div class="row mt-4">
+              <!--<div class="row mt-4">
                   <div class="col-12 px-0">
                       <div  class="rounded-0 pl-3 py-2 f5" style="background-color: #e7ecf2">گروه محصولات</div>
 
@@ -126,7 +128,7 @@
                           </li>
                   </div>
                   </div>
-              </div>
+              </div>-->
 
               <!----------brand---------->
               <div class="row mt-4 mb-3">
@@ -175,6 +177,25 @@
           <div class="col-12 col-md-9">
               <div class="row">
                   <div class="col-12">
+                    <div style="margin-bottom: 10px;">
+                        <input
+                        class="searchInput py-2 f4 productSearchInput"
+                        type="text"
+                        placeholder="جستوجو ..."
+                        [(ngModel)]="searchKey"
+                        (keyup)="applyFilter()"
+                      />
+                     <!-- <button
+                        mat-button
+                        *ngIf="searchKey"
+                        matSuffix
+                        mat-icon-button
+                        aria-label="Clear"
+                        (click)="onSearchClear()"
+                      >
+                        <i class="fa fa-cart-arrow-down" style="color: #e7ecf2;"></i>
+                      </button>-->
+                    </div>
                       <div class="border">
                           <div class="box bg-white">
                               <div class="container">
@@ -236,7 +257,12 @@
                                       </div>
 
                                       <p class="text-left pt-2 f4">{{item.productName}}  </p>
-                                      <p class="text-left f4">{{item.productPrice}} تومان</p>
+                                      <div *ngIf="item.discount==='0'">
+                                        <p class="text-left f4">{{item.productPrice}} تومان</p>
+                                    </div>
+                                    <div *ngIf="item.discount!=='0'">
+                                        <p class="text-left f4"><span style="text-decoration: line-through;">{{item.productPrice}} تومان </span><span style="font-weight: bold;">  &#160;&#160;&#160;  {{activeDiscount(item.discount, item.productPrice)}} تومان</span></p>
+                                    </div>
                                   </div>
                               </div>
                           </div>

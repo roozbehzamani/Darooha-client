@@ -12,9 +12,7 @@ export class EditProductResolver implements Resolve<AddProduct> {
                 private alertService: ToastrService, private authService: AuthService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<AddProduct> {
-        console.log(this.adminProductService.getProduct('ali', 'goli'));
-        console.log(this.adminProductService.getProduct(this.authService.decodedToken.nameid, route.params['productId']));
-        return this.adminProductService.getProduct(this.authService.decodedToken.nameid, route.params['productId']);
+        return this.adminProductService.getProduct(this.authService.decodedToken.nameid, route.params.productId);
         // .pipe(
         //     catchError(error => {
         //         this.alertService.error(error, 'خطا');

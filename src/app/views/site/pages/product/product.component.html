@@ -26,7 +26,12 @@
           </div>
           <p class="pt-2 f4">{{product.ScientificName}}</p>
         </div>
-        <p class="text-center bg-light py-2 mt-5 border rounded f5">{{product.productPrice}} تومان </p>
+        <div *ngIf="product.discount==='0'">
+          <p class="text-center bg-light py-2 mt-5 border rounded f5">{{product.productPrice}} تومان</p>
+      </div>
+      <div *ngIf="product.discount!=='0'">
+          <p class="text-center bg-light py-2 mt-5 border rounded f5"><span style="text-decoration: line-through;">{{product.productPrice}} تومان </span><span style="font-weight: bold;">  &#160;&#160;&#160;  {{activeDiscount(product.discount, product.productPrice)}} تومان</span></p>
+      </div>
         <form [formGroup]="bascketForm">
           <button type="submit" class="btn btn-green text-light f6" (click)="onAddToBascket()">افزودن به سبد
             خرید</button>

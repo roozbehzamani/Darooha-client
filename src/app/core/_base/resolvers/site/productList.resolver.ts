@@ -11,11 +11,14 @@ export class ProductListResolver implements Resolve<Product[]> {
     pageNumber = 0;
     pageSize = 6;
     filter = '';
+    sortHe = '';
+    sortDir = '';
     constructor(private productService: ProductService, private router: Router,
                 private alertService: ToastrService) {}
 
     resolve(route: ActivatedRouteSnapshot): Observable<Product[]> {
-        return this.productService.getProductList(route.params.menuId, this.pageNumber, this.pageSize, this.filter).pipe(
+        return this.productService.getProductList(route.params.menuId, this.pageNumber, this.pageSize, this.filter,
+            this.sortHe, this.sortDir).pipe(
             catchError(error => {
                 this.alertService.error(error, 'خطا');
                 return of(null);

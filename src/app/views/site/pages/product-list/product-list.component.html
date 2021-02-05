@@ -182,7 +182,7 @@
                         class="searchInput py-2 f4 productSearchInput"
                         type="text"
                         placeholder="جستوجو ..."
-                        [(ngModel)]="searchKey"
+                        [(ngModel)]="filterSortOrderBy.searchKey"
                         (keyup)="applyFilter()"
                       />
                      <!-- <button
@@ -201,28 +201,21 @@
                               <div class="container">
                                       <ul class="nav py-2 f4">
                                           <li class="nav_item" >
-                                              <a href="#" class=" nav-link mr-1 text-green sort">مرتب سازی بر اساس :</a>
+                                              <a class=" nav-link mr-1 text-green sort">مرتب سازی بر اساس :</a>
                                           </li>
                                           <li class="nav_item active-back">
-                                              <a href="#" class=" nav-link sort-text  mx-1">جدید ترین</a>
-                                          </li>
-                                          <li class="nav_item">
-                                              <a href="#" class=" nav-link sort-text mx-1">پربازدیدترین</a>
+                                              <a class=" nav-link sort-text mx-1" (click)="sortDataEvent('commentCount','asc')">پربازدیدترین</a>
                                           </li>
                                           <li class="nav_item" >
-                                              <a href="#" class=" nav-link sort-text mx-1">گرانترین</a>
+                                              <a class=" nav-link sort-text mx-1" (click)="sortDataEvent('productPrice','asc')">گرانترین</a>
                                           </li>
 
                                           <li class="nav_item" >
-                                              <a href="#" class=" nav-link sort-text mx-1">ارانترین</a>
+                                              <a class=" nav-link sort-text mx-1" (click)="sortDataEvent('productPrice','desc')">ارانترین</a>
                                           </li>
 
                                           <li class="nav_item" >
-                                              <a href="#" class=" nav-link sort-text mx-1">محبوب ترین</a>
-                                          </li>
-
-                                          <li class="nav_item" >
-                                              <a href="#" class=" nav-link sort-text mx-1">نام برند</a>
+                                              <a href="#" class=" nav-link sort-text mx-1" (click)="sortDataEvent('sumPoint','asc')">محبوب ترین</a>
                                           </li>
                                       </ul>
                               </div>

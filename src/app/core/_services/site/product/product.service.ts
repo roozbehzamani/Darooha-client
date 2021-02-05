@@ -14,7 +14,7 @@ export class ProductService {
   baseUrl = environment.apiUrl + environment.apiV1 + 'site/app/';
   constructor(private http: HttpClient) { }
 
-  getProductList(id: string, page?, itemPerPage?, filter?): Observable<PaginationResult<Product[]>> {
+  getProductList(id: string, page?, itemPerPage?, filter?, sortHe?, sortDir?): Observable<PaginationResult<Product[]>> {
     const paginatedResult: PaginationResult<Product[]> = new PaginationResult<Product[]>();
     let params = new HttpParams();
 
@@ -22,6 +22,8 @@ export class ProductService {
       params = params.append('pageNumber', page);
       params = params.append('pageSize', itemPerPage);
       params = params.append('filter', filter);
+      params = params.append('sortHe', sortHe);
+      params = params.append('sortDir', sortDir);
     }
     return this.http.get<Product[]>(this.baseUrl + 'Home/ProductList/' + id, { observe: 'response', params })
       .pipe(

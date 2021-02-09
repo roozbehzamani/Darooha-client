@@ -1,14 +1,24 @@
 import { MatPaginatorIntl } from '@angular/material/paginator';
 
 export class FaMatPaginatorIntl extends MatPaginatorIntl {
-    itemsPerPageLabel = 'تعداد نمایش';
-    nextPageLabel = 'بعدی';
-    previousPageLabel = 'قبلی';
-    firstPageLabel = 'اولین صفحه';
-    lastPageLabel = 'آخرین صفحه';
+    constructor() {
+        super();
+        this.getAndInitTranslations();
+    }
+    getAndInitTranslations() {
+        this.itemsPerPageLabel = 'تعداد نمایش';
+        this.nextPageLabel = 'test';
+        this.previousPageLabel = 'test';
+        this.changes.next();
+    }
+    // itemsPerPageLabel = 'تعداد نمایش';
+    // nextPageLabel = 'بعدی';
+    // previousPageLabel = 'قبلی';
+    // firstPageLabel = 'اولین صفحه';
+    // lastPageLabel = 'آخرین صفحه';
 
     // tslint:disable-next-line:only-arrow-functions
-    getRangeLabel = function(page, pageSize, length) {
+    getRangeLabel = function (page, pageSize, length) {
         if (length === 0 || pageSize === 0) {
             return '0 od ' + length;
         }

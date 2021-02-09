@@ -37,6 +37,8 @@ import { UserAddressComponent } from './pages/manage-user-address/pages/user-add
 import { NotificationComponent } from './pages/notification/notification.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from 'src/app/store';
 
 @NgModule({
   imports: [
@@ -45,7 +47,8 @@ import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.co
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    StoreModule.forFeature('info', reducers)
   ],
   declarations: [
     // user

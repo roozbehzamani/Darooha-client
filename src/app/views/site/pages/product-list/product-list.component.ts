@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { ActivatedRoute, ActivatedRouteSnapshot, Params } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
@@ -72,7 +72,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
           this.products = data.result;
           this.pagination = data.pagination;
         }, error => {
-            this.alertService.error(error);
+          this.alertService.error(error);
         })
     );
   }
@@ -122,7 +122,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
           this.products = data.result;
           this.pagination = data.pagination;
         }, error => {
-            this.alertService.error(error);
+          this.alertService.error(error);
         })
     );
   }

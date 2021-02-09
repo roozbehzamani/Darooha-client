@@ -10,7 +10,9 @@ import { User } from 'src/app/data/models/userPanel/user';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
   photoUrl: string;
+
   constructor(private router: Router, private alertService: ToastrService, public authService: AuthService) {
   }
 

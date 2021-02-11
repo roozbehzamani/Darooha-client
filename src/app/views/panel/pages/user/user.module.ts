@@ -38,7 +38,8 @@ import { NotificationComponent } from './pages/notification/notification.compone
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from 'src/app/store';
+import { reducers, effects } from 'src/app/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   imports: [
@@ -48,7 +49,8 @@ import { reducers } from 'src/app/store';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    StoreModule.forFeature('info', reducers)
+    StoreModule.forFeature('info', reducers),
+    EffectsModule.forFeature(effects),
   ],
   declarations: [
     // user

@@ -10,15 +10,7 @@ export interface UserState {
 }
 
 export const defaultState: UserState = {
-    data: [{
-        id: '1',
-        firstName: 'Freida Simmons',
-        lastName: 'Eunice Kim',
-        mobPhone: '+98 (820) 524-3364',
-        email: 'jodiepayne@quotezart.com',
-        age: 15,
-        imageURL: 'asdasdasdasdasd'
-    }],
+    data: [],
     loaded: false,
     loading: false
 };
@@ -31,12 +23,19 @@ const newState = (state, newData) => {
 export function userReducer(state = defaultState, action: Action) {
     switch (action.type) {
         case UserAction.LOAD_USERS:
-            return newState(state, { loading: true });
-        case UserAction.LOAD_USERS_SUCCESS:
-            return newState(state, { loading: false, loaded: true });
+            return { ...state, loading: true };
+        case UserAction.LOAD_USERS_SUCCESS: {
+            const data = action.payload;
+            return { ...state, data, loading: false, loaded: true };
+
+        }
         case UserAction.LOAD_USERS_FAIL:
-            return newState(state, { loading: false, loaded: false });
+            return { ...state, loading: false, loaded: false };
         default:
             return state;
     }
 }
+
+export const getUsersLoading = (state: UserState) => state.loading;
+export const getUsersLoaded = (state: UserState) => state.loaded;
+export const getUsers = (state: UserState) => state.data;

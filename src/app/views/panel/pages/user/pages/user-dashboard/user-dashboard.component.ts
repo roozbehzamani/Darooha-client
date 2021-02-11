@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { UserState } from 'src/app/store/reducers/users.reducer';
 import * as fromStore from 'src/app/store';
+import { User } from 'src/app/data/models/userPanel/user';
 
 
 @Component({
@@ -12,18 +13,13 @@ import * as fromStore from 'src/app/store';
 })
 export class UserDashboardComponent implements OnInit {
 
-  users$: Observable<UserState>;
+  users$: Observable<User[]>;
   title: string;
 
   constructor(private store: Store<fromStore.InfoState>) { }
 
   ngOnInit() {
-    this.store.select<any>('info').subscribe(state => {
-      console.log(state);
-    });
-  }
-
-  resetCounter() {
-    // this.store.dispatch(new TitleCounterAction.ResetCounter());
+    this.users$ = this.store.select(fromStore.getAllUsers);
+    this.store.dispatch(new fromStore.LoadUsers());
   }
 }

@@ -1,41 +1,49 @@
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { User } from 'src/app/data/models/userPanel/user';
 import * as UserAction from '../actions/users.action';
 
 export type Action = UserAction.All;
 
-export interface UserState {
-    data: User[];
+export interface UserState extends EntityState<User> {
+    selectedUserId: string | null;
     loaded: boolean;
     loading: boolean;
+    error: string;
 }
+export const usersAdaptor: EntityAdapter<User> = createEntityAdapter<User>();
 
-export const defaultState: UserState = {
-    data: [],
+export const defaultUser: UserState = {
+    ids: [],
+    entities: {},
+    selectedUserId: null,
     loaded: false,
-    loading: false
+    loading: false,
+    error: ''
 };
 
-const newState = (state, newData) => {
-    return { ...state, newData };
-    // return Object.assign({}, state, newData);
-};
+export const initState = usersAdaptor.getInitialState(defaultUser);
 
-export function userReducer(state = defaultState, action: Action) {
+
+
+export function userReducer(state = initState, action: Action) {
     switch (action.type) {
         case UserAction.LOAD_USERS:
             return { ...state, loading: true };
         case UserAction.LOAD_USERS_SUCCESS: {
-            const data = action.payload;
-            return { ...state, data, loading: false, loaded: true };
-
+            return usersAdaptor.addAll(action.payload, {
+                ...state,
+                loading: false,
+                loaded: true
+            });
         }
         case UserAction.LOAD_USERS_FAIL:
-            return { ...state, loading: false, loaded: false };
+            return { ...state, entities: {}, loading: false, loaded: false, error: action.payload };
         default:
             return state;
     }
 }
 
+export const getUsersEntities = (state: UserState) => state.entities;
 export const getUsersLoading = (state: UserState) => state.loading;
 export const getUsersLoaded = (state: UserState) => state.loaded;
-export const getUsers = (state: UserState) => state.data;
+export const getUsersError = (state: UserState) => state.error;

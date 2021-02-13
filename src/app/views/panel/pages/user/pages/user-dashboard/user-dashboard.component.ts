@@ -13,12 +13,18 @@ import { User } from 'src/app/data/models/userPanel/user';
 })
 export class UserDashboardComponent implements OnInit {
 
-  users$: Observable<User[]>;
+  users$: Observable<any>;
+  loading$: Observable<boolean>;
+  loaded$: Observable<boolean>;
+  error$: Observable<string>;
   title: string;
 
   constructor(private store: Store<fromStore.InfoState>) { }
 
   ngOnInit() {
+    this.loading$ = this.store.select(fromStore.getUsersLoading);
+    this.loaded$ = this.store.select(fromStore.getUsersLoaded);
+    this.error$ = this.store.select(fromStore.getUsersError);
     this.users$ = this.store.select(fromStore.getAllUsers);
     this.store.dispatch(new fromStore.LoadUsers());
   }

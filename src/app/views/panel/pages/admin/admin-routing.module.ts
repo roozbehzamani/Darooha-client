@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/app/core/_base/guards/auth.guard';
+import { AdminBrandListResolver } from 'src/app/core/_base/resolvers/adminPanel/adminBrandList.resolver';
 import { AdminProductListResolver } from 'src/app/core/_base/resolvers/adminPanel/adminProductList.resolver';
 import { EditProductResolver } from 'src/app/core/_base/resolvers/adminPanel/editProduct.resolver';
 import { AdminComponent } from './admin.component';
+import { BrandListComponent } from './pages/brand-list/brand-list.component';
+import { AddBrandComponent } from './pages/brand-list/pages/add-brand/add-brand.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductAddFormComponent } from './pages/product-list-manager/pages/product-add-form/product-add-form.component';
 import { ProductUpdateFormComponent } from './pages/product-list-manager/pages/product-update-form/product-update-form.component';
@@ -30,8 +33,10 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         component: ProductListManagerComponent,
         resolve: { products: AdminProductListResolver },
-        data: { roles: ['Admin'],
-        title: ['مدیریت محصولات'] }
+        data: {
+          roles: ['Admin'],
+          title: ['مدیریت محصولات']
+        }
       }
       ,
       //
@@ -40,8 +45,10 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         component: ProductUpdateFormComponent,
         // resolve: { products: AdminProductListResolver },
-        data: { roles: ['Admin'],
-        title: ['ویرایش محصول'] }
+        data: {
+          roles: ['Admin'],
+          title: ['ویرایش محصول']
+        }
       }
       ,
       //
@@ -49,9 +56,10 @@ const routes: Routes = [
         path: 'addProduct',
         canActivate: [AuthGuard],
         component: ProductAddFormComponent,
-        // resolve: { products: AdminProductListResolver },
-        data: { roles: ['Admin'],
-        title: ['افزودن محصول'] }
+        data: {
+          roles: ['Admin'],
+          title: ['افزودن محصول']
+        }
       },
       //
       {
@@ -59,9 +67,33 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         component: ProductUpdateFormComponent,
         resolve: { product: EditProductResolver },
-        data: { roles: ['Admin'],
-        title: ['ویرایش محصول'] }
-      }
+        data: {
+          roles: ['Admin'],
+          title: ['ویرایش محصول']
+        }
+      },
+      //
+      {
+        path: 'brandList',
+        canActivate: [AuthGuard],
+        component: BrandListComponent,
+        resolve: { brands: AdminBrandListResolver },
+        data: {
+          roles: ['Admin'],
+          title: ['مدیریت برندها']
+        }
+      },
+      //
+      {
+        path: 'addBrand',
+        canActivate: [AuthGuard],
+        component: AddBrandComponent,
+        resolve: { brands: AdminBrandListResolver },
+        data: {
+          roles: ['Admin'],
+          title: ['افزودن برند']
+        }
+      },
     ]
   }
 ];

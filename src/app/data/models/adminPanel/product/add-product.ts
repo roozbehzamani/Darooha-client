@@ -18,4 +18,6 @@ export interface AddProduct {
     isSpecial: boolean;
     scientificName: string;
     subMenuId: string;
+    brandId: string;
+    discount: string;
 }

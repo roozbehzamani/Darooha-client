@@ -1,0 +1,112 @@
+<div class="app-content content container-fluid">
+  <div class="content-wrapper">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="row">
+          <div class="col-xs-12 col-md-10 push-md-1">
+            <div class="card mt-3">
+              <div class="card-header">
+                <h5 class="card-title">اطلاعات برند</h5>
+                <a class="heading-elements-toggle"
+                  ><i class="icon-ellipsis font-medium-3"></i
+                ></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li>
+                      <a data-action="collapse"><i class="icon-minus4"></i></a>
+                    </li>
+                    <li>
+                      <a data-action="expand"><i class="icon-expand2"></i></a>
+                    </li>
+                    <li>
+                      <a data-action="close"><i class="icon-cross2"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-body collapse in">
+                <div class="container mt-2 mb-2">
+                  <form class="form" [formGroup]="addBrandForm">
+                    <div class="form-body">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <mat-form-field>
+                            <input
+                              type="text"
+                              matInput
+                              formControlName="brandName"
+                              placeholder="نام برند"
+                              class="brandNameInput"
+                            />
+
+                            <mat-error
+                              *ngIf="
+                                addBrandForm
+                                  .get('brandName')
+                                  .hasError('required') &&
+                                addBrandForm.get('brandName').touched
+                              "
+                              >این فیلد نمیتواند خالی باشد</mat-error
+                            >
+
+                            <mat-error
+                              *ngIf="
+                                addBrandForm
+                                  .get('brandName')
+                                  .hasError('maxlength') &&
+                                addBrandForm.get('brandName').touched
+                              "
+                              >این فیلد نمیتواد بیشتر از 100 حرف اشد</mat-error
+                            >
+                          </mat-form-field>
+                        </div>
+                        <div class="col-md-6">
+                          <mat-form-field
+                            class="col-md-12 ml-10 ngxmatfileinput"
+                          >
+                            <ngx-mat-file-input
+                              (change)="onFileSelect($event)"
+                              formControlName="file"
+                              accept="image/*"
+                              placeholder="لوگو برند"
+                              style="position: absolute"
+                            >
+                            </ngx-mat-file-input>
+                            <img
+                              [src]="defaultLogoUrl"
+                              class="float-left icon-fileupload"
+                            />
+                            <mat-error>تصویر برند را وارد کنید</mat-error>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <button
+                    (click)="onSubmit()"
+                    mat-raised-button
+                    color="green"
+                    [disabled]="addBrandForm.invalid"
+                    class="float-left mb-10 mx-1"
+                  >
+                    <i class="icon-check"></i>
+                    <span>ارسال مدارک</span>
+                  </button>
+                  <button
+                    [routerLink]="['/panel/admin/brandList']"
+                    routerLinkActive="router-link-active"
+                    class="btn btn-warning mt-3"
+                    style="margin-right: 10px"
+                  >
+                    انصراف
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->

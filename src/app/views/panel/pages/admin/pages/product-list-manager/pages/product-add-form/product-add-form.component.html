@@ -36,6 +36,30 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput9">برند :</label>
+                                                        <select name="interested" class="form-control"  formControlName="brandId">
+                                                            <option value="none" selected="" disabled="">انتخاب</option>
+                                                            <option *ngFor="let brnd of brandList" value="{{ brnd.id }}">{{brnd.brandName}}</option>
+                                                            
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="projectinput2">تخفیف:</label>
+                                                        <input type="text" formControlName="discount" class="form-control" name="lname">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">

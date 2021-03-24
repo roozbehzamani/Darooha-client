@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from 'src/app/core/_base/guards/auth.guard';
 import { AdminBrandListResolver } from 'src/app/core/_base/resolvers/adminPanel/adminBrandList.resolver';
 import { AdminProductListResolver } from 'src/app/core/_base/resolvers/adminPanel/adminProductList.resolver';
+import { BrandEditResolver } from 'src/app/core/_base/resolvers/adminPanel/brandEdit.resolver';
 import { EditProductResolver } from 'src/app/core/_base/resolvers/adminPanel/editProduct.resolver';
 import { AdminComponent } from './admin.component';
 import { BrandListComponent } from './pages/brand-list/brand-list.component';
 import { AddBrandComponent } from './pages/brand-list/pages/add-brand/add-brand.component';
+import { BrandEditComponent } from './pages/brand-list/pages/brand-edit/brand-edit.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductAddFormComponent } from './pages/product-list-manager/pages/product-add-form/product-add-form.component';
 import { ProductUpdateFormComponent } from './pages/product-list-manager/pages/product-update-form/product-update-form.component';
@@ -92,6 +94,17 @@ const routes: Routes = [
         data: {
           roles: ['Admin'],
           title: ['افزودن برند']
+        }
+      },
+      //
+      {
+        path: 'editBrand/:brandId',
+        canActivate: [AuthGuard],
+        component: BrandEditComponent,
+        resolve: { brand: BrandEditResolver },
+        data: {
+          roles: ['Admin'],
+          title: ['ویرایش برند']
         }
       },
     ]

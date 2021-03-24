@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/core/_services/auth/auth.service';
@@ -18,7 +18,7 @@ export class BrandListComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute, private brandService: BrandService, private authService: AuthService,
-    private alertService: ToastrService) { }
+    private alertService: ToastrService, private router: Router) { }
 
   ngOnInit() {
     this.loadBrands();
@@ -42,5 +42,9 @@ export class BrandListComponent implements OnInit, OnDestroy {
     }, error => {
       this.alertService.error(error, 'خطا در حذف برند');
     });
+  }
+
+  onEditBrand(brandId: string) {
+    this.router.navigate(['panel/admin/editBrand', brandId]);
   }
 }

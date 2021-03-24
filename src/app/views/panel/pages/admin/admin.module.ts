@@ -16,6 +16,8 @@ import { UsersManagementComponent } from './pages/users-management/users-managem
 import { BrandListComponent } from './pages/brand-list/brand-list.component';
 import { AdminBrandListResolver } from 'src/app/core/_base/resolvers/adminPanel/adminBrandList.resolver';
 import { AddBrandComponent } from './pages/brand-list/pages/add-brand/add-brand.component';
+import { BrandEditComponent } from './pages/brand-list/pages/brand-edit/brand-edit.component';
+import { BrandEditResolver } from 'src/app/core/_base/resolvers/adminPanel/brandEdit.resolver';
 
 @NgModule({
   imports: [
@@ -34,14 +36,16 @@ import { AddBrandComponent } from './pages/brand-list/pages/add-brand/add-brand.
     ProductAddFormComponent,
     ProductUpdateFormComponent,
     BrandListComponent,
-    AddBrandComponent
+    AddBrandComponent,
+    BrandEditComponent
   ],
   providers: [
     // ProductList
     AdminProductService,
     AdminProductListResolver,
     EditProductResolver,
-    AdminBrandListResolver
+    AdminBrandListResolver,
+    BrandEditResolver
   ],
 })
 export class AdminModule { }

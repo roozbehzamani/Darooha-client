@@ -16,11 +16,19 @@ export class BrandService {
     return this.http.get<Brand[]>(this.baseUrl + userId + '/Admin/AllBrandList');
   }
 
+  getBrand(userId: string, id: string): Observable<Brand> {
+    return this.http.get<Brand>(this.baseUrl + userId + '/Admin/getBrand/' + id);
+  }
+
   addBrand(id: string, brand: any): Observable<Brand> {
     return this.http.post<Brand>(this.baseUrl + 'admin/' + id + '/brands', brand);
   }
 
   deleteBrand(id: string, userId: string) {
     return this.http.delete(this.baseUrl + userId + '/Admin/deleteBrand/' + id);
+  }
+
+  editBrand(brand: any, userId: string, id: string) {
+    return this.http.put(this.baseUrl + userId + '/Admin/UpdateBrand/' + id, brand);
   }
 }

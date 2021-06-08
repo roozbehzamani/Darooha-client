@@ -40,6 +40,9 @@ import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.co
 import { StoreModule } from '@ngrx/store';
 import { reducers, effects } from 'src/app/store';
 import { EffectsModule } from '@ngrx/effects';
+import { ManageWalletComponent } from './pages/manage-wallet/manage-wallet.component';
+import { AddWalletComponent } from './pages/manage-wallet/pages/add-wallet/add-wallet.component';
+import { UserWalletComponent } from './pages/manage-wallet/pages/user-wallet/user-wallet.component';
 
 @NgModule({
   imports: [
@@ -67,9 +70,9 @@ import { EffectsModule } from '@ngrx/effects';
     ManageUserAddressComponent,
     EditUserAddressComponent,
     // wallet
-    /*ManageWalletComponent,
-    WalletComponent,
-    WalletFormComponent,*/
+    ManageWalletComponent,
+    AddWalletComponent,
+    UserWalletComponent,
     // ticket
     TicketComponent,
     ManageTicketComponent,
@@ -110,7 +113,7 @@ import { EffectsModule } from '@ngrx/effects';
   ],
   entryComponents: [
     EditUserAddressComponent,
-    // WalletFormComponent,
+    AddWalletComponent,
     CreateFormTicketComponent
   ]
 })

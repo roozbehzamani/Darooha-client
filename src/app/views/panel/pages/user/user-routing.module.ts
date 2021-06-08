@@ -9,12 +9,14 @@ import { NotificationResolver } from 'src/app/core/_base/resolvers/userPanel/not
 import { TicketResolver } from 'src/app/core/_base/resolvers/userPanel/ticket.resolver';
 import { TicketOverviewResolver } from 'src/app/core/_base/resolvers/userPanel/ticketOverview.resolver';
 import { UserProfileResolver } from 'src/app/core/_base/resolvers/userPanel/userprofile.resolver';
+import { WalletResolver } from 'src/app/core/_base/resolvers/userPanel/wallet.resolver';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { ManageOrderComponent } from './pages/manage-order/manage-order.component';
 import { OrderItemsComponent } from './pages/manage-order/pages/order-items/order-items.component';
 import { ManageTicketComponent } from './pages/manage-ticket/manage-ticket.component';
 import { DetailTicketComponent } from './pages/manage-ticket/pages/detail-ticket/detail-ticket.component';
 import { ManageUserAddressComponent } from './pages/manage-user-address/manage-user-address.component';
+import { ManageWalletComponent } from './pages/manage-wallet/manage-wallet.component';
 import { NotificationComponent } from './pages/notification/notification.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
@@ -53,7 +55,7 @@ const routes: Routes = [
         path: 'manageuseraddress',
         canActivate: [AuthGuard],
         component: ManageUserAddressComponent,
-        data: { roles: ['User'], title: ['مدیریت آدرس ها']},
+        data: { roles: ['User'], title: ['مدیریت آدرس ها'] },
         resolve: { address: AddressResolver }
       },
       {
@@ -67,17 +69,17 @@ const routes: Routes = [
         path: 'manageOrders',
         canActivate: [AuthGuard],
         component: ManageOrderComponent,
-        data: { roles: ['User'], title: ['مدیریت سفارش ها']},
+        data: { roles: ['User'], title: ['مدیریت سفارش ها'] },
         resolve: { orders: OrderResolver }
       },
       //
-      /*{
+      {
         path: 'wallet',
         canActivate: [AuthGuard],
         component: ManageWalletComponent,
-        data: { roles: ['User'], title: ['مدیریت کیف پول ها']},
+        data: { roles: ['User'], title: ['مدیریت کیف پول ها'] },
         resolve: { wallet: WalletResolver }
-      },*/
+      },
       //
       {
         path: 'tickets', canActivate: [AuthGuard],

@@ -1,0 +1,34 @@
+<div class="app-content content container-fluid">
+  <div class="content-wrapper">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title text-xs-center custom-heder">
+                  کیف پول شما
+                </h4>
+              </div>
+              <div class="card-body collapse in">
+                <div class="card-block">
+                  <span class="editspan">
+                    <button (click)="onCreate()" class="addbuttom">
+                      <i class="icon-plus-circle custom-size"></i>
+                      افزودن به کیف پول
+                    </button>
+                  </span>
+                  <p class="custom-p">
+                    شما در این جا میتوانید موجودی کیف پول خود را ببینید و در
+                    صورت نیاز به آن اضافه نمایید
+                  </p>
+                </div>
+              </div>
+              <app-user-wallet [wallet]="wallet"></app-user-wallet>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

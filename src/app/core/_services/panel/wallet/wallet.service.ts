@@ -12,7 +12,6 @@ export class WalletService {
   baseUrl = environment.apiUrl + environment.apiV1 + 'site/panel/';
   constructor(private http: HttpClient, private formBuilder: FormBuilder) { }
   walletForm: FormGroup = this.formBuilder.group({
-    id: [],
     inventory: ['', [Validators.required]],
   });
 

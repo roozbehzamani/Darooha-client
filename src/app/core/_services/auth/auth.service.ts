@@ -97,7 +97,7 @@ export class AuthService {
     const username = user.mobPhone;
     const refreshToken = localStorage.getItem('refreshToken');
     const granttype = 'refresh_token';
-    return this.http.post<any>(this.baseUrl + 'login', {username, refreshToken, granttype}).pipe(
+    return this.http.post<any>(this.baseUrl + 'login', { username, refreshToken, granttype }).pipe(
       map(result => {
         if (result && result.token) {
           localStorage.setItem('token', result.token);

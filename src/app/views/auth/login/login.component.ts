@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl, ValidatorFn, AbstractControl } from '@angular/forms';
 import { AuthService } from 'src/app/core/_services/auth/auth.service';
 import { User } from 'src/app/data/models/userPanel/user';
 
@@ -19,8 +19,12 @@ export class LoginComponent implements OnInit {
   registerForm: FormGroup;
   user: User;
 
-  constructor(private authService: AuthService, private router: Router,
-              private alertService: ToastrService, private route: ActivatedRoute) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private alertService: ToastrService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.model.isremember = true;
@@ -31,7 +35,8 @@ export class LoginComponent implements OnInit {
       lastName: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.email]),
       mobPhone: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(10)])
+      // tslint:disable-next-line:max-line-length
+      password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(50), this.findCombinationLettersAndNumbers()])
     });
   }
 
@@ -58,10 +63,15 @@ export class LoginComponent implements OnInit {
       }, error => {
         this.alertService.error(error, 'خطا در ثبت نام');
       }, () => {
-        this.authService.login(this.user).subscribe(() => {
-          this.router.navigate(['/panel/dashboard']);
+        this.model.username = this.user.email;
+        this.model.password = this.registerForm.controls.password.value;
+        this.model.isremember = true;
+        this.model.granttype = 'password';
+        console.log(this.model);
+        this.authService.login(this.model).subscribe(() => {
+          this.router.navigate(['/panel/user/dashboard']);
         }, error => {
-          this.alertService.warning(error, 'ثبت نام موفق خطا در ورود');
+          this.alertService.warning(error, 'خطا در ورود');
         });
       });
     } else {
@@ -69,4 +79,45 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  public findCombinationLettersAndNumbers(): ValidatorFn {
+
+    return (c: AbstractControl): { [key: string]: boolean } | null => {
+      // console.log('val:', c.value);
+
+      let isDigit = false;
+      let isCapsOrSmallLetter = false;
+      // let isSmallLetter = false;
+      // let isSpecialChar = false;
+      if ((!/\d/.test(c.value))) {
+        this.alertService.warning('رمز باید شامل عدد باشد');
+        isDigit = false;
+      } else {
+        isDigit = true;
+      }
+      if (!/[A-Za-z]/.test(c.value)) {
+        this.alertService.warning('رمز باید شامل حروف بزرگ و کوچک انگلیسی باشد');
+        isCapsOrSmallLetter = false;
+      } else {
+        isCapsOrSmallLetter = true;
+      }
+      // if (!/[a-z]/.test(c.value)) {
+      //     console.log('password must contain lowercase letter');
+      //     isSmallLetter = false;
+      // } else {
+      //     isSmallLetter = true;
+      // }
+
+      // if (!/[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(c.value)) {
+      //   // console.log('password must contain special character');
+      //   isSpecialChar = true;
+      // }
+
+      if (isDigit && isCapsOrSmallLetter) {
+        // null is required here. otherwise form wonot submit.
+        return null;
+      }
+      return { passwordval: true };
+
+    };
+  }
 }

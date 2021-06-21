@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
       }, error => {
         this.alertService.error(error, 'خطا در ثبت نام');
       }, () => {
-        this.model.username = this.user.email;
+        this.model.username = this.user.mobPhone;
         this.model.password = this.registerForm.controls.password.value;
         this.model.isremember = true;
         this.model.granttype = 'password';

@@ -81,6 +81,7 @@ export class AuthService {
 
   getDashboardUrl(): string {
     const userRoles = this.decodedToken.role as Array<string>;
+    console.log(userRoles);
     if (userRoles.includes('Admin')) {
       return 'panel/admin/dashboard';
     } else if (userRoles.includes('Accountant')) {

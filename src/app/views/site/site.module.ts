@@ -17,6 +17,7 @@ import { ProductComponent } from './pages/product/product.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 import { FaMatPaginatorIntl } from 'src/app/shared/material/FaMatPaginatorIntl';
 import { MatPaginatorIntl } from '@angular/material/paginator';
+import { MenuComponent } from './layout/menu/menu.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,8 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
     HeaderComponent,
     // Footer
     FooterComponent,
+    // Menu
+    MenuComponent,
     // Home
     HomeComponent,
     // product list

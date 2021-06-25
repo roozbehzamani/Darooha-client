@@ -1,0 +1,203 @@
+<!----------menu-------->
+<!--<div
+  class="container-fluid border-top border-bottom d-none d-lg-block"
+  style="background-color: #eeeeee"
+>
+  <div class="container px-0">
+    <div class="menubar">
+      <div class="menu-wrapper">
+        <ul class="nav2">
+          <li>
+            <a
+              href=""
+              [routerLink]="['/']"
+              routerLinkActive="router-link-active"
+              >صفحه اصلی</a
+            >
+          </li>
+
+          <li>
+            <a href="#">لیست محصولات</a>
+          </li>
+
+          <li>
+            <a href="#">درباره ما</a>
+          </li>
+
+          <li>
+            <a href="#">تماس با ما</a>
+          </li>
+
+          <li style="float: left">
+            <a
+              href=""
+              [routerLink]="['/auth']"
+              routerLinkActive="router-link-active"
+              >ورود / ثبت نام</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>-->
+<!----------menu mobile-------->
+<!--<div
+  class="container-fluid bg- mt-3 d-lg-none"
+  style="background-color: #eeeeee"
+>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light px-0 f4">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#mynavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav">
+          <li class="nav_item">
+            <a href="#" class="nav-link mr-1">صفحه اصلی</a>
+          </li>
+          <li class="nav_item">
+            <a href="#" class="nav-link mx-1">لیست محصولات</a>
+          </li>
+          <li class="nav_item">
+            <a href="#" class="nav-link mx-1">درباره ما</a>
+          </li>
+          <li class="nav_item">
+            <a href="#" class="nav-link mx-1">تماس با ما</a>
+          </li>
+
+          <li class="nav_item">
+            <a href="#" class="nav-link mx-1">ورود / ثبت نام</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+-->
+
+<!----------menu-------->
+<div
+  class="container-fluid mt-3 border-top border-bottom d-none d-lg-block"
+  style="background-color: #eeeeee"
+>
+  <div class="container px-0">
+    <div class="menubar">
+      <div class="menu-wrapper">
+        <ul class="nav2">
+          <li>
+            <a
+              href=""
+              [routerLink]="['/']"
+              routerLinkActive="router-link-active"
+              >صفحه اصلی</a
+            >
+          </li>
+
+          <li>
+            <a href="#">لیست محصولات</a>
+            <div class="layer2">
+              <div class="nav2-column">
+                <ul class="nav2 inner">
+                  <li *ngFor="let item of menuList">
+                    <a href="#">{{ item.menuName }}</a>
+                    <div>
+                      <div class="nav2-column">
+                        <ul>
+                          <li>
+                            <a href="#">ضد آفتاب صورت</a>
+                          </li>
+                          <li>
+                            <a href="#">ضد آفتاب صورت</a>
+                          </li>
+                          <li>
+                            <a href="#">ضد آفتاب صورت</a>
+                          </li>
+                          <li>
+                            <a href="#">ضد آفتاب صورت</a>
+                          </li>
+                          <li>
+                            <a href="#">ضد آفتاب صورت</a>
+                          </li>
+                          <li>
+                            <a href="#">ضد آفتاب صورت</a>
+                          </li>
+                          <li>
+                            <a href="#">ضد آفتاب صورت</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <a href="#">درباره ما</a>
+          </li>
+
+          <li>
+            <a href="#">تماس با ما</a>
+          </li>
+
+          <li style="float: left">
+            <a
+              href=""
+              [routerLink]="['/auth']"
+              routerLinkActive="router-link-active"
+              >ورود / ثبت نام</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!----------menu mobile-------->
+<div
+  class="container-fluid bg- mt-3 d-lg-none"
+  style="background-color: #eeeeee"
+>
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light px-0 f4">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#mynavbar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="navbar-nav">
+          <li class="nav_item">
+            <a href="#" class="nav-link mr-1">آرایشی و بهداشتی</a>
+          </li>
+          <li class="nav_item">
+            <a href="#" class="nav-link mx-1">مکمل غذایی</a>
+          </li>
+          <li class="nav_item">
+            <a href="#" class="nav-link mx-1">مکمل ورزشی</a>
+          </li>
+          <li class="nav_item">
+            <a href="#" class="nav-link mx-1">مادر و کودک</a>
+          </li>
+
+          <li class="nav_item">
+            <a href="#" class="nav-link mx-1">تجهیزات پزشکی</a>
+          </li>
+          <li class="nav_item">
+            <a href="#" class="nav-link mx-1">مجله داروکده</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

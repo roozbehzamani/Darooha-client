@@ -1,0 +1,163 @@
+@import "../../../../../assets/app-site/css/bootstrap.css";
+@import "../../../../../assets/app-site/css/bootstrap-reboot.css";
+@import "../../../../../assets/app-site/css/style.css";
+@import "../../../../../assets/app-site/css/jquery.simpleTicker.css";
+@import "../../../../../assets/app-site/css/fontawesome.min.css";
+@import "https://use.fontawesome.com/releases/v5.7.0/css/all.css";
+
+.menubar {
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 44px;
+}
+
+.menu-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Reset */
+.nav2,
+.nav2 a,
+.nav2 ul,
+.nav2 li,
+.nav2 div {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.nav2 a {
+  text-decoration: none;
+}
+
+.nav2 li {
+  list-style: none;
+}
+
+/* Menu Container */
+
+.nav2 {
+  display: inline-block;
+  position: relative;
+  cursor: default;
+  z-index: 500;
+  min-width: 1140px;
+}
+
+/* Menu List */
+.nav2 > li {
+  display: block;
+  float: right;
+  position: static; /*very important do not remove*/
+}
+
+/* Menu Links */
+.nav2 > li > a {
+  position: relative;
+  display: block;
+  z-index: 510;
+  height: 46px;
+  padding: 0px;
+  line-height: 44px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #4d4d4d;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.nav2 > li:hover > a {
+  background: white;
+  top: 0;
+}
+.nav2 > li:first-child > a {
+  border-right: none;
+}
+
+/* Menu Dropdown */
+.nav2 > li > div {
+  position: absolute;
+  display: block;
+  top: 46px;
+  left: 0px;
+  right: 0px;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  background: #ffffff;
+  -webkit-transition: all 0.3s ease 0.15s;
+  -moz-transition: all 0.3s ease 0.15s;
+  -o-transition: all 0.3s ease 0.15s;
+  -ms-transition: all 0.3s ease 0.15s;
+  transition: all 0.3s ease 0.15s;
+  border-bottom: 1px solid #e1e1e1;
+  border-left: 1px solid #e1e1e1;
+  border-right: 1px solid #e1e1e1;
+}
+
+.nav2 > li:hover > div {
+  opacity: 1;
+  visibility: visible;
+  overflow: visible;
+}
+
+/* Menu Content Styles */
+.nav2 .nav2-column {
+  float: right;
+  width: 20%;
+  padding: 2.5%;
+  text-align: right;
+  height: 100%;
+}
+
+.nav2 .nav2-column .head {
+  line-height: 18px;
+  font-size: 14px;
+  color: #a5d122;
+}
+.nav2 .nav2-column li a {
+  display: block;
+  line-height: 26px;
+  font-size: 13px;
+  color: #4d4d4d;
+}
+
+.nav2 .nav2-column li a:hover {
+  color: #666666;
+}
+
+.inner {
+  float: right;
+  height: 10px;
+  top: -20px;
+  right: -25px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.layer2 {
+  height: 44px;
+}
+.inner > li > div {
+  top: 40px;
+  min-height: 100%;
+  right: -6px;
+  left: 5px;
+}
+.inner > li:hover > a {
+  height: 36px;
+  border-bottom: 3px solid #a5d122;
+  border-top: 0;
+}
+
+/*body right*/
+
+.btn.btn-green {
+  background-color: #a5d122;
+  width: 100%;
+}

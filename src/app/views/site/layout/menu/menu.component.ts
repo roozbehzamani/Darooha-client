@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { MenuService } from 'src/app/core/_services/site/menu/menu.service';
 import { AllMenu } from 'src/app/data/models/site/allMenu';
 
@@ -37,4 +38,5 @@ export class MenuComponent implements OnInit, OnDestroy {
       })
     );
   }
+
 }

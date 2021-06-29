@@ -67,7 +67,6 @@ export class LoginComponent implements OnInit {
         this.model.password = this.registerForm.controls.password.value;
         this.model.isremember = true;
         this.model.granttype = 'password';
-        console.log(this.model);
         this.authService.login(this.model).subscribe(() => {
           this.router.navigate(['/panel/user/dashboard']);
         }, error => {
@@ -82,7 +81,6 @@ export class LoginComponent implements OnInit {
   public findCombinationLettersAndNumbers(): ValidatorFn {
 
     return (c: AbstractControl): { [key: string]: boolean } | null => {
-      // console.log('val:', c.value);
 
       let isDigit = false;
       let isCapsOrSmallLetter = false;
@@ -101,14 +99,12 @@ export class LoginComponent implements OnInit {
         isCapsOrSmallLetter = true;
       }
       // if (!/[a-z]/.test(c.value)) {
-      //     console.log('password must contain lowercase letter');
       //     isSmallLetter = false;
       // } else {
       //     isSmallLetter = true;
       // }
 
       // if (!/[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(c.value)) {
-      //   // console.log('password must contain special character');
       //   isSpecialChar = true;
       // }
 

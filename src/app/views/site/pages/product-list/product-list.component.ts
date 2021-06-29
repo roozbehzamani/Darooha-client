@@ -105,10 +105,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
       sortHeader = '';
     }
 
-    console.log(searchKey);
-    console.log(sortDirection);
-    console.log(sortHeader);
-
     this.route.params
       .subscribe(
         (params: Params) => {

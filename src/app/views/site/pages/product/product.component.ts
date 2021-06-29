@@ -21,7 +21,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   subManager = new Subscription();
   product: Product;
   productImages: ProductImage[];
-  loggedIn; boolean;
+  loggedIn: boolean;
   allComments: Comment[] = [];
   point: number;
   bascket: Bascket = {
@@ -39,12 +39,17 @@ export class ProductComponent implements OnInit, OnDestroy {
     commentText: null
   };
 
-  constructor(private route: ActivatedRoute, private productService: ProductService, private authService: AuthService,
-              private commentService: CommentService, private formBuilder: FormBuilder, private alertService: ToastrService) {
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService,
+    private authService: AuthService,
+    private commentService: CommentService,
+    private formBuilder: FormBuilder,
+    private alertService: ToastrService) {
   }
 
   bascketForm: FormGroup = this.formBuilder.group({
-    productCount: ['0', [Validators.required]]
+    productCount: ['1', [Validators.required]]
   });
 
   commentForm: FormGroup = this.formBuilder.group({
@@ -104,6 +109,7 @@ export class ProductComponent implements OnInit, OnDestroy {
           this.bascketList[index] = existBascket;
         }
       } else {
+        console.log(this.bascketForm.get('productCount').value);
         this.bascket.productID = this.product.id;
         this.bascket.productCount = this.bascketForm.get('productCount').value;
         this.bascket.productName = this.product.productName;
@@ -138,7 +144,7 @@ export class ProductComponent implements OnInit, OnDestroy {
           this.allComments.push(data);
         }
       });
-    }else {
+    } else {
       this.alertService.warning('خطایی رخ داده. لطفا مجددا تلاش نمایید', 'خطا');
     }
   }

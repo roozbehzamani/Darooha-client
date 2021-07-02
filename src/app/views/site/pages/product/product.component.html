@@ -48,16 +48,14 @@
               >{{ product.productPrice }} تومان </span
             ><span style="font-weight: bold">
               &#160;&#160;&#160;
-              {{
-                activeDiscount(product.discount, product.productPrice)
-              }}
+              {{ activeDiscount(product.discount, product.productPrice) }}
               تومان</span
             >
           </p>
         </div>
-        <form [formGroup]="bascketForm">
+        <form>
           <button
-            type="submit"
+            type="button"
             class="btn btn-green text-light f6"
             (click)="onAddToBascket()"
           >
@@ -74,7 +72,7 @@
                 <div class="row py-1 float-right mr-1">
                   <button class="btn2 mr-1" onclick="btn2(this)">+</button>
                   <input
-                    formControlName="productCount"
+                    id="productCountId"
                     class="input-count text-center"
                     type="text"
                     value="1"

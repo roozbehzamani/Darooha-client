@@ -48,12 +48,8 @@ export class ProductComponent implements OnInit, OnDestroy {
     private alertService: ToastrService) {
   }
 
-  bascketForm: FormGroup = this.formBuilder.group({
-    productCount: ['1', [Validators.required]]
-  });
-
   commentForm: FormGroup = this.formBuilder.group({
-    commentText: ['', [Validators.required]]
+    commentText: ['1', [Validators.required]]
   });
 
   ngOnInit() {
@@ -97,32 +93,38 @@ export class ProductComponent implements OnInit, OnDestroy {
     );
   }
   onAddToBascket() {
-    if (this.bascketForm.valid) {
-      const testBascket: Bascket[] = JSON.parse(localStorage.getItem('bascket'));
-      if (testBascket) {
-        this.bascketList = JSON.parse(localStorage.getItem('bascket'));
-        const existBascket: Bascket = this.bascketList.find(x => x.productID === this.product.id);
-        if (existBascket) {
-          const index = this.bascketList.indexOf(existBascket);
-          existBascket.productCount += Number(this.bascketForm.get('productCount').value);
-          existBascket.productTotalPrice = existBascket.productCount * this.product.productPrice;
-          this.bascketList[index] = existBascket;
-        }
-      } else {
-        console.log(this.bascketForm.get('productCount').value);
+    const testBascket: Bascket[] = JSON.parse(localStorage.getItem('bascket'));
+    if (testBascket) {
+      this.bascketList = JSON.parse(localStorage.getItem('bascket'));
+      const existBascket: Bascket = this.bascketList.find(x => x.productID === this.product.id);
+      if (existBascket) {
+        const index = this.bascketList.indexOf(existBascket);
+        // tslint:disable-next-line:max-line-length
+        existBascket.productCount = Number((document.getElementById('productCountId') as HTMLInputElement).value) + existBascket.productCount;
+        existBascket.productTotalPrice = existBascket.productCount * this.product.productPrice;
+        this.bascketList[index] = existBascket;
+      }
+      else {
         this.bascket.productID = this.product.id;
-        this.bascket.productCount = this.bascketForm.get('productCount').value;
+        this.bascket.productCount = Number((document.getElementById('productCountId') as HTMLInputElement).value);
         this.bascket.productName = this.product.productName;
-        this.bascket.productPrice = this.product.productPrice;
+        this.bascket.productPrice = Number(this.product.productPrice);
         this.bascket.productImage = this.productImages[0].imageUrl;
         this.bascket.productTotalPrice = this.bascket.productCount * this.product.productPrice;
         this.bascketList.push(this.bascket);
       }
-      localStorage.setItem('bascket', JSON.stringify(this.bascketList));
-      this.alertService.success('محصول با موفقیت به سبد خرید اضافه شد', 'موفق');
-    } else {
-      this.alertService.warning('خطایی رخ داده', 'خطا');
     }
+    else {
+      this.bascket.productID = this.product.id;
+      this.bascket.productCount = Number((document.getElementById('productCountId') as HTMLInputElement).value);
+      this.bascket.productName = this.product.productName;
+      this.bascket.productPrice = Number(this.product.productPrice);
+      this.bascket.productImage = this.productImages[0].imageUrl;
+      this.bascket.productTotalPrice = this.bascket.productCount * this.product.productPrice;
+      this.bascketList.push(this.bascket);
+    }
+    localStorage.setItem('bascket', JSON.stringify(this.bascketList));
+    this.alertService.success('محصول با موفقیت به سبد خرید اضافه شد', 'موفق');
   }
   counter(point: number, count: number) {
     if (count > 0) {

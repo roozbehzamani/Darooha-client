@@ -1,87 +1,104 @@
-
-
 <!-------body------->
-<div class="container-fluid pb-5" style="background-color: #fafafa;">
+<div class="container-fluid pb-5" style="background-color: #fafafa">
   <div class="container pt-5">
-      <div class="row">
-          <div class="col-3 col-md-3 d-none d-md-block bg-white border" style="height: 100%">
-           <div class="row pt-3 ">
-               <div class="col-7 col-lg-8">
-                   <p class="f31 mt-md-1 pt-md-1">محصولات موجود</p>
-               </div>
-               <div class="col-5 col-lg-4">
-                   <label class="toggler-wrapper style-6">
-                       <input type="checkbox" >
-                       <div class="toggler-slider">
-                           <div class="toggler-knob"></div>
-                       </div>
-                   </label>
-
-               </div>
-           </div>
-              <div class="row ">
-                  <div class="col-7 col-lg-8">
-                      <p class="f31 mt-md-1 pt-md-1">محصولات باتخفیف</p>
-                  </div>
-                  <div class="col-5 col-lg-4">
-                      <label class="toggler-wrapper style-6">
-                          <input type="checkbox" >
-                          <div class="toggler-slider">
-                              <div class="toggler-knob"></div>
-                          </div>
-                      </label>
-                  </div>
+    <div class="row">
+      <div
+        class="col-3 col-md-3 d-none d-md-block bg-white border"
+        style="height: 100%"
+      >
+        <div class="row pt-3">
+          <div class="col-7 col-lg-8">
+            <p class="f31 mt-md-1 pt-md-1">محصولات موجود</p>
+          </div>
+          <div class="col-5 col-lg-4">
+            <label class="toggler-wrapper style-6">
+              <input type="checkbox" />
+              <div class="toggler-slider">
+                <div class="toggler-knob"></div>
               </div>
-              <div class="row">
-                  <div class="col-7 col-lg-8">
-                      <p class="f31 mt-md-1 pt-md-1">محصولات باهدیه</p>
-                  </div>
-                  <div class="col-5 col-lg-4">
-                      <label class="toggler-wrapper style-6">
-                          <input type="checkbox" >
-                          <div class="toggler-slider">
-                              <div class="toggler-knob"></div>
-                          </div>
-                      </label>
-                  </div>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-7 col-lg-8">
+            <p class="f31 mt-md-1 pt-md-1">محصولات باتخفیف</p>
+          </div>
+          <div class="col-5 col-lg-4">
+            <label class="toggler-wrapper style-6">
+              <input type="checkbox" />
+              <div class="toggler-slider">
+                <div class="toggler-knob"></div>
               </div>
-
-              <!--------price------->
-              <div class="row mt-4" >
-                  <div class="col-12" style="background-color: #e7ecf2">
-                          <p class="mb-0 py-2 f5">بر اساس قیمت</p>
-                  </div>
-                  <div class="col-12">
-                      <div class="row mt-2 ">
-                          <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
-                              <span class="minprice fprice">0</span>
-                          </div>
-                          <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 text-right">
-                              <span class="maxprice fprice">2,50,000</span>
-                          </div>
-                      </div>
-                      <div class="row mt-2">
-                          <div class="col-md-12">
-                              <div class="range-slider"><span class="range-slider-selection"></span>
-                                  <input class="range-slider-min" type="range" min="0" max="250000"
-                                         step="1" value="0" />
-                                  <input class="range-slider-max" type="range" min="0" max="250000"
-                                         step="1" value="250000" />
-                                  <br />
-                                  <input type="hidden" class="minmaxprice" name="pricerange" value="" />
-                              </div>
-                          </div>
-                      </div>
-
-
-                      <button type="button" class="btn btn-green mt-4 text-light f6">اعمال محدوده قیمت</button>
-                  </div>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-7 col-lg-8">
+            <p class="f31 mt-md-1 pt-md-1">محصولات باهدیه</p>
+          </div>
+          <div class="col-5 col-lg-4">
+            <label class="toggler-wrapper style-6">
+              <input type="checkbox" />
+              <div class="toggler-slider">
+                <div class="toggler-knob"></div>
               </div>
+            </label>
+          </div>
+        </div>
 
+        <!--------price------->
+        <div class="row mt-4">
+          <div class="col-12" style="background-color: #e7ecf2">
+            <p class="mb-0 py-2 f5">بر اساس قیمت</p>
+          </div>
+          <div class="col-12">
+            <div class="row mt-2">
+              <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                <span class="minprice fprice">0</span>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 text-right">
+                <span class="maxprice fprice">2,50,000</span>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-12">
+                <div class="range-slider">
+                  <span class="range-slider-selection"></span>
+                  <input
+                    class="range-slider-min"
+                    type="range"
+                    min="0"
+                    max="250000"
+                    step="1"
+                    value="0"
+                  />
+                  <input
+                    class="range-slider-max"
+                    type="range"
+                    min="0"
+                    max="250000"
+                    step="1"
+                    value="250000"
+                  />
+                  <br />
+                  <input
+                    type="hidden"
+                    class="minmaxprice"
+                    name="pricerange"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
 
+            <button type="button" class="btn btn-green mt-4 text-light f6">
+              اعمال محدوده قیمت
+            </button>
+          </div>
+        </div>
 
-              <!-------products------->
-              <!--<div class="row mt-4">
+        <!-------products------->
+        <!--<div class="row mt-4">
                   <div class="col-12 px-0">
                       <div  class="rounded-0 pl-3 py-2 f5" style="background-color: #e7ecf2">گروه محصولات</div>
 
@@ -130,62 +147,93 @@
                   </div>
               </div>-->
 
-              <!----------brand---------->
-              <div class="row mt-4 mb-3">
-                  <div class="col-12"  style="background-color: #e7ecf2">
-                      <p class="mb-0 py-2 f5">بر اساس برند</p>
-                  </div>
-                  <input  class="w-100 mt-1 py-1 my-2 px-2 mx-3 input-form f4" type="text" name="" value="" placeholder="جستجو کنید...">
-                  <div class="col-12 px-0">
-                      <p class="mb-0 py-1 f4"><input type="checkbox" name="rdp" id="rd1"><label class="product" for="rd1"></label>
-                          آدیداس</p>
-                  </div>
-
-                  <div class="col-12 px-0">
-                      <p class="mb-0 py-1 f4"><input type="checkbox" name="rdp1" id="rd2"><label class="product" for="rd2"></label>
-                          آردن</p>
-                  </div>
-
-                  <div class="col-12 px-0">
-                      <p class="mb-0 py-1 f4"><input type="checkbox" name="rdp2" id="rd3"><label class="product" for="rd3"></label>
-                          آکوا فرشآردن</p>
-                  </div>
-
-
-                  <div class="col-12 px-0">
-                      <p class="mb-0 py-1 f4"><input type="checkbox" name="rdp3" id="rd4"><label class="product" for="rd4"></label>
-                          آیسیس فارما</p>
-                  </div>
-
-
-                  <div class="col-12 px-0">
-                      <p class="mb-0 py-1 f4"><input type="checkbox" name="rdp4" id="rd5"><label class="product" for="rd5"></label>
-                          اریکه</p>
-                  </div>
-
-
-                  <div class="col-12 px-0">
-                      <p class="mb-0 py-1 f4"><input type="checkbox" name="rdp5" id="rd6"><label class="product" for="rd6"></label>
-                          اس وی آر</p>
-                  </div>
-
-
-              </div>
+        <!----------brand---------->
+        <div class="row mt-4 mb-3">
+          <div class="col-12" style="background-color: #e7ecf2">
+            <p class="mb-0 py-2 f5">بر اساس برند</p>
+          </div>
+          <input
+            class="w-100 mt-1 py-1 my-2 px-2 mx-3 input-form f4"
+            type="text"
+            name=""
+            value=""
+            placeholder="جستجو کنید..."
+          />
+          <div class="col-12 px-0">
+            <p class="mb-0 py-1 f4">
+              <input type="checkbox" name="rdp" id="rd1" /><label
+                class="product"
+                for="rd1"
+              ></label>
+              آدیداس
+            </p>
           </div>
 
-          <!--------product------>
-          <div class="col-12 col-md-9">
-              <div class="row">
-                  <div class="col-12">
-                    <div style="margin-bottom: 10px;">
-                        <input
-                        class="searchInput py-2 f4 productSearchInput"
-                        type="text"
-                        placeholder="جستوجو ..."
-                        [(ngModel)]="filterSortOrderBy.searchKey"
-                        (keyup)="applyFilter()"
-                      />
-                     <!-- <button
+          <div class="col-12 px-0">
+            <p class="mb-0 py-1 f4">
+              <input type="checkbox" name="rdp1" id="rd2" /><label
+                class="product"
+                for="rd2"
+              ></label>
+              آردن
+            </p>
+          </div>
+
+          <div class="col-12 px-0">
+            <p class="mb-0 py-1 f4">
+              <input type="checkbox" name="rdp2" id="rd3" /><label
+                class="product"
+                for="rd3"
+              ></label>
+              آکوا فرشآردن
+            </p>
+          </div>
+
+          <div class="col-12 px-0">
+            <p class="mb-0 py-1 f4">
+              <input type="checkbox" name="rdp3" id="rd4" /><label
+                class="product"
+                for="rd4"
+              ></label>
+              آیسیس فارما
+            </p>
+          </div>
+
+          <div class="col-12 px-0">
+            <p class="mb-0 py-1 f4">
+              <input type="checkbox" name="rdp4" id="rd5" /><label
+                class="product"
+                for="rd5"
+              ></label>
+              اریکه
+            </p>
+          </div>
+
+          <div class="col-12 px-0">
+            <p class="mb-0 py-1 f4">
+              <input type="checkbox" name="rdp5" id="rd6" /><label
+                class="product"
+                for="rd6"
+              ></label>
+              اس وی آر
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!--------product------>
+      <div class="col-12 col-md-9">
+        <div class="row">
+          <div class="col-12">
+            <div style="margin-bottom: 10px">
+              <input
+                class="searchInput py-2 f4 productSearchInput"
+                type="text"
+                placeholder="جستوجو ..."
+                [(ngModel)]="filterSortOrderBy.searchKey"
+                (keyup)="applyFilter()"
+              />
+              <!-- <button
                         mat-button
                         *ngIf="searchKey"
                         matSuffix
@@ -195,121 +243,120 @@
                       >
                         <i class="fa fa-cart-arrow-down" style="color: #e7ecf2;"></i>
                       </button>-->
-                    </div>
-                      <div class="border">
-                          <div class="box bg-white">
-                              <div class="container">
-                                      <ul class="nav py-2 f4">
-                                          <li class="nav_item" >
-                                              <a class=" nav-link mr-1 text-green sort">مرتب سازی بر اساس :</a>
-                                          </li>
-                                          <li class="nav_item active-back">
-                                              <a class=" nav-link sort-text mx-1" (click)="sortDataEvent('commentCount','asc')">پربازدیدترین</a>
-                                          </li>
-                                          <li class="nav_item" >
-                                              <a class=" nav-link sort-text mx-1" (click)="sortDataEvent('productPrice','asc')">گرانترین</a>
-                                          </li>
+            </div>
+            <div class="border">
+              <div class="box bg-white">
+                <div class="container">
+                  <ul class="nav py-2 f4">
+                    <li class="nav_item">
+                      <a class="nav-link mr-1 text-green sort"
+                        >مرتب سازی بر اساس :</a
+                      >
+                    </li>
+                    <li class="nav_item active-back">
+                      <a
+                        class="nav-link sort-text mx-1"
+                        (click)="sortDataEvent('commentCount', 'asc')"
+                        >پربازدیدترین</a
+                      >
+                    </li>
+                    <li class="nav_item">
+                      <a
+                        class="nav-link sort-text mx-1"
+                        (click)="sortDataEvent('productPrice', 'asc')"
+                        >گرانترین</a
+                      >
+                    </li>
 
-                                          <li class="nav_item" >
-                                              <a class=" nav-link sort-text mx-1" (click)="sortDataEvent('productPrice','desc')">ارانترین</a>
-                                          </li>
+                    <li class="nav_item">
+                      <a
+                        class="nav-link sort-text mx-1"
+                        (click)="sortDataEvent('productPrice', 'desc')"
+                        >ارانترین</a
+                      >
+                    </li>
 
-                                          <li class="nav_item" >
-                                              <a href="#" class=" nav-link sort-text mx-1" (click)="sortDataEvent('sumPoint','asc')">محبوب ترین</a>
-                                          </li>
-                                      </ul>
-                              </div>
-                          </div>
-                      </div>
+                    <li class="nav_item">
+                      <a
+                        href="#"
+                        class="nav-link sort-text mx-1"
+                        (click)="sortDataEvent('sumPoint', 'asc')"
+                        >محبوب ترین</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
 
-                      <!----------------->
-                      <div class="row mt-4">
-                          <div class="col-12 col-lg-2">
-                              <h6 class=" ml-1 pt-1 f5">محصولات  <span class="text-green f2">({{products.length}})</span></h6>
-                          </div>
-                          <div class="col-lg-10 d-none d-lg-block">
-                              <div class="progress mt-3 ">
-                                  <div class="progress-bar"></div>
-                              </div>
-                          </div>
-                      </div>
+            <!----------------->
+            <div class="row mt-4">
+              <div class="col-12 col-lg-2">
+                <h6 class="ml-1 pt-1 f5">
+                  محصولات
+                  <span class="text-green f2">({{ products.length }})</span>
+                </h6>
+              </div>
+              <div class="col-lg-10 d-none d-lg-block">
+                <div class="progress mt-3">
+                  <div class="progress-bar"></div>
+                </div>
+              </div>
+            </div>
 
-
-                      <!------card------->
-                      <div class="row">
-                          <div *ngFor="let item of products" class="col-12 col-md-6 col-lg-4">
-                              <div class="card mt-3">
-                                  <div class="card-img">
-                                      <img src="{{item.imageUrl}}" class="img-fluid d-block mx-auto">
-                                  </div>
-
-                                  <div class="card-body">
-
-                                      <div class="progress">
-                                          <div class="progress-bar"></div>
-                                      </div>
-
-                                      <p class="text-left pt-2 f4">{{item.productName}}  </p>
-                                      <div *ngIf="item.discount==='0'">
-                                        <p class="text-left f4">{{item.productPrice}} تومان</p>
-                                    </div>
-                                    <div *ngIf="item.discount!=='0'">
-                                        <p class="text-left f4"><span style="text-decoration: line-through;">{{item.productPrice}} تومان </span><span style="font-weight: bold;">  &#160;&#160;&#160;  {{activeDiscount(item.discount, item.productPrice)}} تومان</span></p>
-                                    </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
+            <!------card------->
+            <div class="row">
+              <div
+                *ngFor="let item of products"
+                class="col-12 col-md-6 col-lg-4"
+              >
+                <div class="card mt-3">
+                  <div class="card-img">
+                    <img
+                      src="{{ item.imageUrl }}"
+                      class="img-fluid d-block mx-auto"
+                    />
                   </div>
+
+                  <div class="card-body">
+                    <div class="progress">
+                      <div class="progress-bar"></div>
+                    </div>
+
+                    <p class="text-left pt-2 f4">{{ item.productName }}</p>
+                    <div *ngIf="item.discount === '0'">
+                      <p class="text-left f4">{{ item.productPrice }} تومان</p>
+                    </div>
+                    <div *ngIf="item.discount !== '0'">
+                      <p class="text-left f4">
+                        <span style="text-decoration: line-through"
+                          >{{ item.productPrice }} تومان </span
+                        ><span style="font-weight: bold">
+                          &#160;&#160;&#160;
+                          {{
+                            activeDiscount(item.discount, item.productPrice)
+                          }}
+                          تومان</span
+                        >
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
-
-
-              <!-------- button see more-------->
-              <mat-paginator
-                [pageIndex]="pagination.currentPage"
-                [length]="pagination.totalItems"
-                [pageSize]="pagination.itemsPerPage"
-                [pageSizeOptions]="[2, 3, 4, 5, 10]"
-                showFirstLastButtons
-                (page)="paginatorEvent($event)"
-                
-            ></mat-paginator>
+            </div>
           </div>
+        </div>
+
+        <!-------- button see more-------->
+        <mat-paginator
+          [pageIndex]="pagination.currentPage"
+          [length]="pagination.totalItems"
+          [pageSize]="pagination.itemsPerPage"
+          [pageSizeOptions]="[2, 3, 4, 5, 10]"
+          showFirstLastButtons
+          (page)="paginatorEvent($event)"
+        ></mat-paginator>
       </div>
+    </div>
   </div>
-
-      <!-----------توضیح-----
-      <div class="container mt-5">
-          <div class=" border" style="background-color: #e7ecf2">
-              <div class="col-12">
-                  <h6 class="mb-0 py-2 f6">آرایشی و بهداشتی</h6>
-              </div>
-          </div>
-
-          <div class="border text-justify bg-white py-3 px-3">
-              <p class="mb-0 f5">خرید لوازم آرایشی بهداشتی با کیفیت و  قیمت مناسب حق مسلم هر مصرف‌کننده‌ای است و همه ما حق داریم بابت پولی که پرداخت می‌کنیم، محصول باکیفیت دریافت کنیم.
-
-                  با توجه به این موضوع، خیلی از ما از فروشگاه و داروخانه‌های معتبری که در سطح شهر هستند، محصولات مورد نظرمان را خریداری می‌کنیم و حتی ممکن است برای یافتن محصولی که مناسب پوست، مو و به صورت کلی بدن ماست، چندین داروخانه را رصد کنیم تا محصولی که به آن نیاز داریم را بیابیم.
-
-                  به عنوان مثال، ممکن است برای خرید یافتن یک شامپو با برندی خاص که بنا به هر دلیلی در بازار کمیاب شده است، ناچار شویم چندین داروخانه را در سراسر شهر زیر پا بگذاریم و در نهایت ناچار شویم محصولی مشابه خریداری کنیم.
-
-                  برای رفع این مشکل اما ما یک راهکار خوب سراغ داریم. راهکاری که به شما کمک می‌کند بدون نیاز به مراجعه حضوری به داروخانه‌های سطح شهر، محصول موردنظرتان را پیدا کنید و با قیمت واقعی خریداری کنید. با ما همراه باشید تا در این مورد بیشتر بدانید.
-
-<br>
-
-                  خرید محصولات آرایشی و بهداشتی اصل در چند دقیقه
-
-                  این یک حقیقت است که وب‌سایت‌های عرضه لوازم بهداشتی و آرایشی کمک بزرگی به مصرف‌کنندگان برای یافتن سریع و آسان محصولات موردنظرشان به حساب می‌آیند؛ اما آیا می‌توان به هر وب‌سایتی در این زمینه اعتماد کرد؟
-
-                  پاسخ روشن است؛ ما نمی‌توانیم به هر وب‌سایتی که در زمینه عرضه محصولات آرایشی و بهداشتی فعالیت می‌کند اعتماد کنیم؛ مگر اینکه وب‌سایت شناخته شده و معتبر و زیر نظر یک داروخانه معتبر فعالیت کند.
-
-                  داروکده در این زمینه مثال بسیار خوبی است؛ زیرا وب‌سایت رسمی داروخانه مرکزی جمالزاده با 50 سال سابقه فعالیت و از معتبر و شناخته‌ شده‌ترین داروخانه‌های تهران و اولین پایگاه اطلاع‌رسانی جامع اینترنتی محصولات داروخانه است.
-
-                  در داروکده تمام داروهای غیردرمانی در کنار محصولات آرایشی و بهداشتی با کیفیت بالا و قیمت واقعی به شما عرضه می‌شوند و علاوه بر این، می‌توانید بابت خرید محصولات با مشاوران داروخانه جمالزاده که از پزشکان داروساز حرفه‌ای هستند، مشورت کنید.
-
-                  در مورد تنوع محصولات عرضه شده در وبسایت داروکده نیز باید بگوییم که کمتر محصولی را می‌توان در داروخانه‌های کشور یافت که در لیست محصولات داروکده نباشد و همچنین از لحاظ کیفیت محصول و قیمت، تمام محصولات به‌روز و به صورت آنلاین توسط تیم پشتیبانی و انبار به روزرسانی می‌شوند.
-
-                  همچنین گروه بندی و منوهای دسترسی به گروه محصولات نیز به شکلی طراحی و چیده شده است که کاربران با کمترین زمان جستجو بتوانند به گروه محصولی خود دسترسی پیدا کنند. </p>
-          </div>
-      </div>-->
 </div>

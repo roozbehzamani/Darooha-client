@@ -53,6 +53,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   });
 
   ngOnInit() {
+    window.scroll(0, 0);
     this.loggedIn = this.authService.loggedIn();
     this.loadProduct();
     this.calculatePoint();

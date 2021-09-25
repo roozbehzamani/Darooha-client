@@ -1,33 +1,18 @@
-import * as fromUsers from './users.reducer';
-import { ActionReducerMap, createFeatureSelector, createSelector } from '@ngrx/store';
+import * as fromRouter from '@ngrx/router-store';
+import { ActionReducerMap } from '@ngrx/store';
+import { RouterStateUrl } from '../_model/routerStateUrl';
+import { AuthTokenState } from '../_model/authTokenState';
+import { authTokenReducer } from './authToken.reducers';
+import { loggedUserReducer } from './loggedUser.reducers';
+import { User } from 'src/app/data/models/userPanel/user';
 
-export interface InfoState {
-    users: fromUsers.UserState;
+export interface State {
+    router: fromRouter.RouterReducerState<RouterStateUrl>;
+    authToken: AuthTokenState;
+    loggedUser: User;
 }
-
-export const reducers: ActionReducerMap<InfoState> = {
-    users: fromUsers.userReducer
+export const reducers: ActionReducerMap<State> = {
+    router: fromRouter.routerReducer,
+    authToken: authTokenReducer,
+    loggedUser: loggedUserReducer
 };
-
-
-export const getInfoState = createFeatureSelector<InfoState>('info');
-
-export const getUserState = createSelector(getInfoState, (state: InfoState) => state.users);
-
-export const getAllUsersEntities = createSelector(getUserState,
-    fromUsers.usersAdaptor.getSelectors().selectEntities);
-
-export const getAllUsers = createSelector(getUserState,
-    fromUsers.usersAdaptor.getSelectors().selectAll);
-
-export const getUsersLoaded = createSelector(getUserState, fromUsers.getUsersLoaded);
-export const getUsersLoading = createSelector(getUserState, fromUsers.getUsersLoading);
-export const getUsersError = createSelector(getUserState, fromUsers.getUsersError);
-
-export const getSelectedUserId = createSelector(getUserState,
-    fromUsers.getSelectedUserId);
-
-export const getSelectedUser = createSelector(getUserState,
-    getSelectedUserId,
-    fromUsers.getSelectedUserId,
-    state => state.entities[state.selectedUserId]);

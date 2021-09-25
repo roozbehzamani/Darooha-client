@@ -13,6 +13,13 @@ import { CommonModule } from '@angular/common';
 import { ErrorInterceptorProvider } from './core/_config/error.interceptor';
 import { TitleService } from './core/_services/common/title.service';
 import { AuthService } from './core/_services/auth/auth.service';
+import { StoreModule } from '@ngrx/store';
+import { environment } from 'src/environments/environment.prod';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { CustomRouteSerializer } from './shared/helpers/customRouteSerializer';
+import { reducers } from './store';
 
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   pbColor: 'red',
@@ -49,7 +56,13 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
     }),
     NgxUiLoaderModule.forRoot(ngxUiLoaderConfig),
     NgxUiLoaderRouterModule,
-    NgxUiLoaderHttpModule.forRoot({ showForeground: true })
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true }),
+    StoreModule.forRoot(reducers),
+    StoreRouterConnectingModule.forRoot({
+      serializer: CustomRouteSerializer
+    }),
+    EffectsModule.forRoot([]),
+    environment.development ? StoreDevtoolsModule.instrument({ maxAge: 10 }) : []
   ],
   providers: [
     ErrorInterceptorProvider,

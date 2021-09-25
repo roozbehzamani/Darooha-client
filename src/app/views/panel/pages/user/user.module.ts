@@ -37,9 +37,6 @@ import { UserAddressComponent } from './pages/manage-user-address/pages/user-add
 import { NotificationComponent } from './pages/notification/notification.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UserDashboardComponent } from './pages/user-dashboard/user-dashboard.component';
-import { StoreModule } from '@ngrx/store';
-import { reducers, effects } from 'src/app/store';
-import { EffectsModule } from '@ngrx/effects';
 import { ManageWalletComponent } from './pages/manage-wallet/manage-wallet.component';
 import { AddWalletComponent } from './pages/manage-wallet/pages/add-wallet/add-wallet.component';
 import { UserWalletComponent } from './pages/manage-wallet/pages/user-wallet/user-wallet.component';
@@ -52,8 +49,6 @@ import { UserWalletComponent } from './pages/manage-wallet/pages/user-wallet/use
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    StoreModule.forFeature('info', reducers),
-    EffectsModule.forFeature(effects),
   ],
   declarations: [
     // user

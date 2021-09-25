@@ -1,12 +1,15 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { ActivatedRoute, ActivatedRouteSnapshot, Params } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { ProductService } from 'src/app/core/_services/site/product/product.service';
 import { FilterSortOrderBy } from 'src/app/data/models/common/filterSortOrderBy';
 import { Pagination } from 'src/app/data/models/common/pagination';
 import { Product } from 'src/app/data/models/site/product';
+import { RouterStateUrl } from 'src/app/store/_model/routerStateUrl';
+import * as fromStore from '../../store';
 
 @Component({
   selector: 'app-product-list',
@@ -27,10 +30,19 @@ export class ProductListComponent implements OnInit, OnDestroy {
     searchKey: ''
   };
 
-  constructor(private route: ActivatedRoute, private productService: ProductService, private alertService: ToastrService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService,
+    private alertService: ToastrService,
+    private store: Store<RouterStateUrl>
+  ) { }
 
   ngOnInit() {
     this.loadProducts();
+    this.store.select(fromStore.getRouterMenuId).subscribe((data) => {
+      console.log(data);
+    });
+
   }
   ngOnDestroy() {
     this.subManager.unsubscribe();

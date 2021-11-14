@@ -1,9 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from 'src/app/core/_services/auth/auth.service';
+import { Router } from '@angular/router';
 import { AdminProductService } from 'src/app/core/_services/panel/admin/admin-product/admin-product.service';
 import { AddProduct } from 'src/app/data/models/adminPanel/product/add-product';
 import { Brand } from 'src/app/data/models/adminPanel/Brand/brand';
@@ -21,9 +19,10 @@ export class ProductAddFormComponent implements OnInit, OnDestroy {
   brandList: Brand[];
 
   constructor(
-    private adminProductService: AdminProductService, private authService: AuthService,
-    private formBuilder: FormBuilder, private alertService: ToastrService, private router: Router,
-    private brandService: BrandService, private route: ActivatedRoute
+    private adminProductService: AdminProductService,
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private brandService: BrandService
   ) { }
 
   productForm: FormGroup = this.formBuilder.group({
@@ -60,7 +59,7 @@ export class ProductAddFormComponent implements OnInit, OnDestroy {
 
   loadBrands() {
     this.subManager.add(
-      this.brandService.getAllBrand(this.authService.decodedToken.nameid).subscribe(data => {
+      this.brandService.getAllBrand().subscribe(data => {
         this.brandList = data;
       })
     );
@@ -69,7 +68,7 @@ export class ProductAddFormComponent implements OnInit, OnDestroy {
   onCreateProduct() {
     this.productForCreate = this.productForm.value;
     this.subManager.add(
-      this.adminProductService.createNewProduct(this.productForCreate, this.authService.decodedToken.nameid).subscribe(data => {
+      this.adminProductService.createNewProduct(this.productForCreate).subscribe(data => {
         this.router.navigate(['panel/admin/productList']);
       })
     );

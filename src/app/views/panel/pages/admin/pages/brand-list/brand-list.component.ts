@@ -2,7 +2,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/core/_services/auth/auth.service';
 import { BrandService } from 'src/app/core/_services/panel/admin/brand/brand.service';
 import { Brand } from 'src/app/data/models/adminPanel/Brand/brand';
 
@@ -17,8 +16,11 @@ export class BrandListComponent implements OnInit, OnDestroy {
   brands: Brand[];
 
   constructor(
-    private route: ActivatedRoute, private brandService: BrandService, private authService: AuthService,
-    private alertService: ToastrService, private router: Router) { }
+    private route: ActivatedRoute,
+    private brandService: BrandService,
+    private alertService: ToastrService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.loadBrands();
@@ -36,7 +38,7 @@ export class BrandListComponent implements OnInit, OnDestroy {
   }
 
   onDeleteBrand(id: string) {
-    this.brandService.deleteBrand(id, this.authService.decodedToken.nameid).subscribe(() => {
+    this.brandService.deleteBrand(id).subscribe(() => {
       this.alertService.success('برند مورد نظر  شما با موفقیت حذف شد', 'موفق');
       window.location.reload();
     }, error => {

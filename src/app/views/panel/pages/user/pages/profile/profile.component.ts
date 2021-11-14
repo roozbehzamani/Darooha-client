@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {  FormBuilder } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/core/_services/auth/auth.service';
-import { UserService } from 'src/app/core/_services/panel/user/user.service';
+import { Store } from '@ngrx/store';
+import * as fromStore from '../../../../../../store';
+import { Observable, from } from 'rxjs';
 import { User } from 'src/app/data/models/userPanel/user';
 
 @Component({
@@ -13,19 +12,22 @@ import { User } from 'src/app/data/models/userPanel/user';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private userService: UserService, private alertService: ToastrService,
-              private authService: AuthService, private formBuilder: FormBuilder) { }
+  constructor(
+    private route: ActivatedRoute,
+    private store: Store<fromStore.State>
+  ) { }
+
   user: User;
-  photoUrl: string;
+  photoUrl$: Observable<string>;
 
   ngOnInit() {
-    this.authService.currentPhotoUrl.subscribe(pu => this.photoUrl = pu);
     this.loadUser();
+    this.photoUrl$ = this.store.select(fromStore.getLoggedUserPhotoUrl);
   }
 
   loadUser() {
     this.route.data.subscribe(data => {
       this.user = data.user;
     });
-   }
+  }
 }

@@ -8,7 +8,7 @@ import { Slider } from 'src/app/data/models/site/slider';
 
 @Injectable()
 export class HomeSliderResolver implements Resolve<Slider[]> {
-    constructor(private alertService: ToastrService, private homeService: HomeService) {}
+    constructor(private alertService: ToastrService, private homeService: HomeService) { }
 
     resolve(route: ActivatedRouteSnapshot): Observable<Slider[]> {
         return this.homeService.getSliderItems().pipe(

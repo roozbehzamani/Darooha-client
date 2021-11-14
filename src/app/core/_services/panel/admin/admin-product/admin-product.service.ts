@@ -4,23 +4,35 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AddProduct } from 'src/app/data/models/adminPanel/product/add-product';
 import { ProductList } from 'src/app/data/models/adminPanel/product/product-list';
+import { Store } from '@ngrx/store';
+import * as fromStore from '../../../../../store';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminProductService {
-  baseUrl = environment.apiUrl + environment.apiV1 + 'site/panel/';
-  constructor(private http: HttpClient) { }
 
-  getAllproduct(userId: string): Observable<ProductList[]> {
+  baseUrl = environment.apiUrl + environment.apiV1 + 'site/panel/';
+  userId: string;
+
+  constructor(
+    private http: HttpClient,
+    private store: Store<fromStore.State>
+  ) {
+    this.store.select(fromStore.getUserId).subscribe(data => {
+      this.userId = data;
+    });
+  }
+
+  getAllproduct(userId: string = this.userId): Observable<ProductList[]> {
     return this.http.get<ProductList[]>(this.baseUrl + userId + '/Admin/AllProductList');
   }
 
-  getProduct(userId: string, productId: string): Observable<AddProduct> {
+  getProduct(productId: string, userId: string = this.userId): Observable<AddProduct> {
     return this.http.get<AddProduct>(this.baseUrl + userId + '/Admin/SingleProduct/' + productId);
   }
 
-  createNewProduct(addProduct: AddProduct, userId: string): Observable<AddProduct> {
+  createNewProduct(addProduct: AddProduct, userId: string = this.userId): Observable<AddProduct> {
     return this.http.post<AddProduct>(this.baseUrl + userId + '/Admin/AddProduct', addProduct);
   }
 

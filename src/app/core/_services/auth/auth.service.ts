@@ -8,6 +8,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/data/models/userPanel/user';
+import * as fromStore from '../../../store';
+import { Store } from '@ngrx/store';
 
 
 @Injectable({
@@ -16,15 +18,18 @@ import { User } from 'src/app/data/models/userPanel/user';
 export class AuthService {
   baseUrl = environment.apiUrl + environment.apiV1 + 'site/panel/auth/';
   jwtHelper = new JwtHelperService();
-  decodedToken: any;
-  currentUser: User;
-  photoUrl = new BehaviorSubject<string>('../../../assets/img/default-profile.png');
-  currentPhotoUrl = this.photoUrl.asObservable();
+  userRoles: string[] = [];
 
-  constructor(private http: HttpClient, private alertService: ToastrService, private router: Router) { }
-
-  changeUserPhoto(photoUrl: string) {
-    this.photoUrl.next(photoUrl);
+  constructor(
+    private http: HttpClient,
+    private alertService: ToastrService,
+    private router: Router,
+    private store: Store<fromStore.State>
+  ) {
+    const token = localStorage.getItem('token');
+    if (token) {
+      this.userRoles = this.jwtHelper.decodeToken(token).role as Array<string>;
+    }
   }
 
   login(model: any) {
@@ -32,12 +37,13 @@ export class AuthService {
       map((resp: any) => {
         const user = resp;
         if (user) {
+          // store
+          this.store.dispatch(new fromStore.EditLoggedUser(user.user));
+          const decodedToken = this.jwtHelper.decodeToken(user.token);
+          this.store.dispatch(new fromStore.EditDecodedToken(decodedToken));
+          this.userRoles = decodedToken.role as Array<string>;
           localStorage.setItem('token', user.token);
           localStorage.setItem('refreshToken', user.refresh_token);
-          localStorage.setItem('user', JSON.stringify(user.user));
-          this.decodedToken = this.jwtHelper.decodeToken(user.token);
-          this.currentUser = user.user;
-          this.changeUserPhoto(this.currentUser.imageURL);
         }
       })
     );
@@ -49,8 +55,7 @@ export class AuthService {
 
   loggedIn() {
     const token = localStorage.getItem('token');
-    // tslint:disable-next-line: triple-equals
-    if (token != null || token != undefined) {
+    if (token) {
       return true;
     } else {
       return false;
@@ -59,37 +64,71 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
-    localStorage.removeItem('user');
     localStorage.removeItem('refreshToken');
-    this.decodedToken = null;
-    this.currentUser = null;
+    this.store.dispatch(new fromStore.ResetDecodedToken());
+    this.store.dispatch(new fromStore.ResetLoggedUser());
+    this.userRoles = [];
     this.router.navigate(['/auth/login']);
+    this.alertService.warning('با موفقیت خارج شدید', 'موفق');
+  }
+
+  logoutRefreshToken() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('refreshToken');
+    this.store.dispatch(new fromStore.ResetDecodedToken());
+    this.store.dispatch(new fromStore.ResetLoggedUser());
+    this.userRoles = [];
+    this.router.navigate(['/auth/login']);
+    this.alertService.error('خطا در اعتبار سنجی خودکار', 'خطا');
     this.alertService.warning('با موفقیت خارج شدید', 'موفق');
   }
 
   roleMatch(allowedRoles): boolean {
     let isMatch = false;
-    const userRoles = this.decodedToken.role as Array<string>;
-    allowedRoles.forEach(element => {
-      if (userRoles.includes(element)) {
-        isMatch = true;
-        return;
-      }
-    });
+    const userRoles = this.userRoles;
+    if (Array.isArray(userRoles)) {
+      allowedRoles.forEach(element => {
+        if (userRoles.includes(element)) {
+          isMatch = true;
+          return;
+        }
+      });
+    } else {
+      allowedRoles.forEach(element => {
+        if (userRoles === element) {
+          isMatch = true;
+          return;
+        }
+      });
+    }
     return isMatch;
   }
 
   getDashboardUrl(): string {
-    const userRoles = this.decodedToken.role as Array<string>;
-    if (userRoles.includes('Admin')) {
-      return 'panel/admin/dashboard';
-    } else if (userRoles.includes('Accountant')) {
-      return 'panel/accountant/dashboard';
-    } else if (userRoles.includes('Blog')) {
-      return 'panel/blog/dashboard';
+    const userRoles = this.userRoles;
+
+    if (Array.isArray(userRoles)) {
+      if (userRoles.includes('Admin')) {
+        return 'panel/admin/dashboard';
+      } else if (userRoles.includes('Accountant')) {
+        return 'panel/accountant/dashboard';
+      } else if (userRoles.includes('Blog') || userRoles.includes('AdminBlog')) {
+        return 'panel/blog/dashboard';
+      } else {
+        return 'panel/user/dashboard';
+      }
     } else {
-      return 'panel/user/dashboard';
+      if (userRoles === 'Admin') {
+        return 'panel/admin/dashboard';
+      } else if (userRoles === 'Accountant') {
+        return 'panel/accountant/dashboard';
+      } else if (userRoles === 'Blog' || userRoles === 'AdminBlog') {
+        return 'panel/blog/dashboard';
+      } else {
+        return 'panel/user/dashboard';
+      }
     }
+
   }
 
   getNewRefreshToken(): Observable<any> {
@@ -101,10 +140,13 @@ export class AuthService {
       map(result => {
         if (result && result.token) {
           localStorage.setItem('token', result.token);
-          this.decodedToken = this.jwtHelper.decodeToken(result.token);
+          const decodedToken = this.jwtHelper.decodeToken(result.token);
+          this.store.dispatch(new fromStore.EditDecodedToken(decodedToken));
+          this.userRoles = decodedToken.role as Array<string>;
         }
         return result as any;
       })
     );
+
   }
 }

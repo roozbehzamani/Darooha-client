@@ -1,62 +1,69 @@
 <div class="app-content content container-fluid">
   <div class="content-wrapper content-wrapper-costum">
-      <div class="col-xs-12 col-xl-6 push-xl-3">
-          <div class="card mt-2">
-              <div class="card-header">
-                  <a href="#" class="card-title text-gray-dark" id="basic-layout-form"> پروفایل</a>
-              </div>
-              <div class="card-body collapse in">
-                  <div class="card-block">
-                      <form class="form">
-                          <div class="form-body">
-
-                              <img src="{{user.imageURL}}" class=" img-fluid d-block mx-auto rounded-circle" style="width: 50%;">
-                              <form class="form mt-2">
-                                  <div class="form-body mt-3">
-                                      <div class="row">
-                                          <div class="col-md-6">
-                                              <div class="form-group">
-                                                  <label >نام :</label>
-                                               <span>{{user.firstName}} {{user.lastName}}</span>
-                                              </div>
-                                          </div>
-                                          <div class="col-md-6">
-                                              <div class="form-group">
-                                                  <label>ایمیا :</label>
-                                              <span>{{user.email}}</span> 
-                                              </div>
-                                          </div>
-                                          <div class="col-md-6">
-                                              <div class="form-group">
-                                                  <label >شماره همراه :</label>
-                                                 <span>{{user.mobPhone}}</span>
-                                              </div>
-                                          </div>
-                                          <div class="col-md-6">
-                                              <div class="form-group">
-                                                  <label >سن :</label>
-                                                  <span>{{user.age}}</span>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </form>
-                                  </div>
-                                  <div class="form-actions mt-4">
-                                    <a href="" [routerLink]="['/panel/user/editProfile']" routerLinkActive="router-link-active"><button type="button" class="btn btn-purple mr-1 mt-1">
-                                         ویرایش
-                                    </button></a>
-                                  </div>
-                              </form>
-
-
-
-                              <div>
-                              </div>
-                          </div>
+    <div class="col-xs-12 col-xl-6 push-xl-3">
+      <div class="card mt-2">
+        <div class="card-header">
+          <a href="#" class="card-title text-gray-dark" id="basic-layout-form">
+            پروفایل</a
+          >
+        </div>
+        <div class="card-body collapse in">
+          <div class="card-block">
+            <form class="form">
+              <div class="form-body" *ngIf="photoUrl$ | async as photoUrl">
+                <img
+                  src="{{ photoUrl }}"
+                  class="img-fluid d-block mx-auto rounded-circle"
+                  style="width: 50%"
+                />
+                <form class="form mt-2">
+                  <div class="form-body mt-3">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>نام :</label>
+                          <span>{{ user.firstName }} {{ user.lastName }}</span>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>ایمیا :</label>
+                          <span>{{ user.email }}</span>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>شماره همراه :</label>
+                          <span>{{ user.mobPhone }}</span>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>سن :</label>
+                          <span>{{ user.age }}</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                </form>
               </div>
+              <div class="form-actions mt-4">
+                <a
+                  href=""
+                  [routerLink]="['/panel/user/editProfile']"
+                  routerLinkActive="router-link-active"
+                  ><button type="button" class="btn btn-purple mr-1 mt-1">
+                    ویرایش
+                  </button></a
+                >
+              </div>
+            </form>
+
+            <div></div>
           </div>
+        </div>
       </div>
+    </div>
   </div>
+</div>
 <!-- ////////////////////////////////////////////////////////////////////////////-->

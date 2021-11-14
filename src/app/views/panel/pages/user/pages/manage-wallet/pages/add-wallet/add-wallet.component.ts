@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/core/_services/auth/auth.service';
 import { WalletService } from 'src/app/core/_services/panel/wallet/wallet.service';
 import { Wallet } from 'src/app/data/models/userPanel/wallet';
 
@@ -16,7 +15,6 @@ export class AddWalletComponent implements OnInit {
   wallet: Wallet;
 
   constructor(
-    private authService: AuthService,
     public walletService: WalletService,
     private alertService: ToastrService,
     private matdialogRef: MatDialogRef<AddWalletComponent>
@@ -31,7 +29,7 @@ export class AddWalletComponent implements OnInit {
   onSubmitAdd() {
     if (this.walletService.walletForm.valid) {
       this.wallet = Object.assign({}, this.walletService.walletForm.value);
-      this.walletService.addToWallet(this.wallet, this.authService.decodedToken.nameid).subscribe((data) => {
+      this.walletService.addToWallet(this.wallet).subscribe((data) => {
         this.alertService.success('آدرس شما با موفقیت ثبت شد', 'موفق');
         this.onClear();
         this.updateWallet.emit(data);

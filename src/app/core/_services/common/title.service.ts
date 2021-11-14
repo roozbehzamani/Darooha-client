@@ -48,6 +48,6 @@ export class TitleService {
         }
       }))
       // .subscribe((pathString) => this.titleService.setTitle(`${pathString} - ${APP_TITLE}`));
-       .subscribe((pathString) => this.titleService.setTitle(`${pathString}`));
+      .subscribe((pathString) => this.titleService.setTitle(`${pathString}`));
   }
 }

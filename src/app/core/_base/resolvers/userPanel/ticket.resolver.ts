@@ -9,11 +9,14 @@ import { Ticket } from 'src/app/data/models/userPanel/ticket';
 
 @Injectable()
 export class TicketResolver implements Resolve<Ticket[]> {
-    constructor(private ticketService: TicketService, private router: Router,
-                private alertService: ToastrService, private authService: AuthService) {}
+    constructor(
+        private ticketService: TicketService,
+        private router: Router,
+        private alertService: ToastrService
+    ) { }
 
     resolve(route: ActivatedRouteSnapshot): Observable<Ticket[]> {
-        return this.ticketService.getTickets(this.authService.decodedToken.nameid, 0).pipe(
+        return this.ticketService.getTickets(0).pipe(
             catchError(error => {
                 this.alertService.error(error, 'خطا');
                 return of(null);

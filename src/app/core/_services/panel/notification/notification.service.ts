@@ -3,20 +3,32 @@ import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Notify } from 'src/app/data/models/userPanel/notify';
+import { Store } from '@ngrx/store';
+import * as fromStore from '../../../../store';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationService {
-  baseUrl = environment.apiUrl + environment.apiV1 + 'site/panel/';
-  constructor(private http: HttpClient) { }
 
-  getNotify(id: string): Observable<Notify> {
-    return this.http.get<Notify>(this.baseUrl + 'notifications/' + id);
+  baseUrl = environment.apiUrl + environment.apiV1 + 'site/panel/';
+  userId: string;
+
+  constructor(
+    private http: HttpClient,
+    private store: Store<fromStore.State>
+  ) {
+    this.store.select(fromStore.getUserId).subscribe(data => {
+      this.userId = data;
+    });
   }
 
-  updateNotify(id: string, notify: Notify) {
-    return this.http.put(this.baseUrl + 'users/' + id + '/notifications', notify);
+  getNotify(userId: string = this.userId): Observable<Notify> {
+    return this.http.get<Notify>(this.baseUrl + 'notifications/' + userId);
+  }
+
+  updateNotify(notify: Notify, userId: string = this.userId) {
+    return this.http.put(this.baseUrl + 'users/' + userId + '/notifications', notify);
   }
 
 }

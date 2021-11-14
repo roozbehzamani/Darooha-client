@@ -141,7 +141,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     if (this.commentForm.valid) {
       this.commentForAdd.commentText = this.commentForm.get('commentText').value;
       this.commentForAdd.commentPoint = this.selectedRate;
-      this.commentService.addComment(this.product.id, this.authService.decodedToken.nameid, this.commentForAdd).subscribe(data => {
+      this.commentService.addComment(this.product.id, this.commentForAdd).subscribe(data => {
         if (data) {
           this.alertService.success('نظر با موفقیت ثبت شد', 'موفق');
           this.allComments.push(data);

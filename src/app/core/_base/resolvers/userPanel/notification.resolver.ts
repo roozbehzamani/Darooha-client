@@ -9,11 +9,15 @@ import { Notify } from 'src/app/data/models/userPanel/notify';
 
 @Injectable()
 export class NotificationResolver implements Resolve<Notify> {
-    constructor(private notifyService: NotificationService, private router: Router,
-                private alertService: ToastrService, private authService: AuthService) {}
+    constructor(
+        private notifyService: NotificationService,
+        private router: Router,
+        private alertService: ToastrService,
+        private authService: AuthService
+    ) { }
 
     resolve(route: ActivatedRouteSnapshot): Observable<Notify> {
-        return this.notifyService.getNotify(this.authService.decodedToken.nameid).pipe(
+        return this.notifyService.getNotify().pipe(
             catchError(error => {
                 this.alertService.error('خطا دردریافت اطلاعات', 'خطا');
                 this.router.navigate([this.authService.getDashboardUrl()]);

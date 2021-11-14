@@ -41,8 +41,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   };
   bascketList: Bascket[] = [];
 
-  constructor(private router: Router, private route: ActivatedRoute, private homeService: HomeService,
-              private alertService: ToastrService) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private homeService: HomeService,
+    private alertService: ToastrService
+  ) { }
 
   ngOnInit() {
     this.loadSlider();

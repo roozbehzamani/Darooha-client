@@ -98,18 +98,8 @@ export class LoginComponent implements OnInit {
       } else {
         isCapsOrSmallLetter = true;
       }
-      // if (!/[a-z]/.test(c.value)) {
-      //     isSmallLetter = false;
-      // } else {
-      //     isSmallLetter = true;
-      // }
-
-      // if (!/[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(c.value)) {
-      //   isSpecialChar = true;
-      // }
 
       if (isDigit && isCapsOrSmallLetter) {
-        // null is required here. otherwise form wonot submit.
         return null;
       }
       return { passwordval: true };

@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/core/_services/auth/auth.service';
 import { BrandService } from 'src/app/core/_services/panel/admin/brand/brand.service';
 import { Brand } from 'src/app/data/models/adminPanel/Brand/brand';
 
@@ -17,11 +16,9 @@ export class BrandEditComponent implements OnInit, OnDestroy {
 
   constructor(
     private brandService: BrandService,
-    private authService: AuthService,
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private alertService: ToastrService,
-    private router: Router
   ) { }
 
   brand: Brand;
@@ -68,7 +65,7 @@ export class BrandEditComponent implements OnInit, OnDestroy {
     brand.append('brandName', this.brandForm.get('brandName').value);
 
 
-    this.brandService.editBrand(brand, this.authService.decodedToken.nameid, this.brand.id).subscribe((data) => {
+    this.brandService.editBrand(brand, this.brand.id).subscribe((data) => {
       this.alertService.success('مدارک شما با موفقیت ارسال شد', 'موفق');
       this.brandForm.reset();
     }, error => {

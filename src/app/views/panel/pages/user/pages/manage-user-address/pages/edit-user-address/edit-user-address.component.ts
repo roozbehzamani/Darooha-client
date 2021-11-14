@@ -1,7 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/core/_services/auth/auth.service';
 import { AddressService } from 'src/app/core/_services/panel/address/address.service';
 import { UserAddress } from 'src/app/data/models/userPanel/useraddress';
 
@@ -16,8 +15,11 @@ export class EditUserAddressComponent implements OnInit {
   @Output() updateAddress = new EventEmitter<UserAddress>();
   address: UserAddress;
 
-  constructor(private authService: AuthService, public addressService: AddressService,
-              private alertService: ToastrService, private matdialogRef: MatDialogRef<EditUserAddressComponent>) { }
+  constructor(
+    public addressService: AddressService,
+    private alertService: ToastrService,
+    private matdialogRef: MatDialogRef<EditUserAddressComponent>
+  ) { }
 
   ngOnInit() {
   }
@@ -29,7 +31,7 @@ export class EditUserAddressComponent implements OnInit {
     if (this.addressService.addressForm.valid) {
       this.address = Object.assign({}, this.addressService.addressForm.value);
       if (this.addActive()) {
-        this.addressService.addUserAddress(this.address, this.authService.decodedToken.nameid).subscribe((data) => {
+        this.addressService.addUserAddress(this.address).subscribe((data) => {
           this.alertService.success('آدرس شما با موفقیت ثبت شد', 'موفق');
           this.onClear();
           this.newAddress.emit(data);

@@ -3,25 +3,32 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/data/models/userPanel/user';
+import { Store } from '@ngrx/store';
+import * as fromStore from '../../../../store';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
   baseUrl = environment.apiUrl + environment.apiV1 + 'site/panel/user/';
+  userId: string;
 
-
-  constructor(private http: HttpClient) { }
-
-  getUser(id: string): Observable<User> {
-    return this.http.get<User>(this.baseUrl + id);
+  constructor(private http: HttpClient, private store: Store<fromStore.State>) {
+    this.store.select(fromStore.getUserId).subscribe(data => {
+      this.userId = data;
+    });
   }
 
-  updateUserInfo(id: string, user: User) {
-    return this.http.put(this.baseUrl + id, user);
+  getUser(userId: string = this.userId): Observable<User> {
+    return this.http.get<User>(this.baseUrl + userId);
   }
 
-  updateUserPass(id: string, passModel: any) {
-    return this.http.put(this.baseUrl + 'ChangeUserPassword/' + id, passModel);
+  updateUserInfo(user: User, userId: string = this.userId) {
+    return this.http.put(this.baseUrl + userId, user);
+  }
+
+  updateUserPass(passModel: any, userId: string = this.userId) {
+    return this.http.put(this.baseUrl + 'ChangeUserPassword/' + userId, passModel);
   }
 }

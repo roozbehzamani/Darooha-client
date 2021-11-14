@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/core/_services/auth/auth.service';
 import { BrandService } from 'src/app/core/_services/panel/admin/brand/brand.service';
 
 @Component({
@@ -15,8 +14,11 @@ export class AddBrandComponent implements OnInit {
   slectedLogoFile: File;
   defaultLogoUrl = '../../../../../../../../../../assets/img/profilepic.png';
 
-  constructor(private formBuilder: FormBuilder, private brandService: BrandService,
-    private authService: AuthService, private alertService: ToastrService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private brandService: BrandService,
+    private alertService: ToastrService
+  ) { }
 
   ngOnInit() {
     this.addBrandForm = this.formBuilder.group({
@@ -41,7 +43,7 @@ export class AddBrandComponent implements OnInit {
     brand.append('brandName', this.addBrandForm.get('brandName').value);
 
 
-    this.brandService.addBrand(this.authService.decodedToken.nameid, brand).subscribe((data) => {
+    this.brandService.addBrand(brand).subscribe((data) => {
       this.alertService.success('مدارک شما با موفقیت ارسال شد', 'موفق');
       this.addBrandForm.reset();
     }, error => {

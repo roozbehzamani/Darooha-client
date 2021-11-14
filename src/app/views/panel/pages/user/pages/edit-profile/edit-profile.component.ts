@@ -7,6 +7,10 @@ import { environment } from 'src/environments/environment';
 import { AuthService } from 'src/app/core/_services/auth/auth.service';
 import { UserService } from 'src/app/core/_services/panel/user/user.service';
 import { User } from 'src/app/data/models/userPanel/user';
+import { Store } from '@ngrx/store';
+
+import * as fromStore from '../../../../../../store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-edit-profile',
@@ -14,24 +18,32 @@ import { User } from 'src/app/data/models/userPanel/user';
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent implements OnInit {
+
   user: User;
-  photoUrl: string;
+  photoUrl$: Observable<string>;
   uploader: FileUploader;
   hasBaseDropZoneOver = false;
   baseUrl = environment.apiUrl + environment.apiV1;
-  @ViewChild('editForm', {static: false}) editForm: NgForm;
+  @ViewChild('editForm', { static: false }) editForm: NgForm;
   @HostListener('window:beforeunload', ['$event'])
+
   unloadNotification($event: any) {
     if (this.editForm.dirty) {
       $event.returnValue = true;
     }
   }
 
-  constructor(private router: Router, private userService: UserService, private alertService: ToastrService,
-              private authService: AuthService, private route: ActivatedRoute) { }
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private alertService: ToastrService,
+    private authService: AuthService,
+    private route: ActivatedRoute,
+    private store: Store<fromStore.State>
+  ) { }
 
   ngOnInit() {
-    this.authService.currentPhotoUrl.subscribe(pu => this.photoUrl = pu);
+    this.photoUrl$ = this.store.select(fromStore.getLoggedUserPhotoUrl);
     this.loadUser();
     this.initializeUplaoder();
   }
@@ -44,17 +56,22 @@ export class EditProfileComponent implements OnInit {
     });
   }
   updateUserInfo() {
-    this.userService.updateUserInfo(this.authService.decodedToken.nameid, this.user).subscribe(next => {
+    this.userService.updateUserInfo(this.user).subscribe(next => {
       this.alertService.success('اطلاعات کاربری با موفقیت ویرایش شد', 'موفق');
       this.editForm.form.markAsPristine();
       this.router.navigate(['/panel/profile']);
+      this.store.dispatch(new fromStore.UpdateInfoLoggedUserName(this.user));
     }, error => {
       this.alertService.error(error, 'خطا در ویرایش');
     });
   }
   initializeUplaoder() {
+    let userId = '';
+    this.store.select(fromStore.getUserId).subscribe(data => {
+      userId = data;
+    });
     this.uploader = new FileUploader({
-      url: this.baseUrl + 'site/panel/users/' + this.authService.decodedToken.nameid + '/photos/' + this.authService.decodedToken.nameid,
+      url: this.baseUrl + 'site/panel/users/' + userId + '/photos/' + userId,
       authToken: 'Bearer ' + localStorage.getItem('token'),
       allowedFileType: ['image'],
       removeAfterUpload: true,
@@ -62,14 +79,12 @@ export class EditProfileComponent implements OnInit {
       maxFileSize: 10 * 1024 * 1024,
     });
 
-    this.uploader.onAfterAddingFile = (file) => {file.withCredentials = false; };
+    this.uploader.onAfterAddingFile = (file) => { file.withCredentials = false; };
     this.uploader.onSuccessItem = (item, response, status, headers) => {
       if (response) {
         this.alertService.success('عکس با موفقیت ارسال شد', 'موفق');
         const res: User = JSON.parse(response);
-        this.authService.changeUserPhoto(res.imageURL);
-        this.authService.currentUser.imageURL = res.imageURL;
-        localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
+        this.store.dispatch(new fromStore.EditLoggedUserPhotoUrl(res.imageURL));
       }
     };
   }

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from 'src/app/core/_services/auth/auth.service';
 import { TicketService } from 'src/app/core/_services/panel/ticket/ticket.service';
 import { TicketContent } from 'src/app/data/models/userPanel/ticketContent';
 
@@ -11,14 +10,19 @@ import { TicketContent } from 'src/app/data/models/userPanel/ticketContent';
   styleUrls: ['./chat-ticket.component.css']
 })
 export class ChatTicketComponent implements OnInit {
+
   @Input() ticketContents: TicketContent[];
   @Input() ticketId: string;
   @Output() newTicketContent = new EventEmitter<TicketContent>();
   slectedFile: File = null;
   selected = false;
   fileName = '';
-  constructor(private formBuilder: FormBuilder, private authService: AuthService,
-              private alertService: ToastrService, private ticketService: TicketService) { }
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private alertService: ToastrService,
+    private ticketService: TicketService
+  ) { }
 
   ticketContentForm: FormGroup = this.formBuilder.group({
     text: ['', [Validators.required, Validators.maxLength(1000)]]
@@ -46,10 +50,9 @@ export class ChatTicketComponent implements OnInit {
       }
       ticketContent.append('text', this.ticketContentForm.get('text').value);
       this.ticketService.addTicketContent(
-         ticketContent,
-         this.authService.decodedToken.nameid,
-         this.ticketId
-         ).subscribe((data) => {
+        ticketContent,
+        this.ticketId
+      ).subscribe((data) => {
         this.alertService.success('  با موفقیت ارسال شد', 'موفق');
         this.onClear();
         this.newTicketContent.emit(data);

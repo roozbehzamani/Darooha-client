@@ -3,7 +3,6 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 import * as _ from 'lodash';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CreateFormTicketComponent } from './components/create-form-ticket/create-form-ticket.component';
-import { AuthService } from 'src/app/core/_services/auth/auth.service';
 import { TicketService } from 'src/app/core/_services/panel/ticket/ticket.service';
 import { Ticket } from 'src/app/data/models/userPanel/ticket';
 
@@ -13,6 +12,7 @@ import { Ticket } from 'src/app/data/models/userPanel/ticket';
   styleUrls: ['./list-ticket.component.css']
 })
 export class ListTicketComponent implements OnInit, OnDestroy {
+
   @Input() firstTickets;
   tickets = new BehaviorSubject<Ticket[]>([]);
   page = 1;
@@ -20,8 +20,11 @@ export class ListTicketComponent implements OnInit, OnDestroy {
   subManager = new Subscription();
   promiseSetBySomeAction: any;
   selectedTicketId: string;
-  constructor(private ticketService: TicketService,
-              private authService: AuthService, private dialog: MatDialog) {
+
+  constructor(
+    private ticketService: TicketService,
+    private dialog: MatDialog
+  ) {
   }
 
   ngOnInit() {
@@ -36,11 +39,11 @@ export class ListTicketComponent implements OnInit, OnDestroy {
     dialogConfig.autoFocus = true;
     const dialogRef = this.dialog.open(CreateFormTicketComponent, dialogConfig);
     const sub = dialogRef.componentInstance.newTicket.subscribe((data) => {
-        this.addTicket(data);
-     });
+      this.addTicket(data);
+    });
     dialogRef.afterClosed().subscribe(() => {
-       sub.unsubscribe();
-     });
+      sub.unsubscribe();
+    });
 
   }
   addTicket(ticket: Ticket) {
@@ -60,7 +63,7 @@ export class ListTicketComponent implements OnInit, OnDestroy {
       }
       const currentTickets = this.tickets.getValue();
       this.subManager.add(
-        this.ticketService.getTickets(this.authService.decodedToken.nameid, pageCout).subscribe((newTickets) => {
+        this.ticketService.getTickets(pageCout).subscribe((newTickets) => {
           if (newTickets.length === 0) {
             this.finished = true;
             return;

@@ -33,7 +33,8 @@
               "src/assets/css-rtl/core/menu/menu-types/vertical-overlay-menu.css",
               "src/assets/css-rtl/core/colors/palette-gradient.css",
               "src/assets/css-rtl/colors.css",
-              "node_modules/ngx-toastr/toastr.css"
+              "node_modules/ngx-toastr/toastr.css",
+              "src/assets/icon/css/all.css"
             ],
             "scripts": [
               "src/assets/shared/js/jquery-3.5.1.js",

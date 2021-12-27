@@ -1,0 +1,943 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>darooha-admin documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">darooha-admin documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  MenuComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/views/site/layout/menu/menu.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-menu</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./menu.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./menu.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#menuList" >menuList</a>
+                            </li>
+                            <li>
+                                <a href="#subManager" >subManager</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#loadAllMenu" >loadAllMenu</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, menuService: <a href="../injectables/MenuService.html" target="_self">MenuService</a>, alertService: ToastrService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/views/site/layout/menu/menu.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/Router" target="_blank" >Router</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/router/ActivatedRoute" target="_blank" >ActivatedRoute</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>menuService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MenuService.html" target="_self" >MenuService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>alertService</td>
+                                                  
+                                                        <td>
+                                                                    <code>ToastrService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadAllMenu"></a>
+                    <span class="name">
+                        <span ><b>loadAllMenu</b></span>
+                        <a href="#loadAllMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadAllMenu()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/views/site/layout/menu/menu.component.ts:34</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/views/site/layout/menu/menu.component.ts:30</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/views/site/layout/menu/menu.component.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="menuList"></a>
+                    <span class="name">
+                        <span ><b>menuList</b></span>
+                        <a href="#menuList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/AllMenu.html" target="_self" >AllMenu[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/views/site/layout/menu/menu.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subManager"></a>
+                    <span class="name">
+                        <span ><b>subManager</b></span>
+                        <a href="#subManager"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subscription()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/views/site/layout/menu/menu.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { ToastrService } from &#x27;ngx-toastr&#x27;;
+import { Observable, Subscription } from &#x27;rxjs&#x27;;
+import { catchError } from &#x27;rxjs/operators&#x27;;
+import { MenuService } from &#x27;src/app/core/_services/site/menu/menu.service&#x27;;
+import { AllMenu } from &#x27;src/app/data/models/site/allMenu&#x27;;
+
+@Component({
+  selector: &#x27;app-menu&#x27;,
+  templateUrl: &#x27;./menu.component.html&#x27;,
+  styleUrls: [&#x27;./menu.component.css&#x27;]
+})
+export class MenuComponent implements OnInit, OnDestroy {
+
+  subManager &#x3D; new Subscription();
+  menuList: AllMenu[];
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private menuService: MenuService,
+    private alertService: ToastrService
+  ) { }
+
+  ngOnInit() {
+    this.loadAllMenu();
+  }
+
+  ngOnDestroy() {
+    this.subManager.unsubscribe();
+  }
+
+  loadAllMenu() {
+    this.subManager.add(
+      this.menuService.getAllMenu().subscribe(data &#x3D;&gt; {
+        this.menuList &#x3D; data;
+      })
+    );
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!----------menu--------&gt;
+&lt;!--&lt;div
+  class&#x3D;&quot;container-fluid border-top border-bottom d-none d-lg-block&quot;
+  style&#x3D;&quot;background-color: #eeeeee&quot;
+&gt;
+  &lt;div class&#x3D;&quot;container px-0&quot;&gt;
+    &lt;div class&#x3D;&quot;menubar&quot;&gt;
+      &lt;div class&#x3D;&quot;menu-wrapper&quot;&gt;
+        &lt;ul class&#x3D;&quot;nav2&quot;&gt;
+          &lt;li&gt;
+            &lt;a
+              href&#x3D;&quot;&quot;
+              [routerLink]&#x3D;&quot;[&#x27;/&#x27;]&quot;
+              routerLinkActive&#x3D;&quot;router-link-active&quot;
+              &gt;صفحه اصلی&lt;/a
+            &gt;
+          &lt;/li&gt;
+
+          &lt;li&gt;
+            &lt;a href&#x3D;&quot;#&quot;&gt;لیست محصولات&lt;/a&gt;
+          &lt;/li&gt;
+
+          &lt;li&gt;
+            &lt;a href&#x3D;&quot;#&quot;&gt;درباره ما&lt;/a&gt;
+          &lt;/li&gt;
+
+          &lt;li&gt;
+            &lt;a href&#x3D;&quot;#&quot;&gt;تماس با ما&lt;/a&gt;
+          &lt;/li&gt;
+
+          &lt;li style&#x3D;&quot;float: left&quot;&gt;
+            &lt;a
+              href&#x3D;&quot;&quot;
+              [routerLink]&#x3D;&quot;[&#x27;/auth&#x27;]&quot;
+              routerLinkActive&#x3D;&quot;router-link-active&quot;
+              &gt;ورود / ثبت نام&lt;/a
+            &gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;--&gt;
+&lt;!----------menu mobile--------&gt;
+&lt;!--&lt;div
+  class&#x3D;&quot;container-fluid bg- mt-3 d-lg-none&quot;
+  style&#x3D;&quot;background-color: #eeeeee&quot;
+&gt;
+  &lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;nav class&#x3D;&quot;navbar navbar-expand-lg navbar-light px-0 f4&quot;&gt;
+      &lt;button
+        class&#x3D;&quot;navbar-toggler&quot;
+        type&#x3D;&quot;button&quot;
+        data-toggle&#x3D;&quot;collapse&quot;
+        data-target&#x3D;&quot;#mynavbar&quot;
+      &gt;
+        &lt;span class&#x3D;&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;div class&#x3D;&quot;collapse navbar-collapse&quot; id&#x3D;&quot;mynavbar&quot;&gt;
+        &lt;ul class&#x3D;&quot;navbar-nav&quot;&gt;
+          &lt;li class&#x3D;&quot;nav_item&quot;&gt;
+            &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link mr-1&quot;&gt;صفحه اصلی&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class&#x3D;&quot;nav_item&quot;&gt;
+            &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link mx-1&quot;&gt;لیست محصولات&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class&#x3D;&quot;nav_item&quot;&gt;
+            &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link mx-1&quot;&gt;درباره ما&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class&#x3D;&quot;nav_item&quot;&gt;
+            &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link mx-1&quot;&gt;تماس با ما&lt;/a&gt;
+          &lt;/li&gt;
+
+          &lt;li class&#x3D;&quot;nav_item&quot;&gt;
+            &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link mx-1&quot;&gt;ورود / ثبت نام&lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+--&gt;
+
+&lt;!----------menu--------&gt;
+&lt;div
+  class&#x3D;&quot;container-fluid mt-3 border-top border-bottom d-none d-lg-block&quot;
+  style&#x3D;&quot;background-color: #eeeeee&quot;
+&gt;
+  &lt;div class&#x3D;&quot;container px-0&quot;&gt;
+    &lt;div class&#x3D;&quot;menubar&quot;&gt;
+      &lt;div class&#x3D;&quot;menu-wrapper&quot;&gt;
+        &lt;ul class&#x3D;&quot;nav2&quot;&gt;
+          &lt;li&gt;
+            &lt;a
+              href&#x3D;&quot;&quot;
+              [routerLink]&#x3D;&quot;[&#x27;/&#x27;]&quot;
+              routerLinkActive&#x3D;&quot;router-link-active&quot;
+              &gt;صفحه اصلی&lt;/a
+            &gt;
+          &lt;/li&gt;
+
+          &lt;li&gt;
+            &lt;a href&#x3D;&quot;#&quot;&gt;لیست محصولات&lt;/a&gt;
+            &lt;div class&#x3D;&quot;layer2&quot;&gt;
+              &lt;div class&#x3D;&quot;nav2-column&quot;&gt;
+                &lt;ul class&#x3D;&quot;nav2 inner&quot;&gt;
+                  &lt;li *ngFor&#x3D;&quot;let item of menuList&quot;&gt;
+                    &lt;a href&#x3D;&quot;/Home/List/{{ item.id }}&quot;&gt;{{ item.menuName }}&lt;/a&gt;
+                  &lt;/li&gt;
+                &lt;/ul&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/li&gt;
+
+          &lt;li&gt;
+            &lt;a href&#x3D;&quot;#&quot;&gt;درباره ما&lt;/a&gt;
+          &lt;/li&gt;
+
+          &lt;li&gt;
+            &lt;a href&#x3D;&quot;#&quot;&gt;تماس با ما&lt;/a&gt;
+          &lt;/li&gt;
+
+          &lt;li style&#x3D;&quot;float: left&quot;&gt;
+            &lt;a
+              href&#x3D;&quot;&quot;
+              [routerLink]&#x3D;&quot;[&#x27;/auth&#x27;]&quot;
+              routerLinkActive&#x3D;&quot;router-link-active&quot;
+              &gt;ورود / ثبت نام&lt;/a
+            &gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!----------menu mobile--------&gt;
+&lt;div
+  class&#x3D;&quot;container-fluid bg- mt-3 d-lg-none&quot;
+  style&#x3D;&quot;background-color: #eeeeee&quot;
+&gt;
+  &lt;div style&#x3D;&quot;width: fit-content; position: absolute; left: 0; margin: inherit&quot;&gt;
+    &lt;img
+      src&#x3D;&quot;../../../../assets/images/logo/Logo (55x200).png&quot;
+      class&#x3D;&quot;img-fluid&quot;
+      style&#x3D;&quot;width: 100px&quot;
+    /&gt;
+  &lt;/div&gt;
+  &lt;div class&#x3D;&quot;container&quot;&gt;
+    &lt;nav class&#x3D;&quot;navbar navbar-expand-lg navbar-light px-0 f4&quot;&gt;
+      &lt;button
+        class&#x3D;&quot;navbar-toggler&quot;
+        type&#x3D;&quot;button&quot;
+        data-toggle&#x3D;&quot;collapse&quot;
+        data-target&#x3D;&quot;#mynavbar&quot;
+      &gt;
+        &lt;span class&#x3D;&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;div class&#x3D;&quot;collapse navbar-collapse&quot; id&#x3D;&quot;mynavbar&quot;&gt;
+        &lt;ul class&#x3D;&quot;navbar-nav&quot;&gt;
+          &lt;li class&#x3D;&quot;nav_item&quot;&gt;
+            &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link mr-1&quot;&gt;آرایشی و بهداشتی&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class&#x3D;&quot;nav_item&quot;&gt;
+            &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link mx-1&quot;&gt;مکمل غذایی&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class&#x3D;&quot;nav_item&quot;&gt;
+            &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link mx-1&quot;&gt;مکمل ورزشی&lt;/a&gt;
+          &lt;/li&gt;
+          &lt;li class&#x3D;&quot;nav_item&quot;&gt;
+            &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;nav-link mx-1&quot;&gt;مادر و کودک&lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./menu.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &quot;../../../../../assets/app-site/css/bootstrap.css&quot;;
+@import &quot;../../../../../assets/app-site/css/bootstrap-reboot.css&quot;;
+@import &quot;../../../../../assets/app-site/css/style.css&quot;;
+@import &quot;../../../../../assets/app-site/css/jquery.simpleTicker.css&quot;;
+@import &quot;../../../../../assets/app-site/css/fontawesome.min.css&quot;;
+@import &quot;https://use.fontawesome.com/releases/v5.7.0/css/all.css&quot;;
+
+.menubar {
+  margin-bottom: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 44px;
+}
+
+.menu-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Reset */
+.nav2,
+.nav2 a,
+.nav2 ul,
+.nav2 li,
+.nav2 div {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.nav2 a {
+  text-decoration: none;
+}
+
+.nav2 li {
+  list-style: none;
+}
+
+/* Menu Container */
+
+.nav2 {
+  display: inline-block;
+  position: relative;
+  cursor: default;
+  z-index: 500;
+  min-width: 1140px;
+}
+
+/* Menu List */
+.nav2 &gt; li {
+  display: block;
+  float: right;
+  position: static; /*very important do not remove*/
+}
+
+/* Menu Links */
+.nav2 &gt; li &gt; a {
+  position: relative;
+  display: block;
+  z-index: 510;
+  height: 46px;
+  padding: 0px;
+  line-height: 44px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #4d4d4d;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.nav2 &gt; li:hover &gt; a {
+  background: white;
+  top: 0;
+}
+.nav2 &gt; li:first-child &gt; a {
+  border-right: none;
+}
+
+/* Menu Dropdown */
+.nav2 &gt; li &gt; div {
+  position: absolute;
+  display: block;
+  top: 46px;
+  left: 0px;
+  right: 0px;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  background: #ffffff;
+  -webkit-transition: all 0.3s ease 0.15s;
+  -moz-transition: all 0.3s ease 0.15s;
+  -o-transition: all 0.3s ease 0.15s;
+  -ms-transition: all 0.3s ease 0.15s;
+  transition: all 0.3s ease 0.15s;
+  border-bottom: 1px solid #e1e1e1;
+  border-left: 1px solid #e1e1e1;
+  border-right: 1px solid #e1e1e1;
+}
+
+.nav2 &gt; li:hover &gt; div {
+  opacity: 1;
+  visibility: visible;
+  overflow: visible;
+}
+
+/* Menu Content Styles */
+.nav2 .nav2-column {
+  float: right;
+  width: 20%;
+  padding: 2.5%;
+  text-align: right;
+  height: 100%;
+}
+
+.nav2 .nav2-column .head {
+  line-height: 18px;
+  font-size: 14px;
+  color: #a5d122;
+}
+.nav2 .nav2-column li a {
+  display: block;
+  line-height: 26px;
+  font-size: 13px;
+  color: #4d4d4d;
+}
+
+.nav2 .nav2-column li a:hover {
+  color: #666666;
+}
+
+.inner {
+  float: right;
+  height: 10px;
+  top: -20px;
+  right: -25px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.layer2 {
+  height: 44px;
+}
+.inner &gt; li &gt; div {
+  top: 40px;
+  min-height: 100%;
+  right: -6px;
+  left: 5px;
+}
+.inner &gt; li:hover &gt; a {
+  height: 36px;
+  border-bottom: 3px solid #a5d122;
+  border-top: 0;
+}
+
+/*body right*/
+
+.btn.btn-green {
+  background-color: #a5d122;
+  width: 100%;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!----------menu--------><!--<div  class="container-fluid border-top border-bottom d-none d-lg-block"  style="background-color: #eeeeee">  <div class="container px-0">    <div class="menubar">      <div class="menu-wrapper">        <ul class="nav2">          <li>            <a              href=""              [routerLink]="[\'/\']"              routerLinkActive="router-link-active"              >صفحه اصلی</a            >          </li>          <li>            <a href="#">لیست محصولات</a>          </li>          <li>            <a href="#">درباره ما</a>          </li>          <li>            <a href="#">تماس با ما</a>          </li>          <li style="float: left">            <a              href=""              [routerLink]="[\'/auth\']"              routerLinkActive="router-link-active"              >ورود / ثبت نام</a            >          </li>        </ul>      </div>    </div>  </div></div>--><!----------menu mobile--------><!--<div  class="container-fluid bg- mt-3 d-lg-none"  style="background-color: #eeeeee">  <div class="container">    <nav class="navbar navbar-expand-lg navbar-light px-0 f4">      <button        class="navbar-toggler"        type="button"        data-toggle="collapse"        data-target="#mynavbar"      >        <span class="navbar-toggler-icon"></span>      </button>      <div class="collapse navbar-collapse" id="mynavbar">        <ul class="navbar-nav">          <li class="nav_item">            <a href="#" class="nav-link mr-1">صفحه اصلی</a>          </li>          <li class="nav_item">            <a href="#" class="nav-link mx-1">لیست محصولات</a>          </li>          <li class="nav_item">            <a href="#" class="nav-link mx-1">درباره ما</a>          </li>          <li class="nav_item">            <a href="#" class="nav-link mx-1">تماس با ما</a>          </li>          <li class="nav_item">            <a href="#" class="nav-link mx-1">ورود / ثبت نام</a>          </li>        </ul>      </div>    </nav>  </div></div>--><!----------menu--------><div  class="container-fluid mt-3 border-top border-bottom d-none d-lg-block"  style="background-color: #eeeeee">  <div class="container px-0">    <div class="menubar">      <div class="menu-wrapper">        <ul class="nav2">          <li>            <a              href=""              [routerLink]="[\'/\']"              routerLinkActive="router-link-active"              >صفحه اصلی</a            >          </li>          <li>            <a href="#">لیست محصولات</a>            <div class="layer2">              <div class="nav2-column">                <ul class="nav2 inner">                  <li *ngFor="let item of menuList">                    <a href="/Home/List/{{ item.id }}">{{ item.menuName }}</a>                  </li>                </ul>              </div>            </div>          </li>          <li>            <a href="#">درباره ما</a>          </li>          <li>            <a href="#">تماس با ما</a>          </li>          <li style="float: left">            <a              href=""              [routerLink]="[\'/auth\']"              routerLinkActive="router-link-active"              >ورود / ثبت نام</a            >          </li>        </ul>      </div>    </div>  </div></div><!----------menu mobile--------><div  class="container-fluid bg- mt-3 d-lg-none"  style="background-color: #eeeeee">  <div style="width: fit-content; position: absolute; left: 0; margin: inherit">    <img      src="../../../../assets/images/logo/Logo (55x200).png"      class="img-fluid"      style="width: 100px"    />  </div>  <div class="container">    <nav class="navbar navbar-expand-lg navbar-light px-0 f4">      <button        class="navbar-toggler"        type="button"        data-toggle="collapse"        data-target="#mynavbar"      >        <span class="navbar-toggler-icon"></span>      </button>      <div class="collapse navbar-collapse" id="mynavbar">        <ul class="navbar-nav">          <li class="nav_item">            <a href="#" class="nav-link mr-1">آرایشی و بهداشتی</a>          </li>          <li class="nav_item">            <a href="#" class="nav-link mx-1">مکمل غذایی</a>          </li>          <li class="nav_item">            <a href="#" class="nav-link mx-1">مکمل ورزشی</a>          </li>          <li class="nav_item">            <a href="#" class="nav-link mx-1">مادر و کودک</a>          </li>        </ul>      </div>    </nav>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AccountantComponent', 'selector': 'app-accountant'},{'name': 'AddBrandComponent', 'selector': 'app-add-brand'},{'name': 'AddWalletComponent', 'selector': 'app-add-wallet'},{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AuthComponent', 'selector': 'app-auth'},{'name': 'BlogComponent', 'selector': 'app-blog'},{'name': 'BrandEditComponent', 'selector': 'app-brand-edit'},{'name': 'BrandListComponent', 'selector': 'app-brand-list'},{'name': 'ChatMessageTicketComponent', 'selector': 'app-chat-message-ticket'},{'name': 'ChatTicketComponent', 'selector': 'app-chat-ticket'},{'name': 'CreateFormTicketComponent', 'selector': 'app-create-form-ticket'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DetailTicketComponent', 'selector': 'app-detail-ticket'},{'name': 'EditProfileComponent', 'selector': 'app-edit-profile'},{'name': 'EditUserAddressComponent', 'selector': 'app-edit-user-address'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ItemsComponent', 'selector': 'app-items'},{'name': 'ListTicketComponent', 'selector': 'app-list-ticket'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ManageOrderComponent', 'selector': 'app-manage-order'},{'name': 'ManageTicketComponent', 'selector': 'app-manage-ticket'},{'name': 'ManageUserAddressComponent', 'selector': 'app-manage-user-address'},{'name': 'ManageWalletComponent', 'selector': 'app-manage-wallet'},{'name': 'MenuComponent', 'selector': 'app-menu'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'NotificationComponent', 'selector': 'app-notification'},{'name': 'OrderItemsComponent', 'selector': 'app-order-items'},{'name': 'OrdersComponent', 'selector': 'app-orders'},{'name': 'PanelComponent', 'selector': 'app-panel'},{'name': 'ProductAddFormComponent', 'selector': 'app-product-add-form'},{'name': 'ProductComponent', 'selector': 'app-product'},{'name': 'ProductListComponent', 'selector': 'app-product-list'},{'name': 'ProductListManagerComponent', 'selector': 'app-product-list-manager'},{'name': 'ProductUpdateFormComponent', 'selector': 'app-product-update-form'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'ShoppingCartComponent', 'selector': 'app-shopping-cart'},{'name': 'SidebarComponent', 'selector': 'app-sidebar'},{'name': 'SiteComponent', 'selector': 'app-site'},{'name': 'TicketComponent', 'selector': 'app-ticket'},{'name': 'UserAddressComponent', 'selector': 'app-user-address'},{'name': 'UserComponent', 'selector': 'app-user'},{'name': 'UserDashboardComponent', 'selector': 'app-user-dashboard'},{'name': 'UsersManagementComponent', 'selector': 'app-users-management'},{'name': 'UserWalletComponent', 'selector': 'app-user-wallet'}];
+    var DIRECTIVES = [{'name': 'HasRoleDirective', 'selector': '[appHasRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'MenuComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'MenuComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

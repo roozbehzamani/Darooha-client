@@ -8,7 +8,7 @@ import { AddWalletComponent } from './pages/add-wallet/add-wallet.component';
 @Component({
   selector: 'app-manage-wallet',
   templateUrl: './manage-wallet.component.html',
-  styleUrls: ['./manage-wallet.component.scss']
+  styleUrls: ['./manage-wallet.component.css']
 })
 export class ManageWalletComponent implements OnInit {
 

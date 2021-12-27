@@ -7,7 +7,7 @@ import { Wallet } from 'src/app/data/models/userPanel/wallet';
 @Component({
   selector: 'app-add-wallet',
   templateUrl: './add-wallet.component.html',
-  styleUrls: ['./add-wallet.component.scss']
+  styleUrls: ['./add-wallet.component.css']
 })
 export class AddWalletComponent implements OnInit {
 
